@@ -1,0 +1,295 @@
+@charset "UTF-8";
+blockquote,
+body,
+button,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+input,
+legend,
+li,
+ol,
+p,
+pre,
+td,
+textarea,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/*公共类*/
+.inner_c {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.shortcut .dt, .shortcut .fr li, .header .hotwords a, .footer .jd-service .inner_c dl dd, .footer .jd-copyright ul li {
+  color: #676464;
+  font: 12px/30px "Hiragino Sans GB";
+}
+
+/*头部导航条*/
+.shortcut {
+  height: 30px;
+  /*通栏不给宽，占满整个页宽*/
+  line-height: 30px;
+  background-color: #efece9;
+}
+.shortcut i {
+  position: relative;
+}
+.shortcut i s {
+  position: absolute;
+  top: -8px;
+  left: 0;
+}
+.shortcut .fr li {
+  float: left;
+  list-style: none;
+  margin-left: 10px;
+}
+.shortcut .fr li span {
+  color: red;
+}
+.shortcut .fr li i {
+  color: red;
+}
+.shortcut .fr li.line {
+  width: 1px;
+  height: 14px;
+  background-color: #676464;
+  margin-top: 9px;
+}
+
+/*头部搜索栏*/
+.header {
+  overflow: hidden;
+  /*overflow：hidden；可以把父亲撑出高度来，不至于关不住子元素*/
+  margin-top: 15px;
+}
+.header .logo {
+  float: left;
+  width: 200px;
+  height: 150px;
+  background-color: #ce2f2f;
+}
+.header .search-bar {
+  float: left;
+  margin-left: 80px;
+  padding-top: 10px;
+  padding-left: 10px;
+  width: 500px;
+  height: 84px;
+  border: 2px solid #f40f0f;
+}
+.header .search-bar .inner-bar {
+  float: left;
+  width: 380px;
+  height: 60px;
+  border: 2px solid #e21041;
+}
+.header .search-bar .inner-bar span {
+  font: 18px/60px "Hiragino Sans GB";
+}
+.header .search-bar .btn-search {
+  float: left;
+  width: 100px;
+  height: 64px;
+  font-size: 24px;
+  background-color: #e21041;
+}
+.header .shopping-cart {
+  position: relative;
+  float: left;
+  width: 180px;
+  height: 100px;
+  margin-left: 20px;
+  background-color: #ce2f2f;
+}
+.header .shopping-cart i {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-top: 35px;
+  margin-left: 10px;
+  background-color: skyblue;
+}
+.header .shopping-cart span {
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+  margin-left: 10px;
+  background-color: yellowgreen;
+}
+.header .shopping-cart em {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  background-color: pink;
+}
+.header .shopping-cart b {
+  position: absolute;
+  top: -10px;
+  left: 70%;
+  width: 25px;
+  height: 25px;
+  border: 2px solid orange;
+  border-radius: 10px;
+  color: #177bf0;
+  text-align: right;
+}
+.header .hotwords {
+  float: left;
+  width: 600px;
+  height: 30px;
+  margin-top: 5px;
+  margin-left: 80px;
+  background-color: pink;
+}
+.header .hotwords a {
+  margin-right: 10px;
+  text-decoration: none;
+}
+.header .hotwords a.first-hotwords {
+  color: red;
+}
+
+/*主内容区*/
+.main-content {
+  height: 600px;
+  margin-top: 10px;
+  background-color: #ce2f2f;
+}
+
+/*页面底部*/
+.footer {
+  overflow: hidden;
+  margin-top: 40px;
+}
+.footer .jd-service .jd-slogan {
+  position: relative;
+  height: 100px;
+  border-bottom: 2px solid #ce2f2f;
+  background-color: #ddd8d8;
+}
+.footer .jd-service .jd-slogan .item-duo, .footer .jd-service .jd-slogan .item-kuai, .footer .jd-service .jd-slogan .item-hao, .footer .jd-service .jd-slogan .item-sheng {
+  position: absolute;
+  top: 20px;
+  width: 200px;
+  height: 50px;
+}
+.footer .jd-service .jd-slogan .item-duo span, .footer .jd-service .jd-slogan .item-kuai span, .footer .jd-service .jd-slogan .item-hao span, .footer .jd-service .jd-slogan .item-sheng span {
+  color: #ce2f2f;
+  font: 24px/50px "Hiragino Sans GB";
+}
+.footer .jd-service .jd-slogan .item-duo h5, .footer .jd-service .jd-slogan .item-kuai h5, .footer .jd-service .jd-slogan .item-hao h5, .footer .jd-service .jd-slogan .item-sheng h5 {
+  display: inline;
+  margin-left: 10px;
+  font: 16px/50px "Hiragino Sans GB";
+  color: black;
+}
+.footer .jd-service .jd-slogan .item-duo {
+  left: 25%;
+  margin-left: -100px;
+}
+.footer .jd-service .jd-slogan .item-kuai {
+  left: 50%;
+  margin-left: -200px;
+}
+.footer .jd-service .jd-slogan .item-hao {
+  left: 50%;
+}
+.footer .jd-service .jd-slogan .item-sheng {
+  left: 75%;
+  margin-left: -100px;
+}
+.footer .jd-service .inner_c {
+  overflow: hidden;
+  border-bottom: 2px solid #ce2f2f;
+}
+.footer .jd-service .inner_c dl {
+  float: left;
+  width: 140px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.footer .jd-service .inner_c dl dt {
+  height: 36px;
+  font: 14px/36px "Hiragino Sans GB";
+  color: #676464;
+}
+.footer .jd-service .inner_c dl.coverage {
+  width: 200px;
+  background-color: #ce2f2f;
+  /*应该是一张背景图片*/
+}
+.footer .jd-service .inner_c dl.coverage dd {
+  height: 50px;
+  font: 12px "Hiragino Sans GB";
+  color: #676464;
+}
+.footer .jd-service .inner_c dl.coverage dd.last-dd {
+  text-align: right;
+}
+.footer .jd-copyright {
+  margin-top: 10px;
+}
+.footer .jd-copyright ul {
+  list-style: none;
+  margin-left: 20px;
+}
+.footer .jd-copyright ul li {
+  float: left;
+  width: 50px;
+}
+.footer .jd-copyright ul li.last {
+  width: 70px;
+}
+.footer .jd-copyright ul li.line {
+  width: 1px;
+  height: 12px;
+  background-color: #676464;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.footer .jd-copyright .copyright-img {
+  float: left;
+  width: 800px;
+  height: 50px;
+  margin-left: 100px;
+  background-color: rgba(206, 47, 47, 0.51);
+}
+.footer .jd-copyright .copyright-img a {
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  margin-top: 5px;
+  margin-left: 10px;
+  background-color: #be04f5;
+  font: 16px/40px "Hiragino Sans GB";
+  text-decoration: none;
+  text-align: center;
+}
+
+/*# sourceMappingURL=main.css.map */

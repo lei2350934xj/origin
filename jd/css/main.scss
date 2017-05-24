@@ -1,0 +1,382 @@
+blockquote,
+body,
+button,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+input,
+legend,
+li,
+ol,
+p,
+pre,
+td,
+textarea,
+th,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+$left:left !default;
+$right:right !default;
+$h30:30px !default;
+$h100:100px !default;
+$w100:100px !default;
+$font-color:#177bf0 !default;
+$color-basic:#ce2f2f !default;
+
+/*公共类*/
+.inner_c{
+    width:1000px;
+    margin: 0 auto;
+}
+.fl{
+    float:$left; 
+}
+.fr{
+    float:$right;
+}
+
+%font{
+    color:#676464;
+    font:12px/30px "Hiragino Sans GB";
+}
+
+/*头部导航条*/
+.shortcut{
+    height:$h30;    /*通栏不给宽，占满整个页宽*/
+    line-height:$h30;
+    background-color: #efece9;
+    i{
+        position: relative;
+        s{
+            position: absolute;
+            top:-8px;
+            left:0;
+        }
+    }
+    .dt{
+        @extend %font;
+    }
+    .fr{
+        li{
+            @extend %font;
+            float:left;
+            list-style: none;
+            margin:{
+                left:10px;
+            }
+            span{
+                color:red;
+            }
+            i{
+                color:red;
+            }
+        }
+        li.line{
+//            display: block;
+            width:1px;
+            height:14px;
+            background-color: #676464;
+            margin:{
+                top:9px;
+            }
+        }
+    }
+}
+/*头部搜索栏*/
+.header{
+    overflow: hidden;/*overflow：hidden；可以把父亲撑出高度来，不至于关不住子元素*/
+    margin:{
+        top:15px;
+    }
+    .logo{
+        float:$left;
+        width:200px;
+        height:$h100*1.5;
+        background-color: $color-basic;
+    }
+    .search-bar{
+        float:$left;
+        margin:{
+            left:80px;
+        }
+        padding:{
+            top:10px;
+            left:10px;
+        }
+        width:500px;
+        height:84px;
+        border:2px solid #f40f0f;
+        .inner-bar{
+            float:$left;
+            width:380px;
+            height:60px;
+            border:2px solid #e21041;
+            span{
+                font:18px/60px "Hiragino Sans GB";
+            }
+        }
+        .btn-search{
+            float:$left;
+            width:$w100;
+            height:64px;
+            font-size:24px;
+            background-color: #e21041;
+        }
+    }
+    .shopping-cart{
+        position: relative;
+        float:left;
+        width:180px;
+        height:$h100;
+        margin:{
+            left:20px;
+        }
+        background-color: #ce2f2f;
+        i{
+            display: inline-block;
+            width:30px;
+            height:30px;
+            margin:{
+                top:35px;
+                left:10px;
+            }
+            background-color: skyblue;
+        }
+        span{
+            display: inline-block;
+            width:80px;
+            height:30px;
+            margin:{
+                left:10px;
+            }
+            background-color: yellowgreen;
+        }
+        em{
+            display: inline-block;
+            width:30px;
+            height:30px;
+            margin:{
+                left:10px;
+            }
+            background-color: pink;
+        }
+        b{
+            position: absolute;
+            top:-10px;
+            left:70%;
+            width:25px;
+            height:25px;
+            border:2px solid orange;
+            border-radius: 10px;
+            color:$font-color;
+            text-align: right;
+        }
+    }
+    .hotwords{
+        float:$left;
+        width:$w100*6;
+        height: 30px;
+        margin:{
+            top:5px;
+            left:80px;
+        }
+        background-color: pink;
+        a{
+            margin:{
+                right:10px;
+            }
+            @extend %font;
+            text-decoration: none;
+        }
+        a.first-hotwords{
+            color:red;
+        }
+    }
+}
+/*主内容区*/
+.main-content{
+    height:$h100*6;
+    margin:{
+        top:10px;
+    }
+    background-color: $color-basic;
+}
+/*页面底部*/
+.footer{
+    overflow: hidden;
+    margin:{
+        top:40px;
+    }
+    .jd-service{
+        .jd-slogan{
+            position: relative;
+            height:100px;
+            border-bottom:2px solid #ce2f2f;
+            background-color:#ddd8d8;
+            %items-common{
+                position: absolute;
+                top:20px;
+                width:200px;
+                height:50px;
+            }
+            %jd-slogan-span{
+                color:$color-basic;
+                font:24px/50px "Hiragino Sans GB";
+            }
+            %jd-slogan-h5{
+                display: inline;
+                margin:{
+                    left:10px;
+                }
+                font:16px/50px "Hiragino Sans GB";
+                color:black;
+            }
+            .item-duo{
+                @extend %items-common;
+                left:25%;
+                margin:{
+                    left:-100px;
+                }
+                span{
+                    @extend %jd-slogan-span;
+                }
+                h5{
+                    @extend %jd-slogan-h5
+                }
+            }
+            .item-kuai{
+                @extend %items-common;
+                left:50%;
+                margin:{
+                    left:-200px;
+                }
+                span{
+                    @extend %jd-slogan-span;
+                }
+                h5{
+                    @extend %jd-slogan-h5
+                }
+            }
+            .item-hao{
+                @extend %items-common;
+                left:50%;
+                span{
+                    @extend %jd-slogan-span;
+                }
+                h5{
+                    @extend %jd-slogan-h5
+                }
+            }
+            .item-sheng{
+                @extend %items-common;
+                left:75%;
+                margin:{
+                    left:-100px;
+                }
+                span{
+                    @extend %jd-slogan-span;
+                }
+                h5{
+                    @extend %jd-slogan-h5
+                }
+            }
+        }
+        .inner_c{
+            overflow: hidden;
+            border-bottom: 2px solid #ce2f2f;
+            dl{
+                float:$left;
+                width:$w100*1.4;
+                margin:{
+                    top:10px;
+                    left:10px;
+                }
+                dt{
+                    height:36px;
+                    font:14px/36px "Hiragino Sans GB";
+                    color:#676464;
+                }
+                dd{
+                    @extend %font;
+                }
+            }
+            dl.coverage{
+                width:$w100*2;
+                background-color:#ce2f2f;/*应该是一张背景图片*/
+                dd{
+                    height:50px;
+                    font:12px "Hiragino Sans GB";
+                    color:#676464;
+                }
+                dd.last-dd{
+                    text-align: right;
+                }
+            }
+        }
+    }
+    .jd-copyright{
+        margin:{
+            top:10px;
+        }
+        ul{
+            list-style: none;
+            margin:{
+                left:20px;
+            }
+            li{
+                float:$left;
+                width:50px;
+                @extend %font;
+            }
+            li.last{
+                width:70px;
+            }
+            li.line{
+                width:1px;
+                height:12px;
+                background-color: #676464;
+                margin:{
+                    top:10px;
+                    left:5px;
+                    right:5px;
+                }
+            }
+        }
+        .copyright-img{
+            float:$left;
+            width:$h100*8;
+            height:$w100/2;
+            margin:{
+                left:100px;
+            };
+            background-color: rgba(206, 47, 47, 0.51);
+            a{
+                display: inline-block;
+                width:100px;
+                height:40px;
+                margin:{
+                    top:5px;
+                    left:10px;
+                }
+                background-color: #be04f5;
+                font:16px/40px "Hiragino Sans GB";
+                text-decoration: none;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
