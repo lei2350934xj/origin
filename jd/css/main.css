@@ -180,6 +180,83 @@ ul {
   margin-top: 10px;
   background-color: #ce2f2f;
 }
+.main-content .dropdown {
+  float: left;
+  width: 250px;
+  height: 50px;
+  background-color: #0824f7;
+}
+.main-content .dropdown .dt {
+  width: 250px;
+  height: 50px;
+}
+.main-content .dropdown .dd {
+  height: 400px;
+  background-color: #07d4ef;
+}
+.main-content .ad-img {
+  position: relative;
+  float: left;
+  width: 600px;
+  height: 350px;
+  margin-left: 10px;
+  background-color: skyblue;
+}
+.main-content .ad-img ul {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  margin-left: -54px;
+  list-style: none;
+}
+.main-content .ad-img ul li {
+  float: left;
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  font: 12px/18px "Hiragino Sans GB";
+  color: #fff;
+  text-align: center;
+  background-color: #ce2f2f;
+  border-radius: 9px;
+}
+.main-content .ad-img a {
+  text-decoration: none;
+  color: #fff;
+  font: 16px/40px "Hiragino Sans GB";
+  text-align: center;
+}
+.main-content .ad-img .arrow-left, .main-content .ad-img .arrow-right {
+  position: absolute;
+  top: 50%;
+  width: 25px;
+  height: 40px;
+  margin-top: -20px;
+  background-color: #eb960d;
+}
+.main-content .ad-img .arrow-left:hover, .main-content .ad-img .arrow-right:hover {
+  background-color: red;
+}
+.main-content .ad-img .arrow-left {
+  left: 0;
+}
+.main-content .ad-img .arrow-right {
+  right: 0;
+}
+.main-content .dailynews {
+  float: left;
+  width: 130px;
+  height: 200px;
+  margin-left: 10px;
+  background-color: deeppink;
+}
+.main-content .service-trip {
+  float: left;
+  width: 130px;
+  height: 250px;
+  margin-left: 10px;
+  background-color: hotpink;
+}
 
 /*页面底部*/
 .footer {
@@ -240,7 +317,7 @@ ul {
 }
 .footer .jd-service .inner_c dl.coverage {
   width: 200px;
-  background-color: #ce2f2f;
+  background-color: rgba(206, 47, 47, 0.5);
   /*应该是一张背景图片*/
 }
 .footer .jd-service .inner_c dl.coverage dd {
