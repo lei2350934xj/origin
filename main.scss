@@ -1,0 +1,247 @@
+blockquote,
+body,
+button,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+input,
+legend,
+li,
+ol,
+p,
+pre,
+td,
+textarea,
+th,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+$h58:58px;
+$float-left:left;
+$vertical:1px solid #777373;
+$font-color:white;
+/*版心*/
+.inner_c {
+    width:1000px;
+    margin:0 auto;
+    height:200px;
+/*    background-color: red;*/
+}
+/*clearfix*/
+.clearfix{
+    clear:both;
+}
+.header{
+    height:$h58;
+    background-color: rgba(37, 31, 98, 0.89);
+    .join-us{
+        float:left;
+        padding:{
+            top:10px;
+            left:10px;
+        }
+        a{
+            display: block;
+            width:100px;
+            height:34px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            font-size:14px;
+            line-height:34px;
+            color:$font-color;
+            background-color: #a1dd86;
+            &:hover{
+                background-color: #7fc75f;
+            }
+        }
+    }
+}
+.logo{
+    width:100px;
+    height:$h58;
+    background-color: red;
+    float:$float-left;
+    padding-left:20px;
+}
+.nav{
+    width:607px;
+    height:$h58;
+    float:$float-left;
+    ul li{
+        float:left;
+        width:100px;
+        height:$h58;
+        font-size:14px;
+        line-height: $h58;
+        text-align: center;
+        border-left:$vertical;
+        list-style: none;
+        a{
+            display: block;
+            width:100px;
+            height:$h58;
+            text-decoration: none;
+            color: $font-color;
+        }
+    }
+    ul li.current-hover{
+        a{
+            background-color: rgba(233, 233, 239, 0.5);
+        }
+    }
+    ul li.last-li{
+        border-right:$vertical;
+    }
+}
+.banner{
+    height:465px;
+    background-color: #0fe5a3;
+    .content{
+        padding-top:50px;
+        .product{
+            height:229px;
+            border-bottom:1px solid #DBE1E7;
+        }
+    }
+}
+.content{
+    background:{
+        color:#5385e3;
+        position:center bottom;
+        /*
+            实际上用的url()
+            no-repeat
+        */
+    }
+    margin:{
+        top:5px;
+    }
+    height:900px;
+    .info{
+        padding:{
+            top:20px;
+        }
+        .boyaanews{
+            float:left;
+            width:500px;
+            height:314px;
+            background-color: #d753e8;
+            ul{
+                list-style: none;
+                li{
+                    display: block;
+                    height:50px;
+                    border:{
+                        bottom:3px solid #e02323;
+                    }
+                    color:$font-color;
+                    font:{
+                        size:18px;
+                        family:"Hiragino Sans GB";
+                    }
+                    line-height: 50px;
+                    padding: {
+                        left:10px;
+                    }
+                    a{
+                        text-decoration: none;
+                    }
+                }
+                li.last-li{
+                    border-bottom:0;
+                }
+            }
+        }
+        .boyaajobs{
+            float:left;
+            width:490px;
+            height:314px;
+            margin:{
+                left:5px;
+            }
+            background-color: #2ef4a7;
+//            padding:{
+//                top:20px;
+//                left:20px;
+            span{
+                display: block;
+                width:100px;
+                height:48px;
+                border:2px solid #52a72c;
+                border-radius: 10px;
+                line-height:48px;
+                color:$font-color;
+                font:{
+                    size:24px;
+                    family:"Microsoft YaHei";
+                }
+                margin:{
+                    top:10px;
+                    left:10px;
+                }
+            }
+            h4{
+                padding:{
+                    top:5px;
+                    left:10px;
+                }
+                color:#e23e3e;
+                font:{
+                    size:14px;
+                    famlily:"Hiragino Sans GB";
+                }
+                
+            }
+            p{
+                margin:{
+                    top:5px;
+                    left:10px;
+                }
+                width:300px;
+                border-bottom:3px solid #f4881c;
+            }
+        }
+    }
+}
+.product{
+    ul{
+        list-style: none;
+        li{
+            float:left;
+            width:218px;
+            height:229px;
+            background-color: orange;
+            margin:{
+                right:43px;
+            }
+            a{
+                text-decoration: none;
+                display: block;
+                width:218px;
+                height:40px;
+                color:$font-color;
+                font:14px/40px "Microsoft YaHei";
+                text-align: center;
+            }
+        }
+        li.last-li{
+            margin-right:0;
+            width:217px;
+        }
+    }
+    height:231px;
+    border-bottom: 5px solid #e01919;
+}
+
