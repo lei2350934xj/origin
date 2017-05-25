@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+        window.onload = function(){
+            function $(id){
+                return document.getElementById(id);
+            }
+            var btnSearch = $("btn-search");
+            btnSearch.onclick = function(){
+//                alert($("inputValue").value);
+                var getValue = $("inputValue").value;
+                if(getValue=="liangting"){
+//                    document.write("你中奖了");
+                    alert("你中奖了");
+                }else{
+//                    document.write("抱歉，你没中奖");
+                    alert("抱歉，你没中奖");
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input id="inputValue" type="text" value="请输入"><button id="btn-search">查询</button>
+</body>
+</html>
