@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .search{
+            position: relative;
+            width:390px;
+            height:30px;
+            border:1px solid #ccc;
+        }
+        .search input{
+            width:380px;
+            height:25px;
+        }
+        .search label{
+            position: absolute;
+            top:0;
+            left:40px;
+            color:#848181;
+            cursor:text;/*鼠标光标 文本显示*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <input id="txt" type="text">
+        <label id="hotMessage"for="txt">必败的国际大牌</label>
+    </div>
+</body>
+</html>
+
+
+<script>
+    var hotMessage = document.getElementById("hotMessage");
+    var txt = document.getElementById("txt");
+    //oninput事件是表单的输入事件,用来获取表单的输入信息
+    //onpropertychange ie678 检测用户表单输入内容的事件
+    txt.oninput = function (){
+        if(this.value!=""){
+            hotMessage.style.display = "none";
+        }else{
+            hotMessage.style.display = "inline-block";
+        }
+    }
+</script>

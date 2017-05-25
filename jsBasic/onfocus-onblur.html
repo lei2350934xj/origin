@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <input id="inputValue" type="text" value="请输入...">
+</body>
+</html>
+<script>
+    function $(id){
+        return document.getElementById(id);
+    }
+    var inputValue = $("inputValue");
+    inputValue.onfocus = function(){
+        inputValue.value = "";
+    }
+    //this指针指向事件的调用者
+    inputValue.onblur = function(){
+        if(this.value == ""){
+            this.value = "请输入...";
+        }
+    }
+</script>

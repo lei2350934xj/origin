@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        ul,li,div{
+            margin:0;
+            padding:0;
+        }
+        .box{
+            width:400px;
+            height:401px;
+            margin:80px auto;
+            border:1px solid #ccc;
+        }
+        .box ul{
+            overflow: hidden;
+            list-style: none;
+            border-bottom:1px solid red;
+        }
+        .box ul li{
+            float:left;
+            width:100px;
+            height:50px;
+        }
+        .current{
+            background-color: #ef8408;
+        }
+        .boxs{
+            width:400px;
+            height:350px;
+            background-color: skyblue;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bo" class="box">
+        <ul>
+            <li>tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+            <li>tab4</li>
+        </ul>
+        <div class="boxs">sub-box1</div>
+        <div class="boxs">sub-box2</div>
+        <div class="boxs">sub-box3</div>
+        <div class="boxs">sub-box4</div>
+    </div>
+</body>
+</html>
+
+<script>
+    // 获取上方li
+    var lis = document.getElementsByTagName("li");
+    // 获取下方box
+    var subBox = document.getElementById("bo").getElementsByTagName("div");
+    
+    for(var i=0;i<lis.length;i++){
+        // index里面存放的是当前tab的索引号
+        lis[i].index = i;
+        lis[i].onmouseover = function(){
+                // 上方tab样式处理
+                for(var j=0;j<lis.length;j++){
+                    lis[j].className = "";
+                }
+                this.className = "current";
+                
+                // 下方box样式处理
+                for(var k=0;k<subBox.length;k++){
+                    subBox[k].style.display = "none";
+                }
+                subBox[this.index].style.display = "block";
+        }
+    }
+</script>

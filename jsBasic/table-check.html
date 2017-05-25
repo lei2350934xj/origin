@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        #tip{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="inputValue" type="text"><span id="tip">错误信息提示</span>
+</body>
+</html>
+
+
+<script>
+    //表单验证：
+    //表单更换内容用value，只有表单才有value
+    //html显示的内容用innerHTML
+    function $(id){return document.getElementById(id);}
+    var inputValue = $("inputValue");
+    var tip = $("tip");
+    inputValue.onblur = function(){
+        if(this.value=="liangting"){
+            tip.style.display = "inline-block";
+            tip.innerHTML = "恭喜，输入正确";
+        }else{
+            tip.style.display = "inline-block";
+            tip.innerHTML = "抱歉，输入有误，请重新输入";
+        }
+    }
+</script>

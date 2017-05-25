@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .current-color{
+            background-color: #f2ac0d;
+        }
+    </style>
+</head>
+
+<body>
+   <button>111</button>
+   <button>222</button>
+   <button>333</button>
+   <button>444</button>
+   <button>555</button>
+   <button>666</button> 
+</body>
+</html>
+<script>
+    var btns = document.getElementsByTagName("button");
+    for(var i=0;i<btns.length;i++){
+        // alert(i);  // 得不到当前的索引
+        // index属于arr数组的，即必须 数组名.index来使用
+        btns[i].index = i;
+        btns[i].onclick = function(){
+//            alert(this.index);
+            // 干掉所有
+            for(var j=0;j<btns.length;j++){
+                btns[j].className = "";
+            }
+            // 留下自己的
+            this.className = "current-color";
+            //div[this.index].className = "current";
+        }
+    }
+</script>

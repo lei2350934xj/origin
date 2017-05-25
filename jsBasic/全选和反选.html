@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    
+</body>
+</html>
+<script>
+    var btns = document.getElementsByName("button");
+    var inputs = document.getElementById("bottom").getElementsByTagName("input");
+    //btns[0] 代表全选 。 btns[1]反选。。。
+    btns[0].onclick = function(){
+        for(var i=0;i<inputs.length;i++){
+            inputs[i].checked = true;
+        }
+    }
+</script>

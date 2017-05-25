@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <input id="txt" type="text">
+    鼠标经过选择表单<input id="select" type="text">
+</body>
+</html>
+<script>
+    var txt = document.getElementById("txt");
+    var select = document.getElementById("select");
+    txt.focus();//focus()是一个函数，自动获得焦点
+    select.onmouseover = function(){
+        this.select();
+    }
+</script>
