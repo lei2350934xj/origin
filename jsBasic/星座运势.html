@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        dd,dt,div{
+            margin:0;padding:0;
+        }
+        .box{
+            width:350px;
+            height:250px;
+            margin:80px auto;
+            border:1px solid #ccc;
+        }
+        .box .dt{
+            height:20px;
+            line-height: 20px;
+            font-size:16px;
+            font-weight: 600;
+            margin-top:3px;
+            margin-left:10px;
+            color:#0f2dd3;
+        }
+        .dd{
+            padding: 10px;
+        }
+        .dd-t{
+            overflow: hidden;
+        }
+        .icon{
+            float:left;
+            width:50px;
+            height:50px;
+            background-color: red;
+        }
+        .right{
+            float:left;
+            margin-left:25px;
+        }
+        #sel{
+            width:150px;
+            height:25px;
+            margin-bottom:3px;
+        }
+        .yunshi{
+            position: relative;
+            width:80px;
+            height:20px;
+            display: inline-block;
+            background-color: pink;
+/*            background-image:url("*.png");灰色的星星*/
+        }
+        .star{
+            position: absolute;
+            top:0;
+            left:0;
+            width:60px;
+            height:20px;
+            background-color: deeppink;
+/*            background-image:url("*.png");黄色的星星*/
+        }
+        .dd-d{
+            margin-top:10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="dt">星座运势</div>
+        <div class="dd">
+            <div class="dd-t">
+                <div id="Icon" class="icon"></div>
+                <div class="right">
+                    <select name="" id="sel">
+                        <option value="1">1号星座</option>
+                        <option value="2">2号星座</option>
+                        <option value="3">3号星座</option>
+                        <option value="4">4号星座</option>
+                        <option value="5">5号星座</option>
+                        <option value="6">6号星座</option>
+                    </select>
+                    <div>
+                        今日运势:
+                        <span class="yunshi">
+                            <span class="star">小星星图片</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="dd-d">大叔大叔大叔大叔啊实打实的飒大啊啥的飒大盛大发售分身乏术的发生的发生</div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var sel = document.getElementById("sel");
+    var Icon = document.getElementById("Icon");
+    sel.onchange = function(){
+        
+        switch(this.value){
+            case "1":Icon.style.backgroundColor = "red";break; 
+            case "2":Icon.style.backgroundColor = "yellow";break; 
+            case "3":Icon.style.backgroundColor = "blue";break; 
+            case "4":Icon.style.backgroundColor = "green";break; 
+            case "5":Icon.style.backgroundColor = "purple";break; 
+            case "6":Icon.style.backgroundColor = "pink";break; 
+            default:break;
+        }
+    }
+</script>

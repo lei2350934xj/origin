@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <select name="" id="sel">
+        <option value="11111">11111</option>
+        <option value="22222">22222</option>
+        <option value="33333">33333</option>
+        <option value="44444">44444</option>
+        <option value="55555">55555</option>
+    </select>
+</body>
+</html>
+<script>
+    var sel = document.getElementById("sel");
+    
+    sel.onchange = function(){
+//        console.log(this.value);
+        switch(this.value){
+            case "11111":document.body.style.backgroundColor = "red";break;
+            case "22222":document.body.style.backgroundColor = "yellow";break;
+            case "33333":document.body.style.backgroundColor = "blue";break;
+            case "44444":document.body.style.backgroundColor = "green";break;
+            case "55555":document.body.style.backgroundColor = "pink";break;
+            default:break;
+        }
+    }
+</script>
