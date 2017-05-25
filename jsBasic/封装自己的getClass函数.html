@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    
+</body>
+</html>
+<script>
+    // 封装自己的getClass函数
+    // 方式1
+    function getClass(classname){
+        if(document.getElementsByClassName){
+            return document.getElementsByClassName(classname);
+        }
+        var arr[];
+        // 取出所有的标签
+        var dom = document.getElementsByTagName("*");
+        // 判断每一个标签的clasaName，如果跟目标className一样 就存到新数组里
+        for(var i=0;i<dom.length;i++){
+            if(dom[i].className==classname){
+                arr.push(dom[i]);
+            }
+        }
+        return arr;
+    }
+    // 方式2 ：<div class="demo box">类名以空格隔开
+    function getClass(classname){
+        if(document.getElementsByClassName){
+            return document.getElementsByClassName(classname);
+        }
+        var arr[];
+        var dom = document.getElementsByTagName("*");
+        
+        for(var i=0;i<dom.length;i++){
+            // 分割类名并且转化为数组 
+            // <div class="demo box">  ===> [demo,box]
+            var arrSplit = dom[i].className.split(" ");
+            
+            // 遍历arrSplit数组 并且判断
+            for(var j=0;j<arrSplit.length;j++){
+                if(arrSplit[j]==classname){
+                    // 如果相等 就把当前dom（也就是标签）存到arr数组中
+                    arr.push(dom[i]);
+                }
+            }
+        }
+        return arr;
+    }
+    // 方式3 ：div外面还有div，且外层div有id <div class="demo box">类名以空格隔开
+    // 也就是有外层的id 加以限制的 情况
+    function getClass(classname,id){
+        if(document.getElementsByClassName){
+            // 有id的情况
+            if(id){
+                var eleId = document.getElementById(id);
+                retutn eleId.getElementsByClassName(classname);
+            }else{
+                retutn document.getElementsByClassName(classname);
+            }
+        }else{
+            if(id){
+                var eleId = document.getElementById(id);
+                var dom = eleId.getElementsByClassName("*");
+            }else{
+                var dom = document.getElementsByClassName("*");
+            }
+                    
+            var arr[];
+            for(var i=0;i<dom.length;i++){
+                // 分割类名并且转化为数组 
+                // <div class="demo box">  ===> [demo,box]
+                var arrSplit = dom[i].className.split(" ");
+            
+                // 遍历arrSplit数组 并且判断
+                for(var j=0;j<arrSplit.length;j++){
+                    if(arrSplit[j]==classname){
+                        // 如果相等 就把当前dom（也就是标签）存到arr数组中
+                        arr.push(dom[i]);
+                    }   
+                }
+            }
+            return arr;
+        }
+    }
+</script>
