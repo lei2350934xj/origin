@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .box{
+            width:200px;
+            height:200px;
+            background-color: pink;
+/*            padding-left:20px;当盒子有宽高的时候 设置padding会导致盒子宽高变化*/
+        }
+        .damao{
+            background-color: purple;
+            height:200px;
+            padding-left:20px;/*因为damao盒子没有宽度，它是继承了父亲盒子的宽度100%，所以不会因为设置padding而导致撑开盒子*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="damao">1234</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>点击按钮实现改变盒子宽度</title>
+    <style>
+        #demo{
+            width: 100px;
+            height: 100px;
+            background-color: #ea0f0f;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <button onclick="changeWidth();">change width</button>
+</body>
+
+</html>
+<script>
+    var demo = document.getElementById("demo");
+    function changeWidth(){
+        demo.style.width = "200px";
+        demo.style.height = "200px";
+    }
+//    document.write("change width success")；
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        body{
+            background-color: red;
+        }
+        #div-red{
+            float:left;
+            width:200px;
+            height:120px;
+            background-color: darkred;
+            border:3px solid black;
+        }
+        #div-yellow{
+            float:left;
+            width:200px;
+            height:120px;
+            background-color: lightyellow;
+            border:3px solid black;
+        }
+        #div-blue{
+            float:left;
+            width:200px;
+            height:120px;
+            background-color: mediumblue;
+            border:3px solid black;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var divRed = document.getElementById("div-red");
+            var divYellow = document.getElementById("div-yellow");
+            var divBlue = document.getElementById("div-blue");
+            var bodyBgc = document.getElementById("body-bgc");
+            divRed.onclick = function(){
+                bodyBgc.style.backgroundColor = "red";
+            }
+            divYellow.onclick = function(){
+                bodyBgc.style.backgroundColor = "yellow";
+            }
+            divBlue.onclick = function(){
+                bodyBgc.style.backgroundColor = "blue";
+            }            
+    }
+    </script>
+</head>
+
+<body id="body-bgc">
+    <div class="box">
+        <div id="div-red"></div>
+        <div id="div-yellow"></div>
+        <div id="div-blue"></div>
+    </div>
+</body>
+</html>

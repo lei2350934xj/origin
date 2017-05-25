@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            #topbanner{
+                height:100px;
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="topbanner"></div>
+        <button id="close-topbanner">
+            关闭广告
+        </button>
+        <button id="open-topbanner">
+            打开广告
+        </button>
+    </body>
+</html>
+<script type="text/javascript">
+    var closeTopbanner = document.getElementById("close-topbanner");
+    var openTopbanner = document.getElementById("open-topbanner");
+    var topbanner = document.getElementById("topbanner");
+    closeTopbanner.onclick = function(){
+//        alert('111');
+        topbanner.style.display = "none";
+    }
+    openTopbanner.onclick = function(){
+        topbanner.style.display = "block";
+    }
+</script>

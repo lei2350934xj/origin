@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        body{
+            position: relative;
+        }
+        .mask{
+            position: fixed;/*铺面整改页面*/
+            top:0;
+            left:0;
+            height:100%;
+            width:100%;
+            background-color: rgba(250, 6, 6, 0.19);
+            display: none;
+        }
+        .box{
+            position: absolute;
+            top:200px;
+            left:50%;
+            width:500px;
+            height:300px;
+            margin-left:-250px;
+            background-color: #fff;
+            display: none;
+        }
+        .box span{
+            position: absolute;
+            top:10px;
+            left:10px;
+            display: inline-block;
+            width:18px;
+            height:18px;
+            font-size:14px;
+            line-height: 18px;
+            text-align: center;
+            border-radius: 9px;
+            background-color: #e84f0c;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var btnRegister = document.getElementById("btnRegister");
+            var divMask = document.getElementById("divMask");
+            var divBox = document.getElementById("divBox");
+            var btnClose = document.getElementById("btnClose");
+            btnRegister.onclick = function(){
+                divMask.style.display = "block";
+                divBox.style.display = "block";
+            }
+            btnClose.onclick = function(){
+                divMask.style.display = "none";
+                divBox.style.display = "none";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btnRegister">注册</button>
+    <div id="divMask" class="mask"></div>
+    <div id="divBox"class="box">
+        <span id="btnClose">x</span>
+    </div>
+</body>
+</html>

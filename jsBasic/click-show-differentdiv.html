@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .btn{
+            width:100px;
+            height:30px;
+            margin-left:10px;
+            color:white;
+            font-size:16px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #b208e5;
+        }
+        div{
+            width:100px;
+            height:100px;
+            background-color: deepskyblue;
+            margin-top:10px;
+            display: none;
+        }
+        
+    </style>
+    
+</head>
+
+<body>
+    <!-- 行内式的js函数调用，不能用window.onload()函数来包裹，不然页面自上而下执行，扫描到 showBox()函数的时候会报为定义的错误  -->
+    <button class="btn" onclick="showBox('1')">show div1</button>
+    <button class="btn" onclick="showBox('2')">show div2</button>
+    <button class="btn" onclick="showBox('3')">show div3</button>
+    <button class="btn" onclick="showBox('4')">show div4</button>
+    <div id="box1">1</div>
+    <div id="box2">2</div>
+    <div id="box3">3</div>
+    <div id="box4">4</div>
+</body>
+</html>
+<script>
+//        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            var box3 = document.getElementById("box3");
+            var box4 = document.getElementById("box4");
+            
+            function showBox(num1){
+//                alert(222);
+                switch(num1){
+                    case '1':box1.style.display = "block";break;
+                    case '2':box2.style.display = "block";break;
+                    case '3':box3.style.display = "block";break;
+                    case '4':box4.style.display = "block";break;
+                    default:break;
+                }
+            }
+//        }
+    </script>

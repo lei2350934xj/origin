@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        #div1{
+            height:100px;
+            background-color: black;
+        }
+        ul{
+            list-style: none;
+        }
+        ul li{
+            float:left;
+            display: inline-block;
+            width:100px;
+            height:50px;
+            color:white;
+            font-size: 18px;
+            line-height: 50px;
+            text-align: center;
+            margin-left:10px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <ul>
+        <li onmouseover="changeImg('1');" onmouseout="changeImg('0');">pic1</li>
+        <li onmouseover="changeImg('2');" onmouseout="changeImg('0');">pic2</li>
+        <li onmouseover="changeImg('3');" onmouseout="changeImg('0');">pic3</li>
+        <li onmouseover="changeImg('4');" onmouseout="changeImg('0');">pic4</li>
+    </ul>
+</body>
+</html>
+<script>
+    var div1 = document.getElementById("div1");
+    function changeImg(num){
+//        alert("2222");
+        switch(num){
+            case "1":div1.style.backgroundColor="red";break;
+            case "2":div1.style.backgroundColor="yellow";break;
+            case "3":div1.style.backgroundColor="blue";break;
+            case "4":div1.style.backgroundColor="green";break;
+            default:div1.style.backgroundColor="black";break;
+        }
+        //鼠标移动切换图片
+        //div.src = "./images/01.png";
+        //01.png可以进行拼接
+    }
+</script>
