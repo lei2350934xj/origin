@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .li-style{
+/*            width: 100px;*/
+            height: 20px;
+            margin-top:5px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    新节点个数:<input id="inputValue" type="text"><button>创建</button>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    var btns = document.getElementsByTagName("button");
+    var box = document.getElementById("box");
+    
+    btns[0].onclick = function(){
+        var num = document.getElementById("inputValue").value;
+//        alert(num);
+        for(var i=0;i<num;i++){
+            // 创建li标签
+            var li = document.createElement("li");
+            // 添加样式
+            li.className = "li-style";
+            li.innerHTML = "appendChild新建第"+(i+1)+"个li";
+            // 把新建的li 放入父盒子里
+            box.appendChild(li);
+            
+            // 插入节点方式2 insertBefore 倒着来的
+            var span = document.createElement("span");
+            span.innerHTML = "insertBefore新建第个"+(i+1)+"节点<br/>";
+            box.insertBefore(span,box.firstChild);
+            // firstChild == box.childrens[0]
+        }
+    }
+</script>

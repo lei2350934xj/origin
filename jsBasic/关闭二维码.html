@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .box{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 50px auto;
+            background-color: pink;
+        }
+        .box span{
+            position: absolute;
+            top:0;
+            left:-20px;
+            width:20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span id="close">X</span>
+    </div>
+</body>
+</html>
+<script>
+    var close = document.getElementById("close");
+    close.onclick = function(){
+        // 关闭父盒子 display = none;
+        close.parentNode.style.display = "none";
+    }
+</script>

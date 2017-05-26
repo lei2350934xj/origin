@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        div,ul,li,span{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin:50px auto;
+            border:1px solid #ccc;
+            overflow: hidden;
+        }
+        .box .slider{
+            width: 3600px;
+            height: 400px;
+            background-color: pink;
+        }
+        .box .slider ul{
+            list-style: none;
+        }
+        .slider ul li{
+            width:600px;
+            height:400px;
+            float:left;
+        }
+        .li1{
+            background-color: skyblue;
+        }
+        .li2{
+            background-color: yellow;
+        }
+        .li3{
+            background-color: blue;
+        }
+        .li4{
+            background-color: green;
+        }
+        .li5{
+            background-color: pink;
+        }
+        .li6{
+            background-color: purple;
+        }
+        .circle{
+            position: absolute;
+            bottom:10px;
+            left:50%;
+            width:600px;
+/*            background-color: blueviolet;*/
+            margin-left:-300px;
+            text-align: center;    /*text-align要给父盒子设置*/
+        }
+        .li-style{
+            display: inline-block;
+            width:18px;
+            height:18px;
+            background-color: #e92302;
+            margin-left:5px;
+            border-radius: 9px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="scroll" class="box">
+        <div class="slider">
+            <ul id="ul">
+                <li class="li1"></li>
+                <li class="li2"></li>
+                <li class="li3"></li>
+                <li class="li4"></li>
+                <li class="li5"></li>
+                <li class="li6"></li>
+            </ul>
+        </div>
+<!--这里动态去生成
+        <ul class="circle">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+-->
+    </div>
+</body>
+</html>
+
+
+<script>
+    // 1.创建下方ul
+    var scroll = document.getElementById("scroll");
+    var ulBottom = document.createElement("ul");
+    //ul.className = "circle";
+    ulBottom.setAttribute("class","circle");
+    // 添加到scroll
+    scroll.appendChild(ulBottom);
+    
+    // 2.获取上方图片li的个数
+    var ul = document.getElementById("ul");
+    var lisnum = ul.children;
+//    alert(lisnum.length);
+    
+    // 3. for循环 根据lisnum的长度 动态生成小圆点
+    for(var i=0;i<lisnum.length;i++){
+        var liBottom = document.createElement("li");
+        liBottom.innerHTML = (i+1);
+        liBottom.setAttribute("class","li-style");
+        ulBottom.appendChild(liBottom);
+    }
+    
+</script>

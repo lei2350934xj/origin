@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        textarea,div,button{
+            margin: 0;
+            padding: 0;
+        }
+        .big-box{
+            width:600px;
+            height: auto;    /*高度自动，由内容撑出高*/
+            margin:50px auto;
+            padding: 5px 50px 50px;
+            border:1px solid #ccc;
+        }
+        textarea{
+            width: 480px;
+            resize: none;    /*防止用户拖动*/
+        }
+        .record-style{
+            font-size:14px;
+            height:30px;
+            line-height: 30px;
+            border-bottom:1px dashed #ccc;
+        }
+        #recordBox li a{
+            float:right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big-box">
+       微博发布：<textarea name="" id="userContent" cols="30" rows="10"></textarea><button id="btn">发布</button>
+       <ul id="recordBox">
+<!--
+           <li class="record-style">1</li>
+           <li class="record-style">2</li>
+           <li class="record-style">3</li>
+-->
+       </ul>
+    </div>
+</body>
+</html>
+
+<script>
+    var btn = document.getElementById("btn");
+    var userContent = document.getElementById("userContent");
+    var recordBox = document.getElementById("recordBox");
+    
+    btn.onclick = function(){
+//        alert(userContent.value);
+        if(userContent.value == ""){
+            alert("输入不能为空...");
+            return false;
+        }
+        var li = document.createElement("li");
+        li.setAttribute("class","record-style");
+        li.innerHTML = userContent.value + "<a href='javascript:;'>删除</a>";
+        
+        recordBox.insertBefore(li,recordBox.children[0]);
+        
+        userContent.value = ""; // 清空输入框
+        
+        var aS = document.getElementsByTagName("a");
+        for(var i=0;i<aS.length;i++){
+            aS[i].onclick = function() {
+//                alert(111);
+                // aS就是 <a> aS的parent就是li  li的父亲是ul
+                recordBox.removeChild(this.parentNode);
+            }
+        }
+    }
+</script>
