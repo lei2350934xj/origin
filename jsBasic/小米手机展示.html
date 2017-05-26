@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        div{
+            padding: 0;
+            margin: 0
+        }
+        .box{
+            position: relative;
+            width: 400px;
+            height: 500px;
+            margin:30px auto;
+            border:1px solid #0a0101;
+/*            overflow: hidden;*/
+        }
+        .xiaomi{
+            position: absolute;
+            top:0;
+            left:0;
+            width:400px;
+            height:1000px;
+            background-color: rgba(232, 113, 12, 0.21);
+        }
+        .xiaomi span{
+            position: absolute;
+            left:0;
+            width:100%;
+            height:250px;
+            cursor: pointer;
+        }
+        .top{
+            top:0;
+        }
+        .bottom{
+            top:250px; /* 这里250px 是因为要在box盒子里均分上下两部分 各占250*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div id="xiaoMi" class="xiaomi">
+            <span class="top"></span>
+            <span class="bottom"></span>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var spans = document.getElementsByTagName("span");
+    var xiaoMi = document.getElementById("xiaoMi");
+    var num = 0; // 速度控制　
+    
+    // 上滑
+    spans[0].onmouseover = function(){
+        timer = setInterval(function(){
+            num -= 15;
+            if(num>-500){
+               xiaoMi.style.top = num + "px";
+            }else{
+                clearInterval(timer);
+            }  
+        },200);
+    }
+    // 下滑
+    spans[1].onmouseover = function(){
+        clearInterval(timer);
+        timer = setInterval(function(){
+            num += 8;
+            if(num<0){
+               xiaoMi.style.top = num + "px";
+            }else{
+                clearInterval(timer);
+            }
+        },200);
+    }
+
+</script>

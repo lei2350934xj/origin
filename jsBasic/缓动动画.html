@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            position: relative;
+        }
+        .box{
+            position: absolute;
+            top:0;
+            left:0;
+            width: 200px;
+            height: 200px;
+            margin-top:30px;
+            margin-left: 30px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">缓速运动</button>
+    <button id="resetBtn">复位</button>
+    <div id="bigBox" class="box"></div>
+</body>
+</html>
+<script>
+    //  动画的核心 是 使修改盒子的宽或者高 。前提 是该盒子 position:absolute;
+    // leader 初始值   target 目标值   可以／10   ／20   ／30 ...
+    //leader = leader + (target - leader) / 10;
+    var bigBox = document.getElementById("bigBox");
+    var btn = document.getElementById("btn");
+    var resetBtn = document.getElementById("resetBtn");
+    var timer = null;
+    var timer1 = null;
+    var leader = 0;
+    var target = 600;
+    
+    btn.onclick = function(){
+        clearInterval(timer1);
+        timer = setInterval(autoMove,50);
+        function autoMove(){
+            leader = leader + (target - leader) / 10;
+            if(leader<600){
+                bigBox.style.left = leader + "px";
+            }else{
+                clearInterval(timer);
+            }
+        }
+    }
+    
+//    var leader1 = 600;
+//    var target1 = 0;
+//    resetBtn.onclick = function(){
+////        alert(111);
+//        clearInterval(timer);
+//        timer1 = setInterval(resetMove,50);
+//        function resetMove(){
+//            leader1 = leader1 + (target1 - leader1) / 10;
+//            if(leader1>=0){
+//                bigBox.style.left = leader1 + "px";
+//            }else{
+//                clearInterval(timer1);
+//            }
+//        }
+//    }
+</script>

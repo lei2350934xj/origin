@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <div id="demo"></div>
+</body>
+</html>
+<script>
+    var demo = document.getElementById("demo");
+    var count = 5;
+    var speed = 1000;
+    
+    setTimeout(goIndexpage,1000);
+    
+    function goIndexpage(){
+        count--;
+        demo.innerHTML = "<a href='http://baidu.com'>本页面将在第"+count+"秒后跳转";
+        if(count<0){
+            window.location.href = "http://baidu.com";
+        }else{
+            setTimeout(goIndexpage,speed);
+        }
+    }
+    
+</script>

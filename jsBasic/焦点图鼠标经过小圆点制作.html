@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin:50px auto;
+            border:1px solid #ccc;
+            overflow: hidden;
+        }
+        .box .slider{
+            position: relative;
+            width: 3600px;
+            height: 400px;
+            background-color: pink;
+        }
+        .box .slider ul{
+            position: absolute;
+            top:0;
+            left:0;
+            list-style: none;
+        }
+        .slider ul li{
+            width:600px;
+            height:400px;
+            float:left;
+        }
+        .li1{
+            background-color: skyblue;
+        }
+        .li2{
+            background-color: yellow;
+        }
+        .li3{
+            background-color: blue;
+        }
+        .li4{
+            background-color: green;
+        }
+        .li5{
+            background-color: pink;
+        }
+        .li6{
+            background-color: purple;
+        }
+        .circle{
+            position: absolute;
+            bottom:10px;
+            left:50%;
+            width:600px;
+/*            background-color: blueviolet;*/
+            margin-left:-300px;
+            text-align: center;    /*text-align要给父盒子设置*/
+        }
+        .circle li{
+            display: inline-block;
+            width:18px;
+            height:18px;
+            background-color: #ccc;
+            margin-left:5px;
+            border-radius: 9px;
+            cursor: pointer;
+        }
+        .circle .current{
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="scroll" class="box">
+        <div class="slider">
+            <ul id="ul">
+                <li class="li1"></li>
+                <li class="li2"></li>
+                <li class="li3"></li>
+                <li class="li4"></li>
+                <li class="li5"></li>
+                <li class="li6"></li>
+            </ul>
+        </div>
+        <ul class="circle">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+
+    </div>
+</body>
+</html>
+
+<script>
+     var scroll = document.getElementById("scroll");
+    // 上方装轮播图的 超大盒子
+     var ul = scroll.children[0].children[0];
+    　// 下方小圆点
+     var lis = scroll.children[1].children;
+//    alert(lis[0].className);
+     var leader=0,target=0;
+    
+    for(var i=0;i<lis.length;i++){
+        // 存放当前小圆点的索引号
+        lis[i].index = i;
+        
+        lis[i].onmouseover = function(){
+            for(var j=0;j<lis.length;j++){
+                lis[j].setAttribute("class","");
+            }
+            this.className = "current";
+            // target等于 n * 盒子宽度（这里是600px）
+            target = -this.index * 600;
+        }
+    }
+    setInterval(function(){
+        leader = leader + (target - leader) / 10;
+        ul.style.left = leader + "px";
+    },30);
+</script>

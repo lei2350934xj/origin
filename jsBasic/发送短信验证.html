@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <input type="text"><button id="btn">点击发送短信</button>
+</body>
+</html>
+<script>
+    var btn = document.getElementById("btn");
+    var count = 5;
+    
+    btn.onclick = function(){
+        clearInterval(timer); // 先清除 原来已有的定时器
+        
+        btn.disabled = true;
+        
+        var timer = setInterval(sendMessage,1000);
+        function sendMessage(){
+            if(count>=0){
+                btn.innerHTML = "倒计时"+count+"秒";
+                count--;
+
+            }else{
+                btn.innerHTML = "点击重新发送";
+                btn.disabled = false;
+                count = 5;
+                clearInterval(timer); // 清除 定时器
+            }
+        }
+    }
+</script>

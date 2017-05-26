@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .box{
+            position: relative;
+            width: 490px;
+            height: 200px;
+            margin-top:100px;
+            margin-left:100px;
+            border:5px solid red;
+            overflow: hidden;
+        }
+        .box ul{
+            position: absolute;
+            top:-30px;
+            left:0;
+            width:2940px;
+/*            height:170px;*/
+/*            margin-top:-85px;*/
+            list-style: none;
+        }
+        .box ul li{
+            float:left;
+        }
+        .box span{
+            position: absolute;
+            top:50%;
+            margin-top:-20px;
+            width:20px;
+            height:40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 24px;
+            background-color: skyblue;
+            display: none;
+        }
+        #left{
+            left:0;
+        }
+        #right{
+            right:0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bigBox" class="box">
+            <ul>
+                <li><img src="./images/1.jpg" alt=""></li>
+                <li><img src="./images/2.jpg" alt=""></li>
+                <li><img src="./images/3.jpg" alt=""></li>
+                <li><img src="./images/4.jpg" alt=""></li>
+                <li><img src="./images/5.jpg" alt=""></li>
+            </ul>
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+</body>
+</html>
+
+<script>
+    // 显示框
+    var bigBox = document.getElementById("bigBox");
+    // 超大的盒子
+    var ul = bigBox.children[0];
+    // 左 右箭头
+    var left = document.getElementById("left");
+    var right = document.getElementById("right");
+    
+    // 鼠标移入 移出 显示和隐藏 箭头
+    bigBox.onmouseover = function(){
+        left.style.display = "block";
+        right.style.display = "block";
+    }
+    bigBox.onmouseout = function(){
+        left.style.display = "none";
+        right.style.display = "none";        
+    }
+    // 左 右箭头点击时候的操作
+    left.onclick = function(){
+        target += 520;
+    }
+    right.onclick = function(){
+        target += -520;
+    }
+    
+    // 定时器显示 缓动动画
+    var leader = 0;
+    var target = 0;
+    setInterval(function(){
+        if(target>=0){
+            target = 0; // 大于0就是第一张 
+        }else if(target<=-2080){
+            target = -2080;
+        }
+        leader = leader + (target - leader) / 10;
+        ul.style.left = leader + "px";
+    },20);
+</script>

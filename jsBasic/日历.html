@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        div{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            margin-left:50px;
+            margin-top:50px;
+            background-color: skyblue;
+            border: 1px solid #ccc;
+        }
+        .top{
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size:20px;
+            color:white;
+        }
+        .bottom{
+            width: 100px;
+            height: 100px;
+            font-size: 48px;
+            line-height: 100px;
+            font-weight: 400;
+            text-align: center;
+            margin:10px auto;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top"></div>
+        <div class="bottom"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    var boxs = document.getElementsByTagName("div");
+    var date = new Date();
+    var arr = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+    
+    // 年-月-日 星期
+    boxs[1].innerHTML = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate() + "&nbsp;" +arr[date.getDay()];
+    boxs[2].innerHTML = date.getDate();
+</script>

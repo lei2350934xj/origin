@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            position: relative;
+        }
+        .box{
+            position: absolute;
+            top:0;
+            left:0;
+            width: 200px;
+            height: 200px;
+            margin-top:30px;
+            margin-left: 30px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">运动</button>
+    <div id="bigBox" class="box"></div>
+</body>
+</html>
+<script>
+    //  动画的核心 是 使修改盒子的宽或者高 。前提 是该盒子 position:absolute;
+    var bigBox = document.getElementById("bigBox");
+    var btn = document.getElementById("btn");
+    var timer = null;
+    var num = 0;
+    btn.onclick = function(){
+        setInterval(autoMove,20);
+        function autoMove(){
+            num++;
+            if(num<600){
+                bigBox.style.left = num + "px";
+            }else{
+                clearInterval(timer);
+            }
+        }
+    }
+</script>

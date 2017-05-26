@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .box{
+            position: relative;
+            width: 600px;
+            height: 200px;
+            margin:30px auto;
+            border:5px solid skyblue;
+            overflow: hidden;
+        }
+        .box ul{
+            position: absolute;
+            top:0;
+            left:0;
+            width: 400%;
+        }
+        .box ul li{
+            float: left;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="scroll" class="box">
+        <ul>
+            <li><img src="./images/01.jpg" alt=""></li>
+            <li><img src="./images/02.jpg" alt=""></li>
+            <li><img src="./images/03.jpg" alt=""></li>
+            <li><img src="./images/04.jpg" alt=""></li>
+            <!--     这里不加上这个 就会出现缝隙       -->
+            <li><img src="./images/01.jpg" alt=""></li>
+            <li><img src="./images/02.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>
+
+<script>
+    var scroll = document.getElementById("scroll");
+    var ul = scroll.children[0];
+    var num = 0;
+    
+    var timer = setInterval(autoMove,6);
+    function autoMove(){
+        num--;
+        // 两个图片 的宽度 刚好1200px
+        num <= -1200 ? num = 0 : num;
+        ul.style.left = num + "px";
+    }
+    scroll.onmouseover = function(){
+        clearInterval(timer);
+    }
+    scroll.onmouseout = function(){
+        timer = setInterval(autoMove,6);
+    }
+</script>
