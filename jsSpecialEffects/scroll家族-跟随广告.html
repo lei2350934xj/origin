@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+/*            position: relative;*/
+            height: 3000px;
+            background-color: pink;
+        }
+        .left{
+            position: absolute;
+            top:200px;
+            left:0;
+            width: 90px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left">跟随广告</div>
+</body>
+
+</html>
+
+<script>
+    // 封装scroll函数的原因 ： scrollTop ／scrollLeft 有兼容性问题
+    function scroll() {
+        // IE9+ 浏览器
+        if (window.pageXOffset != null) {
+            return {
+                left: window.pageXOffset,
+                top: window.pageYOffset
+            }
+        }
+        // 火狐浏览器 （用DTD声明了的）
+        else if (document.compatMode == "CSS1Compat") {
+            return {
+                left: document.documentElement.scrollLeft,
+                top: document.documentElement.scrollTop
+            }
+        }
+        // 谷歌浏览器 和 没有用DTD声明的
+        else {
+            return {
+                left: document.body.scrollLeft,
+                top: document.body.scrollTop
+            }
+        }
+    }
+
+    var left = document.getElementsByTagName("div")[0];
+    var leader=0,target=0;
+    var timer = null;
+    // 开始广告已经有一段top的值了
+    var initial = left.offsetTop;
+    
+    window.onscroll = function(){
+        clearInterval(timer);
+        // 开始广告已经有一段top的值了
+        target = scroll().top + initial;
+        
+        timer = setInterval(function(){
+            leader = leader + (target - leader) / 10;
+            left.style.top = leader + "px";
+        },20);
+    }
+    
+</script>

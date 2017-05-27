@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+        div{
+            position: absolute;
+            top:30px;
+            left:0;
+            width: 100px;
+            height: 100px;
+            background-color: deeppink;
+        }
+    </style>
+</head>
+
+<body>
+    <button>移动200</button>
+    <button>移动400</button>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    var btn_200 = document.getElementsByTagName("button")[0];
+    var btn_400 = document.getElementsByTagName("button")[1];
+    var box = document.getElementById("box");
+    
+    btn_200.onclick = function(){
+        animate(box,200);
+    }
+    btn_400.onclick = function(){
+        animate(box,400);
+    }
+    
+    function animate(obj,target){
+        // 小于 目标就是正向 移动 。反之， 逆向移动
+        var speed = obj.offsetLeft < target ? 5 : -5;
+        obj.timer = setInterval(function(){
+            var result = target - obj.offsetLeft;
+            if(Math.abs(result) < 5){
+                box.style.left = target + "px";
+                clearInterval(obj.timer);
+            }
+            box.style.left = box.offsetLeft + speed + "px";
+        },20);
+    }
+</script>
+

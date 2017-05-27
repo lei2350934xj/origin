@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+        div{
+            position: absolute;
+            top:30px;
+            left:0;
+            width: 100px;
+            height: 100px;
+            background-color: deeppink;
+        }
+    </style>
+</head>
+
+<body>
+    <button>开始</button>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    var btn = document.getElementsByTagName("button")[0];
+    var box = document.getElementById("box");
+    
+    var timer=null;
+    btn.onclick = function(){
+//        alert(111);
+        timer = setInterval(function(){
+            if(box.offsetLeft > 500){
+                clearInterval(timer);
+            }
+            // offsetLeft + 步长
+            box.style.left = box.offsetLeft + 10 + "px";
+        },20);
+    }
+</script>
+

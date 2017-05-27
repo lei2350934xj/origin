@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    
+</body>
+</html>
+<script>
+    function client(){
+        // 最新浏览器
+        if(window.innerWidth != null){
+            return{
+                width:window.innerWidth,
+                height:window.innerHeight
+            }
+        }
+        // 标准浏览器
+        else if(document.compatMode == "CSS1Compat"){
+            return{
+                width:document.documentElement.clientWidth,
+                height:document.documentElement.clientHeight
+            }
+        }
+        // 怪异浏览器
+        else{
+            return{
+                width:document.body.clientWidth,
+                height:document.body.clientHeight
+            }
+        }
+    }
+    
+    resize(); // 页面一加载 先调用函数一次
+    window.onresize = resize;   // 一直执行 函数题
+    
+    // 响应式设计
+    function resize(){
+        var clientWidth = client().width;
+        if(clientWidth>960){
+            document.body.style.backgroundColor = "pink";
+        }else if(clientWidth>760){
+            document.body.style.backgroundColor = "yellowgreen";
+        }else{
+            document.body.style.backgroundColor = "skyblue";
+        }
+    }
+</script>
