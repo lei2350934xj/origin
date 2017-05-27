@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width:400px;
+            height: 200px;
+            margin-top:30px;
+            margin-left:30px;
+            border:5px solid pink;
+        }
+        input{
+            width: 400px;
+            height: 50px;
+            margin-left:30px;
+            margin-top:10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+    </div>
+    <input type="text">
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");
+    var inputValue = document.getElementsByTagName("input")[0];
+    
+    box.onmousemove = function(event){
+        var event = window.event || event;
+        // clientX 返回 document可视区域的宽
+        // offsetLeft 返回 当前盒子 到定位了的父级盒子的 左边距
+        var x = event.clientX - this.offsetLeft;
+        var y = event.clientY - this.offsetTop;
+        inputValue.value = "x坐标：" + x + "    y坐标：" + y;
+    }
+</script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: relative;
+            width: 600px;
+            height: 60px;
+            margin-top:20px;
+            margin-left:20px;
+            border:2px solid #ccc;
+        }
+        #box ul{
+            list-style: none;
+        }
+        #box ul li {
+            float:left;
+            width: 100px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        #moveBlock{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100px;
+            height: 60px;
+            background-color: rgba(229, 91, 18, 0.45);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul>
+            <li>首页新闻</li>
+            <li>师资力量</li>
+            <li>活动策划</li>
+            <li>企业文化</li>
+            <li>招聘信息</li>
+            <li>公司简介</li>
+        </ul>
+        <span id="moveBlock"></span>
+    </div>
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");
+    var lis = box.children[0].children;
+    var moveBlock = document.getElementById("moveBlock");
+    
+//    alert(lis.length);
+    var leader = 0;
+    var target = 0;
+    for(var i=0;i<lis.length;i++){
+//        lis[i].index = i;
+        lis[i].onmouseover = function(){
+            // 这里要用this 不能用lis[i]
+            // offsetLeft返回当前对象到定位了的父级对象的左边距 
+            target = this.offsetLeft;
+        }
+    }
+    setInterval(function(){
+        leader = leader + (target - leader) / 10;
+        moveBlock.style.left = leader + "px";
+    },20);
+</script>

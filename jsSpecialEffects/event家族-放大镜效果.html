@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin-top:30px;
+            margin-left:30px;
+            border:1px solid #ccc;
+        }
+        .small{
+            position: relative;
+        }
+        .mask{
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 0, 0.53);
+            cursor: move;
+            display: none;
+        }
+        .big{
+            position: absolute;
+            top:0;
+            left:360px;
+            width: 450px;
+            height: 450px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+        .big img{
+            position: absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="magnifier" class="box">
+        <div class="small">
+            <img src="./images/001.jpg" alt="">
+            <div class="mask"></div>
+        </div>
+        <div class="big">
+            <img src="./images/0001.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var magnifier = document.getElementById("magnifier");
+    var small = magnifier.children[0];
+    var big = magnifier.children[1];
+    var imgBig = big.children[0];
+    
+//    alert(big.className);
+    var mask = small.children[1];
+    
+    // 这里是 mouseover   下面的是mousemove  
+    small.onmouseover = function(){
+        mask.style.display = "block";
+        big.style.display = "block";
+
+    }
+    small.onmouseout = function(){
+        mask.style.display = "none";
+        big.style.display = "none";
+    }
+    
+    // 鼠标在small 里面移动
+    small.onmousemove = function(event){
+        var event = window.event || event;
+        // offsetLeft  返回到定位了的父盒子的左边距！！！magnifier是定位了的父盒子 
+        var x = event.clientX - magnifier.offsetLeft - mask.offsetWidth/2;
+        var y = event.clientY - magnifier.offsetTop - mask.offsetHeight/2;
+        // 限制 x y 即mask的移动范围
+        if(x<0){
+            x=0;
+        }else if(x>250){
+            x=250;
+        }
+        if(y<0){
+            y=0;
+        }else if(y>250){
+            y=250;
+        }
+        mask.style.left = x + "px";
+        mask.style.top = y + "px";
+        
+        // big盒子里面img 移动 big／small * x ；  big／small *y
+        imgBig.style.left = -x * 450 /350 + "px";
+        imgBig.style.top = -y * 450 /350 + "px";
+    }
+</script>

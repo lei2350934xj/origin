@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: absolute;
+            top:0;
+            left:0;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");
+    
+    var leaderTop=0,leaderLeft=0,targetTop=0,targetLeft=0;
+    
+    document.onmousemove = function(event){
+        var event = event || window.event;
+        targetTop = event.clientY - box.offsetHeight / 2;
+        targetLeft = event.clientX - box.offsetWidth / 2;
+    }
+    
+    setInterval(function(){
+        leaderTop = leaderTop + (targetTop - leaderTop) / 10;
+        leaderLeft = leaderLeft + (targetLeft - leaderLeft) / 10;
+        box.style.top = leaderTop + "px";
+        box.style.left = leaderLeft + "px";
+    },10);
+</script>
