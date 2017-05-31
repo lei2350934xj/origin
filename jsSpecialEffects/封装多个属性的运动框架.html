@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    
+</body>
+</html>
+<script>
+    function getStyle(obj,attr){    // 谁的 哪个属性
+        if(obj.currentStyle){
+            return obj.currentStyle[attr];  // ie
+        }else{
+            return window.getComputedStyle(obj,null)[attr]; // w3c
+        }
+    }
+    
+    // 封装多个属性 的 运动框架，用for in 关键字
+    function animate(obj,json){     // 给谁  json
+        clearInterval(obj.timer);
+        
+        obj.timer = setInterval(function(){
+            var flag = true;    // 用来判断是否停止定时器， 一定写到遍历的外面
+            // var json = {width:200,left:300,top:500....};
+            // 开始遍历 json
+            for(var attr in json){
+                var current = parseInt(getStyle(obj,attr));  // 当前的位置, 可能是width left...
+                
+                var step = (json[attr] - current) / 10; // 步长
+                
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                
+                obj.style[attr] = current + step + "px";
+                
+                if(current != json[attr]){  // 只要有一个不满足条件，就不应该停止定时器
+                    flag = false;
+                }   
+            }
+            // 用于判断定时器的条件
+            if(flag){
+                clearInterval(obj.timer);
+            }
+        },20);
+    }
+</script>

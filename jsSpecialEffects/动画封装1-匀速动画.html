@@ -35,15 +35,18 @@
     }
     
     function animate(obj,target){
+        //  一定要先清除定时器 不然越跑越快
+        clearInterval(obj.timer);
         // 小于 目标就是正向 移动 。反之， 逆向移动
         var speed = obj.offsetLeft < target ? 5 : -5;
         obj.timer = setInterval(function(){
             var result = target - obj.offsetLeft;
-            if(Math.abs(result) < 5){
+            // 距离差小于 2, 即 认为到达 目的地
+            if(Math.abs(result) < 2){
                 box.style.left = target + "px";
                 clearInterval(obj.timer);
             }
-            box.style.left = box.offsetLeft + speed + "px";
+            obj.style.left = obj.offsetLeft + speed + "px";
         },20);
     }
 </script>

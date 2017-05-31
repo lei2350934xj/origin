@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: fixed;
+            bottom:0;
+            right:0;
+            width: 300px;
+        }
+        #box span{
+            position: absolute;
+            top:0;
+            right:0;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        #box .top{
+            width: 300px;
+            height: 200px;
+            background-color: red;
+        }
+        #box .bottom{
+            width: 300px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <span>X</span>
+        <div class="top"></div>
+        <div class="bottom"></div>
+    </div>
+</body>
+</html>
+<script>
+    
+    var box = document.getElementById("box");
+    var closeBtn = box.children[0];
+    var bottomDiv = box.children[2];
+    
+    closeBtn.onclick = function(){
+        animate(bottomDiv,{height:0},function(){
+            animate(box,{width:0});
+            // 实际中 span是 图片的一部分
+//            alert(111);
+        });
+    }
+    
+    function getStyle(obj,attr){    // 谁的 哪个属性
+        if(obj.currentStyle){
+            return obj.currentStyle[attr];  // ie
+        }else{
+            return window.getComputedStyle(obj,null)[attr]; // w3c
+        }
+    }
+    
+    // 封装多个属性 的 运动框架，用for in 关键字 -    回调函数 当某个动画完成后 执行 的操作函数
+    function animate(obj,json,fn){     // 给谁  json
+        clearInterval(obj.timer);
+        
+        obj.timer = setInterval(function(){
+            var flag = true;    // 用来判断是否停止定时器， 一定写到遍历的外面
+            // var json = {width:200,left:300,top:500....};
+            // 开始遍历 json
+            for(var attr in json){
+                var current = 0;
+                if(attr == "opacity"){
+                    current = Math.round(parseInt(getStyle(obj,attr)*100)) || 0;
+                }else{
+                    current = parseInt(getStyle(obj,attr));
+                }
+                
+                var step = (json[attr] - current) / 10; // 步长
+                
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                
+                if(attr == "opacity"){
+                    if("opacity" in obj.style){
+                        obj.style.opacity = (current + step) / 10;  // w3c
+                    }else{
+                        obj.style.filter = "alpha(opacity="+(current+step)*10+")";  // ie
+                    }
+                }else if(attr=="zIndex"){
+                    obj.style.zIndex = json[attr];
+                }else{
+                    obj.style[attr] = current + step + "px";
+                }
+                
+                if(current != json[attr]){  // 只要有一个不满足条件，就不应该停止定时器
+                    flag = false;
+                }   
+            }
+            // 用于判断定时器的条件
+            if(flag){
+                clearInterval(obj.timer);
+                if(fn){
+                    fn();   // 函数名
+                }
+            }
+        },20);
+    }
+</script>

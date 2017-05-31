@@ -78,9 +78,10 @@
     goTop.onclick = function(){
         target = 0;
         var timer = setInterval(function(){
-            leader = leader + (target-leader)/10;
+            leader = leader + (target - leader) / 10;
             // scrollTo里第一个参数 x坐标 第二个参数 y坐标
-            window.scrollTo(target,leader);
+            // 返回顶部 一般就是 纵坐标不断变化  横坐标保持不变
+            window.scrollTo(0,leader);
             if(leader==target){
                 clearInterval(timer);
             }

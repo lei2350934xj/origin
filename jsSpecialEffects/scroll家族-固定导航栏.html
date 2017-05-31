@@ -70,11 +70,14 @@
             }
         }
     }
+    
     var banner = document.getElementsByTagName("div");
     var innerC = banner[0].children[0];
     var innerTop = innerC.offsetTop;
     //    alert(innerTop);
+    
     window.onscroll = function() {
+        // scrollTop > offsetTop
         if (scroll().top > innerTop) {
             innerC.setAttribute("class", "inner_c fixed");
         } else {

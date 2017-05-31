@@ -12,6 +12,7 @@
 
 <script>
     // 封装scroll函数的原因 ： scrollTop ／scrollLeft 有兼容性问题
+    // 调用的时候用 scroll().top , 也就是取 scrollTop
     function scroll(){
         // IE9+ 浏览器
         if(window.pageXOffset != null){

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    
+</body>
+</html>
+<script>
+    // 封装动画函数  （用了 取整函数 ceil  floor ）
+    function animate(obj,target){
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function(){
+            var step = (target - obj.offsetLeft) / 10;
+            
+            step = step > 0 ? Math.ceil(step) : Math.floor(setp);
+            
+            obj.style.left = obj.offsetLeft + step + "px";
+            
+            if(obj.offsetLeft == target){
+                clearInterval(obj.timer);
+            }
+        },20);
+    }
+</script>

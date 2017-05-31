@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    
+</body>
+</html>
+<script>
+    function getStyle(obj,attr){
+        if(obj.currentStyle){
+            return obj.currentStyle[attr];  // ie
+        }else{
+            return window.getComputedStyle(obj,null)[attr]; // w3c
+        }
+    }
+</script>
