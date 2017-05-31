@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    
+</body>
+</html>
+<script>
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.showName = function(){
+        alert("my name is:"+this.name);
+    }
+    
+    var demo1 = new Person("liming",12);
+    var demo2 = new Person("zhangting",21);
+    
+    demo1.showName();
+    demo2.showName();
+</script>
