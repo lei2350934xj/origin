@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">关闭</button>
+    <button>转化1</button>
+    <button>转化2</button>
+    <div>
+        
+    </div>
+</body>
+</html>
+
+
+<script src="./jquery-3.2.1.min.js"></script>
+<script>
+    // dom------>jquery    $(dom)即可
+    $(document).ready(function(){
+        $("#btn").click(function(){
+            alert("dom已经转化为jquery");
+        });
+    });
+    // jquery----->dom     $(dom).onclick = function(){//...};
+    $("button")[1].onclick = function(){
+        alert("jquery已经转化为dom");    // jquery转化为dom 方式1
+    };
+    $("button").get(2).onclick = function(){
+        alert("jquery已经转化为dom");    // jquery转化为dom 方式2
+    }
+</script>

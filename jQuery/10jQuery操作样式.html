@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .item{
+            background-color: skyblue;
+            font-size: 24px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+   <button id="btn">切换</button>
+   <button id="btn2">有没有该样式</button>
+    <ul>
+        <li>我是1号</li>
+        <li>我是2号</li>
+        <li>我是3号</li>
+        <li>我是4号</li>
+        <li>我是5号</li>
+        <li>我是6号</li>
+        <li>我是7号</li>
+        <li>我是8号</li>
+    </ul>
+</body>
+</html>
+
+
+<script src="./jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+//        $("li").css("font-size","18px");
+//        $("li").css({"backgroundColor":"yellowgreen","color":"yellow"});
+        // 1.添加 样式. 注： 样式名字 没有点 (.)
+        $("li:even").addClass("item");
+        
+        // 2.移除 样式
+//        $("li：eq(4)").removeClass("item");
+        // 不加参数 移除所有样式
+//        $("li：eq(4)").removeClass();
+        
+        // 3.切换 样式
+//        $("li").toggleClass("item");
+        $("#btn").click(function(){
+            $("li").toggleClass("item");
+        });
+        
+        // 4.判断有没有 该样式
+        $("#btn2").click(function(){
+            var result = $("li:eq(2)").hasClass("item");
+            alert(result);
+        });
+    });
+</script>

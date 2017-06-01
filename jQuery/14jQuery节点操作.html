@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                $("div").append("<p>我是动态创建的节点</p>");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn">创建</button>
+    <div></div>
+</body>
+</html>

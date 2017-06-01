@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #ul{
+            list-style: none;
+            margin-top:30px;
+            margin-left:50px;
+        }
+        #ul>li{
+            float:left;
+            width: 200px;
+            height: 30px;
+            font-size: 16px;
+            line-height: 30px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+        #ul>li ul{
+            list-style: none;
+            display: none;
+        }
+        #ul>li ul>li{
+            width: 200px;
+            height: 25px;
+            margin-bottom: 5px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="ul">
+        <li>一级菜单1
+            <ul>
+                <li>apple</li>
+                <li>banana</li>
+                <li>pear</li>
+            </ul>
+        </li>
+        <li>一级菜单2
+            <ul>
+                <li>China</li>
+                <li>America</li>
+                <li>Japan</li>
+            </ul>
+        </li>
+        <li>一级菜单3
+            <ul>
+                <li>one</li>
+                <li>two</li>
+                <li>three</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
+
+
+<script src="./jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+//        $("#ul>li").hover(function(){
+//            $(this).children("ul").stop().slideToggle();
+//        });
+        $("#ul>li").mouseenter(function(){
+            // 二级菜单 有 动画效果  所以，应该给它加stop
+            $(this).children("ul").stop().slideDown(); 
+        });
+        $("#ul>li").mouseleave(function(){
+            $(this).children("ul").stop().slideUp(); 
+        });        
+    });
+</script>

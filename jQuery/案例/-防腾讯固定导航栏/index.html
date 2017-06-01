@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>防腾讯固定导航栏</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        .main{
+            width: 1000px;
+            margin:0 auto;
+            margin-top: 20px;
+        }
+    </style>
+    <script type="text/javascript" src="../jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var H = $(".top").height();
+            $(window).scroll(function () {
+                var docSccrollTop = $(document).scrollTop();
+                if(docSccrollTop > H){
+                    $(".nav").css({"position":"fixed","top":0});
+                    // 此时 nav的位置固定，如果不设置 main部分的margin-top的话，将有一部分内容被挡住 nav的高度+开始设置的20
+                    $(".main").css("margin-top",106);
+                }else{
+                    $(".nav").css({"position":"static"});  /*静态定位*/
+                    $(".main").css("margin-top",20);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="top">
+    <img src="images/top.png" />
+</div>
+<div class="nav">
+    <img src="images/nav.png" />
+
+</div>
+<div class="main">
+    <img src="images/main.png" />
+</div>
+</body>
+</html>

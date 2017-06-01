@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script>
+        $(function(){
+            // .index() 用来获取到当前这个元素的序号
+           $("li").click(function(){
+               alert($(this).index());
+           });
+        });
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>我是第1个元素</li>
+        <li>我是第2个元素</li>
+        <li>我是第3个元素</li>
+        <li>我是第4个元素</li>
+        <li>我是第5个元素</li>
+        <li>我是第6个元素</li>
+        <li>我是第7个元素</li>
+        <li>我是第8个元素</li>
+    </ul>    
+</body>
+</html>

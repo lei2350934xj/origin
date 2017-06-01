@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 1.设置 属性
+            $("input[type='button']").click(function(){
+               $(this).attr("title","我是动态设置的属性"); 
+               $(this).attr("class","active"); 
+            });
+            // 2.获取 属性
+            $("input").eq(1).click(function(){
+               var n = $("input:eq(0)").attr("class");  
+               alert(n);
+            });          
+            // 3.移除 属性
+            $("input").eq(1).click(function(){
+               $("input:eq(0)").removeAttr("class");  
+            });   
+            // 4.获取值 设置值
+//            $().val();
+//            $().html();
+            // 5.获取文本内容 设置文本内容
+//            $().text();
+        });
+    </script>
+</head>
+
+<body>
+    <input type="button" value="设置属性"/>
+    <input type="button" value="获取属性"/>
+</body>
+</html>

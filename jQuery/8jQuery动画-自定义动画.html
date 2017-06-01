@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 300px;
+            height: 200px;
+            margin-top:30px;
+            margin-left: 30px;
+            background-color: skyblue;
+/*            display: none;*/
+        }
+    </style>
+</head>
+
+<body>
+    <button>自定义动画演示</button>
+    <div>
+        
+    </div>
+</body>
+</html>
+
+
+<script src="./jquery-3.2.1.min.js"></script>
+<script>
+    
+    $(document).ready(function(){
+        // 这个就是 'show( speed, [callback] )' 无动画的版本。如果选择的元素是可见的，这个方法将不会改变任何东西。无论这个元素是通过hide()方法隐藏的还是在CSS里设置了display:none;，这个方法都将有效。
+        $("button:first").click(function(){
+            $("div").animate({"width":"500px","height":"300px",backgroundColor:"yellowgreen"},"slow");
+            // 颜色没办法用动画效果实现  所以，设置不上
+        });      
+    });
+</script>

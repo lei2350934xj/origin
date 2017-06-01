@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <button id="btn"></button>
+</body>
+</html>
+
+-----------------jQuery三步走---------------------------------------
+//****************************1.引入包****************************//
+<script src=./jquery-3.2.1.js></script>
+<script>
+//****************************2.入口函数**************************//    
+    // 入口函数-方式1
+    $(document).ready(function(){
+        //...
+    });
+    // 入口函数-方式2
+    $(function(){
+        //...
+    })
+//****************************3.事件处理程序**********************//    
+    // 事件源-$("#btn")  事件-click()  事件处理程序-function(){}
+    $(document).ready(function(){
+       $("#btn").click(function(){
+           $("#box").hide();
+       }); 
+    });
+</script>
