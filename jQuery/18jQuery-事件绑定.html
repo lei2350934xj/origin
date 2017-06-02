@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script>
+        // 绑定多个事件
+        $("#btn").bind("mouseenter click",function(){
+            // 
+        });
+        // 绑定多个事件 分别处理
+        $("#btn").bind({
+            "mouseenter":function(){//},
+            "click":function(){//}
+        });
+        // 只绑定一次        
+        $("#btn").one("click",function(){//});
+            
+        // 事件委派 只给父元素绑定 子元素都被绑定 提高绑定效率
+        $("ul").delegate("li","click",function(){//});
+            
+        // 最新的绑定方式 推荐使用这种
+        $("ul").on("click","li",function(){//});
+    </script>
+</head>
+
+<body>
+    <button id="btn">绑定事件</button>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src='./jquery-3.2.1.min.js'></script>
+    <script>
+        $(document).ready(function(){
+            $("form").on("click","#btnSub",function(){
+                var txtName = $("#txtName").val();
+                if(txtName == "1"){
+                    alert("提交成功！");
+                }else{
+//                    $("#txtName").val("").focus();
+                    $("#txtName").val("").trigger("focus");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" id="txtName"><label for="txtName">用户名</label>
+        <input type="button" value="提交" id="btnSub">
+    </form>
+</body>
+</html>

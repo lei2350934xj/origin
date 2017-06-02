@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button:eq(0)").click(function(){
+                $(".box").css("height","200px");
+            });
+            $("button").eq(1).click(function(){
+                $(".box").width("400px");
+            });
+            $("button:eq(2)").click(function(){
+                alert($(".box").height());
+            });
+            $("button").last().click(function(){
+                alert($(".box").css("width"));
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button>设置高度</button>
+    <button>设置宽度</button>
+    <button>获取高度</button>
+    <button>获取宽度</button>
+    <div class="box"></div>
+</body>
+</html>
