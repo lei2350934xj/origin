@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /** 清除内外边距 **/
+        body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+        dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+        pre, /* text formatting elements 文本格式元素 */
+        form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+        th, td /* table elements 表格元素 */ {
+            margin: 0;
+            padding: 0;
+        }
+        .inner_c{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        header{
+            height: 70px;
+        }
+        header img{
+            width: 100%;
+            height: 100%;
+        }
+        .top {
+            margin-top: 40px;
+        }
+        .top .logo{
+            width: 136px;
+            height: 57px;
+        }
+        
+        section .left{
+            width: 400px;
+/*            height: 400px;*/
+/*            margin-top: 10px;*/
+/*            padding-top: 10px;*/
+            float: left;
+/*            background-color: pink;*/
+        }
+        section .left h3{
+            margin-left: 20px;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #555;
+        }
+        .left ul{
+            list-style: none;
+            margin-top: 20px;
+            border-bottom: 1px dashed #ccc;
+            overflow: hidden;
+        }
+        .left ul li{
+            float: left;
+            width: 200px;
+            height: 80px;
+            text-align: center;
+/*            margin-left: 10px;*/
+        }
+        .left li a{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+        }
+        .left p{
+            width: 400px;
+            height: 30px;
+            margin-top: 10px;
+            margin-left: 80px;
+            line-height: 30px;
+            font-size:12px;
+        }
+            
+        .left p a{
+            text-decoration: none;
+        }
+        
+        section{
+            overflow: hidden;
+        }
+        section .right{
+            float: left;
+            width: 400px;
+            height: 390px;
+            padding-left: 20px;
+            margin-left: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+        .right h2{
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .right span{
+            display: inline-block;
+            width: 80px;
+            height: 20px;
+            margin: 15px 5px 15px 50px;
+            font-size: 14px;
+        }
+        .right input{
+            width: 200px;
+            height: 30px;
+        }
+        input.checkCode{
+            width: 60px;
+        }
+        input.btnRegister{
+            width: 100px;
+            color:white;
+            background-color: orange;
+            border-radius: 5px;
+            margin: 30px 5px 0 100px;
+        }
+        input.btnRegister:hover{
+            background-color: #ff6200;
+        }
+        input#confirm{
+            width: 10px;
+            height: 10px;
+        }
+        span.agree{
+            width: 60px;
+            margin-left:5px;
+            margin-right:0;
+            font-size:12px; 
+        }
+        .right a{
+            text-decoration: none;
+            font-size: 12px;
+            color:red;
+        }
+        .right a:hover{
+            text-decoration: underline;
+        }
+        
+        footer{
+            padding-left: 256px;
+            padding-top: 50px;
+        }
+        footer a{
+            text-decoration: none;
+            font-size: 12px;
+            color:black;
+            display: block;
+            float: left;
+            height: 20px;
+            border-right: 1px solid #ccc;
+            padding: 0 5px 0 5px;
+        }
+        footer a.last{
+            border:0;
+        }
+        footer a:hover{
+            text-decoration: underline;
+        }
+        footer p{
+            clear: both;
+            font-size: 12px;
+            color: black;
+            margin-left: 256px;
+        }
+        footer .footer-left{
+            width: 127px;
+            height: 47px;
+            display: block;
+            background: url("../images/lofooter.jpg") no-repeat;
+            margin-left: 207px;
+        }
+        footer .footer-right{
+            width: 127px;
+            height: 47px;
+            display: block;
+            background: url("../images/lofooter.jpg") no-repeat -135px 0;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+       <a href="#"><img src="../images/1.jpg" alt=""></a>
+    </header>
+    
+    <div class="top inner_c">
+        <a href="#" class="logo"><img src="../images/2.jpg" alt=""></a>
+    </div>    
+    
+    <section class="inner_c">
+        <div class="left">
+            <h3>注册之后您可以</h3>
+            <ul>
+                <li><a href="#" ></a><span>购买商品支付订单</span></li>
+                <li><a href="#" ></a><span>申请开店销售商品</span></li>
+                <li><a href="#" ></a><span>空间好友推送分享</span></li>
+                <li><a href="#" ></a><span>收藏商品关注店铺</span></li>
+                <li><a href="#" ></a><span>商品资讯服务评价</span></li>
+                <li><a href="#" ></a><span>安全交易诚信无忧</span></li>
+            </ul>
+            <h3>如果您是本站用户</h3>
+            <p>我已经注册过账号，立即<input type="button" value="登录">或是<a href="#">&nbsp;&nbsp;找回密码？</a></p>
+        </div>
+        <div class="right">
+            <form action="">
+                <h2>用户注册</h2>
+                <span>用户名</span><input type="text" placeholder="手机号／会员号／邮箱"><br/>
+                <span>设置密码</span><input type="password" id="JS_psw1"><br/>
+                <span>确认密码</span><input type="password" id="JS_psw2"><br/>
+                <span>邮箱</span><input type="email"><br/>
+                <span>验证码</span><input type="text" class="checkCode"><br/>
+                <input type="button" value="立即注册" class="btnRegister" id="JS_registerBtn">
+                <input type="radio" id="confirm" checked><label for="confirm"><span class="agree">阅读并同意</span></label>
+                <a href="#">服务协议</a>
+            </form>
+        </div>
+    </section>
+    
+    <footer class="inner_c">
+        <a href="#">首页</a>
+        <a href="#">招聘英才</a>
+        <a href="#">合作及洽谈</a>
+        <a href="#">联系我们</a>
+        <a href="#">关于米米乐商城</a>
+        <a href="#">开店协议</a>
+        <a href="#">申请米店</a>
+        <a href="#">商家入驻</a>
+        <a href="#">手机版</a>
+        <a href="#">友情链接</a>
+        <a href="#" class="last">米商</a>
+        <p>©2015 www.mmloo.com 版权所有</p>
+        <a href="#" class="footer-left"></a>
+        <a href="#" class="footer-right"></a>
+    </footer>
+</body>
+</html>
+
+<script>
+    var JS_psw1 = document.getElementById("JS_psw1");
+    var JS_psw2 = document.getElementById("JS_psw2");
+    var JS_registerBtn = document.getElementById("JS_registerBtn");
+    
+    JS_registerBtn.onclick = function(){
+        if(JS_psw1.value=="" || JS_psw2.value==""){
+            alert("密码不能为空");
+        }else{
+            if(JS_psw2.value != JS_psw1.value){
+                alert("两次密码输入不一致");
+            }else{
+                alert("注册成功，准备跳转...")
+            }
+        }
+    }
+    
+</script>

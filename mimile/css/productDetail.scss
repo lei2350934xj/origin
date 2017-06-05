@@ -1,0 +1,208 @@
+/** 清除内外边距 **/
+        body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+        dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+        pre, /* text formatting elements 文本格式元素 */
+        form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+        th, td /* table elements 表格元素 */ {
+            margin: 0;
+            padding: 0;
+        }
+
+.inner_c {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+$font-size: #777;
+$base-color: #d93600;
+
+header {
+    height: 100px;
+    background-color: #fafafa;
+    overflow: hidden;
+}
+
+.hot {
+    height: 70px;
+}
+
+.welcome {
+	height: 30px;
+    p {
+        float: left;
+        margin-right: 510px;
+        font-size: 14px;
+        line-height: 30px;
+        color: #777;
+        span.spn1 {
+            color: #fe4455;
+        }
+        span.spn2 {
+            color: #333;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+    ul {
+        list-style: none;
+        li {
+            float: left;
+            width: 80px;
+            margin-left: 10px;
+            font-size: 14px;
+            line-height: 30px;
+            color: #777;
+            em {
+                font-size: 14px;
+                line-height: 30px;
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
+.top {
+    overflow: hidden;
+    .logo {
+        float: left;
+        display: block;
+	    width: 136px;
+        height: 57px;
+//        margin-top: 27px;
+        margin: {
+            top: 27px;
+            left: 52px;
+        }
+    }
+    .searchBar {
+        position: relative;
+        float: left;
+        width: 500px;
+        height: 42px;
+        margin: {
+            top: 14px;
+            left: 112px;
+        }
+        background-color: #D93600;
+        .keyWord {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+	        width: 414px;
+            height: 32px;
+            font-size: 14px;
+            background-color: #fff;
+        }
+        label {
+            position: absolute;
+            top: 12px;
+            left: 10px;
+            font-size: 14px;
+            color: $font-size;
+        }
+        .searchBtn {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            width: 76px;
+            height: 36px;
+            text-align: center;
+	        color: #f0f0f0;
+            font-size: 16px;
+            line-height: 36px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    .shoppingCart {
+        position: relative;
+        float: left;
+        width: 126px;
+        height: 40px;
+        background-color: #fafafa;
+        border: 1px solid #f0f0f0;
+        margin: {
+            top: 14px;
+            left: 176px;
+        }
+        i {
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            width: 20px;
+            height: 16px;
+        }
+        em {
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            color: $font-size;
+            font-size: 14px;
+        }
+        span {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 14px;
+            color: $font-size;
+        }
+    }
+    .qrCode {
+        float: right;
+        width: 73px;
+        height: 73px;
+        margin-top: 14px;
+        background: url(../images/6.jpg) no-repeat;
+    }
+}
+
+nav {
+    overflow: hidden;
+    /* height: 40px; */
+    border-bottom: 2px solid $base-color;
+    .top2 {
+        margin-top: 27px;
+        dl {
+            float: left;
+            width: 190px;
+            height: 40px;
+            border-right: 1px solid #f0f0f0;
+            background-color: $base-color;
+            padding: {
+                left: 20px;
+            }
+            dt {
+                font-size: 14px;
+                line-height: 40px;
+                color: white;
+                span {
+                    display: inline-block;
+                    margin-left: 80px;
+                    font-size: 12px;
+                }
+            }
+        }
+        ul {
+            list-style: none;
+            li {
+                float: left;
+                width: 120px;
+                height: 40px;
+                margin-right: 10px;
+                line-height: 40px;
+                text-align: center;
+                font-size: 16px;
+                color: $font-size;
+            }
+            li:first-child {
+                margin-left: 10px;
+            }
+        }    
+    }
+}

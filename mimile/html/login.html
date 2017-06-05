@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /** 清除内外边距 **/
+        body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+        dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+        pre, /* text formatting elements 文本格式元素 */
+        form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+        th, td /* table elements 表格元素 */ {
+            margin: 0;
+            padding: 0;
+        }
+        .inner_c{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        header{
+            height: 70px;
+        }
+        header img{
+            width: 100%;
+            height: 100%;
+        }
+        .top {
+            margin-top: 40px;
+        }
+        .top .logo{
+            width: 136px;
+            height: 57px;
+        }
+        
+        section .left{
+            width: 400px;
+/*            height: 400px;*/
+/*            margin-top: 10px;*/
+/*            padding-top: 10px;*/
+            float: left;
+/*            background-color: pink;*/
+        }
+        section .left h3{
+            margin-left: 20px;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #555;
+        }
+        .left ul{
+            list-style: none;
+            margin-top: 20px;
+            border-bottom: 1px dashed #ccc;
+            overflow: hidden;
+        }
+        .left ul li{
+            float: left;
+            width: 200px;
+            height: 80px;
+            text-align: center;
+/*            margin-left: 10px;*/
+        }
+        .left li a{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+        }
+        .left p{
+            width: 400px;
+            height: 30px;
+            margin-top: 10px;
+            margin-left: 80px;
+            line-height: 30px;
+            font-size:12px;
+        }
+            
+        .left p a{
+            text-decoration: none;
+        }
+        
+        section{
+            overflow: hidden;
+        }
+        section .right{
+            float: left;
+            width: 360px;
+            height: 330px;
+            padding-left: 20px;
+            padding-top: 10px;
+            margin-left: 150px;
+            background-color: #f9f9f9;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+        
+        section .right h2{
+            font-size: 18px;
+        }
+        section .right span{
+            display: inline-block;
+            width: 50px;
+            font-size: 14px;
+            color:black;
+            margin-top: 20px;
+            margin-left: 50px;
+        }
+        section .right input{
+            width: 200px;
+            height: 20px;
+        }
+        section #logo{
+            width: 100px;
+            height: 30px;
+            margin-top: 30px;
+            margin-left: 100px;
+            color: white;
+            font-size: 14px;
+            background-color: orange;
+            border-radius: 5px;
+        }
+        section #logo:hover{
+            background-color: #f46b07;
+        }
+        section a{
+            font-size: 12px;
+            text-decoration: none;
+        }
+        section a:hover{
+            text-decoration: underline;
+        }
+        section p{
+            font-size:12px;
+            color:black;
+            margin-top: 20px;
+            margin-left: 100px;
+            display: block;
+            float: left;
+        }
+        section .right #JS_register{
+            width: 50px;
+            height: 30px;
+            font-size: 16px;
+            line-height: 30px;
+            margin-left: 5px;
+        }
+        section .right #JS_register:hover{
+            width: 50px;
+            height: 30px;
+            background-color: #cfcfcf;
+        }
+        .right .line{
+            width: 350px;
+            height: 1px;
+            margin-top: 10px;
+            border-top: 1px dashed #ccc;
+        }
+        section .right a.tencent{
+            clear: both;
+            width: 80px;
+            height: 28px;
+            display: block;
+            float: left;
+            margin-left: 40px;
+            margin-top: 15px;
+            background: url(../images/login.png) no-repeat -88px 0;
+        }
+        section .right a.sina{
+            width: 80px;
+            height: 28px;
+            display: block;
+            float: left;
+            margin-left: 15px;
+            margin-top: 15px;
+            background: url(../images/login.png) no-repeat -166px -28px;
+        }   
+        section .right a.ailipay{
+            width: 80px;
+            height: 28px;
+            display: block;
+            float: left;
+            margin-left: 15px;
+            margin-top: 15px;
+            background: url(../images/login.png) no-repeat 0 -200px;
+        }
+        footer{
+            padding-left: 256px;
+            padding-top: 50px;
+        }
+        footer a{
+            text-decoration: none;
+            font-size: 12px;
+            color:black;
+            display: block;
+            float: left;
+            height: 20px;
+            border-right: 1px solid #ccc;
+            padding: 0 5px 0 5px;
+        }
+        footer a.last{
+            border:0;
+        }
+        footer a:hover{
+            text-decoration: underline;
+        }
+        footer p{
+            clear: both;
+            font-size: 12px;
+            color: black;
+            margin-left: 256px;
+        }
+        footer .footer-left{
+            width: 127px;
+            height: 47px;
+            display: block;
+            background: url("../images/lofooter.jpg") no-repeat;
+            margin-left: 207px;
+        }
+        footer .footer-right{
+            width: 127px;
+            height: 47px;
+            display: block;
+            background: url("../images/lofooter.jpg") no-repeat -135px 0;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+       <a href="#"><img src="../images/1.jpg" alt=""></a>
+    </header>
+    
+    <div class="top inner_c">
+        <a href="#" class="logo"><img src="../images/2.jpg" alt=""></a>
+    </div>    
+    
+    <section class="inner_c">
+        <div class="left">
+            <img src="../images/34.jpg" alt="">
+        </div>
+        <div class="right">
+            <h2>用户登录</h2>
+            <span>用户名</span><input type="text" placeholder="手机号／会员号／邮箱"><br/>
+            <span>密码</span><input type="password">
+            <input type="button" value="登录" id="logo">
+            <a href="#">忘记密码?</a>
+            <p>还不是本站会员? 立即</p><input type="button" value="注册" id="JS_register">
+            <div class="line"></div>
+            <p>您可以用合作伙伴账号登录：</p>
+            <a href="#" class="tencent"></a>
+            <a href="#" class="sina"></a>
+            <a href="#" class="ailipay"></a>
+        </div>
+    </section>
+    
+    <footer class="inner_c">
+        <a href="#">首页</a>
+        <a href="#">招聘英才</a>
+        <a href="#">合作及洽谈</a>
+        <a href="#">联系我们</a>
+        <a href="#">关于米米乐商城</a>
+        <a href="#">开店协议</a>
+        <a href="#">申请米店</a>
+        <a href="#">商家入驻</a>
+        <a href="#">手机版</a>
+        <a href="#">友情链接</a>
+        <a href="#" class="last">米商</a>
+        <p>©2015 www.mmloo.com 版权所有</p>
+        <a href="#" class="footer-left"></a>
+        <a href="#" class="footer-right"></a>
+    </footer>
+</body>
+</html>
+
+<script>
+
+</script>
