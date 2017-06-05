@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        li[class^="one"]{
+            background-color: red;;
+        }
+        li[class$="two"]{
+            background-color: yellow;
+        }
+        li[class*="four"]{
+            background-color: skyblue;
+        }
+        li:nth-child(6){
+            background-color: pink;
+        }
+        li:nth-child(7){
+            background-color: gray;
+        }
+        li:nth-of-type(9){
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="one">1111</li>
+        <li class="two one">2222</li>
+        <li class="three one two">3333</li>
+        <li class="four">4444</li>
+        <li class="six">5555</li>
+        <li class="seven">6666</li>
+        <span>7777</span>
+        <li class="eight">7777</li>
+        <li class="nine">8888</li>
+        <li class="ten">9999</li>
+        <li class="eleven">aaaa</li>
+    </ul>
+</body>
+</html>

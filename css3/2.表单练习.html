@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        #login {
+            width: 300px;
+            border: 1px solid #ccc;
+        }
+        label {
+            font-size: 14px;
+            line-height: 24px;
+            font-weight: 600;
+        }
+        input#username,
+        input#password {
+            width: 150px;
+            margin-left: 10px;
+        }
+        input#btnLogin{
+            font-size: 16px;
+            margin: 10px 0 0 50px
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset id="login">
+        <legend>用户登录</legend>
+        <form action="" method="POST" class="form">
+            <label for="username">姓名</label><input type="text" id="username" tabindex="1"/><br>
+            <label for="password">密码</label><input type="password" id="password" tabindex="2"><br>
+            <input type="button" value="登录" id="btnLogin">
+        </form>
+    </fieldset>
+</body>
+</html>
