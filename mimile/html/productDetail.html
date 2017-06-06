@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="../css/productDetail.css">
+    <script src=../js/jquery-3.2.1.min.js></script>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
         <div class="shoppingCart">
             <i><img src="../images/4.jpg" alt=""></i>
             <em>购物车结算</em>
-            <span>V</span>
+            <span class="cart-cal">V</span>
         </div>
         <div class="qrCode"></div>
     </div>
@@ -42,7 +43,14 @@
         <div class="top2 inner_c">
             <dl>
                 <dt>所有商品分类<span>V</span></dt>
-                <dd></dd>
+                <dd>
+                    <ol>
+                        <li>111</li>
+                        <li>222</li>
+                        <li>333</li>
+                        <li>444</li>
+                    </ol>
+                </dd>
             </dl>
             <ul>
                 <li>首页</li>
@@ -54,6 +62,139 @@
                 <li>米金融</li>
             </ul>
         </div>
+        <div class="line"></div>
     </nav>
+    
+    <div class="your-position inner_c">
+        首页>电脑办公>电脑整机>服务站/工作站>联想ThinkServer RD330机架服务器2.5寸企业级（E5-2407 4G 500G）（成都市内3小时送达到！）
+    </div>
+    
+    <section class="inner_c">
+        <div class="left-side">
+            <div class="top"><img src="../images/95.jpg" alt=""></div>
+            <div class="bottom">
+                <ul id="tabDetail">
+                    <li class="current"><img src="../images/95.jpg" alt=""></li>
+                    <li><img src="../images/96.jpg" alt=""></li>
+                    <li><img src="../images/95.jpg" alt=""></li>
+                </ul>
+            </div>
+            <div id="show"></div>
+        </div>
+        <div class="content">
+            <p class="product-name">联想ThinkServer RD330机架服务器 2.5寸企业级（E5-2407 4G 500G（成都市内3个小时送达到）</p>
+            <span class="call-sb">举报中心 V</span>
+            <ul class="detail-top">
+                <li>零售价：<del>¥35465.59</del></li>
+                <li>批发价：<b>¥19888.00</b> 一个也批发，单单返钱花</li>
+                <li>商品评价：🌟🌟🌟🌟🌟 <a href="#">（0条评论）</a></li>
+                <li>至<a href="#">全国</a>:包邮 由<i>官方店铺</i> 发货</li>
+            </ul>
+            <ul class="detail-num">
+                <li class="one">购买数量：</li>
+                <li class="two">
+                    <ul>
+                        <li class="num">1</li>
+                        <li class="add">+</li>
+                        <li class="dec">-</li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="detail-contents">
+                <li class="one">立即购买</li>
+                <li class="two">一键购买</li>
+                <li class="three">添加购物车</li>
+                <li class="four">大学生分期付款</li>
+            </ul>
+            <div class="share-collect">
+                <a href="#" class="share">👋&nbsp;分享 0</a>
+                <a href="#" class="collect">🌟&nbsp;收藏商品 0</a>
+            </div>
+            <div class="shop-information">
+                <div class="one">
+                    <h2>官方店铺</h2>
+                </div>
+                <div class="two">
+                    <h2>综合评分:</h2>
+                    <img src="../images/104.jpg" alt="">
+                    <i>5</i><b>分</b>
+                </div>
+                <div class="three">
+                    <ul>
+                        <li class="three-title">
+                            <h3>店铺动态评分</h3>
+                            <h4>与行业相比</h4>
+                        </li>
+                        <li class=three-contents>
+                            <p>描述相符</p>
+                            <i>4.9分</i>
+                            <b></b>
+                            <em>持平</em>
+                            <img src="../images/107.jpg" alt="">
+                        </li>
+                        <li class=three-contents>
+                            <p>服务态度</p>
+                            <i>4.9分</i>
+                            <b></b>
+                            <em>持平</em>
+                            <img src="../images/107.jpg" alt="">                            
+                        </li>
+                        <li class=three-contents>
+                            <p>发货速度</p>
+                            <i>5分</i>
+                            <b></b>
+                            <em>持平</em>
+                            <img src="../images/107.jpg" alt="">                            
+                        </li>
+                    </ul>
+                </div>
+                <div class="four">
+                    <h2>联系方式： </h2>
+                    <img src="../images/105.jpg" alt="">
+                    <img src="../images/106.jpg" alt="">
+                </div>
+                <div class="five">
+                    <h2>公司名称：</h2><b>米米乐商城</b>
+                    <h2>所在地：</h2><b>四川成都市武侯区</b>
+                </div>
+                <div class="six">
+                    <p>进入商家店铺</p>
+                    <p class="p2">收藏店铺</p>
+                    <span class="num">58</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="inner_c">
+        <aside>
+            <!--      左侧窄盒子，里面很多个div 依次往下堆放      -->
+        </aside>
+        
+        <article>
+            <!--      右侧大盒子部分      -->
+        </article>
+    </section>
 </body>
 </html>
+
+<script>
+    var ul = document.getElementById("tabDetail");
+    var lis = ul.children;
+    var show = document.getElementById("show");
+    var colorArr = ["skyblue","yellowgreen","pink"];
+    
+    for(var i=0,len=lis.length;i<len;i++){
+        lis[i].index = i;
+        lis[i].onmouseover = function(){
+            for(var j=0,len=lis.length;j<len;j++){
+                lis[j].className = "";
+            }
+            this.setAttribute("class","current");
+            show.style.backgroundColor = colorArr[this.index];
+        }
+        lis[i].onmouseout = function(){
+            show.style.backgroundColor = "";
+        }
+    }
+</script>

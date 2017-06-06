@@ -1,6 +1,6 @@
 /** 清除内外边距 **/
         body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
-        dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+        dl, dt, dd, ul, ol, li, em,/* list elements 列表元素 */
         pre, /* text formatting elements 文本格式元素 */
         form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
         th, td /* table elements 表格元素 */ {
@@ -145,7 +145,7 @@ header {
             color: $font-size;
             font-size: 14px;
         }
-        span {
+        .cart-cal {
             position: absolute;
             top: 10px;
             right: 10px;
@@ -163,21 +163,28 @@ header {
 }
 
 nav {
-    overflow: hidden;
-    /* height: 40px; */
-    border-bottom: 2px solid $base-color;
+    position: relative;
+    .line {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        border-bottom: 2px solid $base-color;
+    }
     .top2 {
         margin-top: 27px;
         dl {
+            position: relative;
             float: left;
             width: 190px;
-            height: 40px;
-            border-right: 1px solid #f0f0f0;
-            background-color: $base-color;
-            padding: {
-                left: 20px;
+            /* height: 342px; */
+            &:hover>dd{
+                cursor: pointer;
+                display: block;
             }
             dt {
+                height: 40px;
+                background-color: $base-color;
                 font-size: 14px;
                 line-height: 40px;
                 color: white;
@@ -185,6 +192,35 @@ nav {
                     display: inline-block;
                     margin-left: 80px;
                     font-size: 12px;
+                }
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            dd {
+                z-index: 1000;
+                position: absolute;
+                top: 40px;
+                left: 0;
+                display: none;
+                width: 190px;
+                height: 300px;
+                margin: {
+                    top: 1px;
+                }
+                background-color: #dfdfdf;
+                ol {
+                    padding: {
+                        left: 20px;
+                    }
+                    list-style: none;
+                    li {
+                        width: 170px;
+                        height: 30px;
+                        color: $font-size;
+                        font-size: 14px;
+                        line-height: 30px;
+                    }
                 }
             }
         }
@@ -199,10 +235,429 @@ nav {
                 text-align: center;
                 font-size: 16px;
                 color: $font-size;
+                &:hover {
+                    color: red;
+                    cursor: pointer;
+                }
             }
             li:first-child {
                 margin-left: 10px;
             }
         }    
     }
+}
+
+.your-position {
+    clear: both;
+    width: 1200px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    color: $font-size;
+}
+
+section {
+    .left-side {
+        position: relative;
+        float: left;
+        width: 380px;
+        height: 490px;
+        /* background-color: rgba(0, 0, 255, 0.42); */
+        .top {
+            width: 380px;
+            height: 400px;
+            border: 1px solid #f0f0f0;
+        }
+        .bottom {
+            ul {
+                .current {
+                    border-color: red;
+                }
+                list-style: none;
+                    li {
+                            float: left;
+                            width: 60px;
+                            height: 60px;
+                            margin: {
+                                right: 7px;
+                                top: 14px;
+                            }
+                        cursor: pointer;
+                        border: 1px solid #f0f0f0;
+                        img {
+                            /*这样图片可以填满且适应盒子的大小*/
+                            width: 100%;
+                            height: 100%;
+                            display: block;
+                        }
+                    }
+            }
+        }
+        #show {
+            z-index: 999; 
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 1180px;
+            height: 380px;
+            /* background-color: goldenrod; */
+        }
+    }
+    .content {
+        position: relative;
+	    float: left;
+        width: 795px;
+        margin: {
+            left: 23px;
+        }
+        .product-name {
+            width: 710px;
+            height: 40px;
+            color: #666;
+            font-size: 16px;
+            line-height: 40px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .call-sb {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            width: 60px;
+            color: $font-size;
+            font-size: 12px;
+        }
+        ul.detail-top {
+            list-style: none;
+            width: 563px;
+            height: 115px;
+            border-bottom: 1px dashed #ccc;
+            li {
+                font-size: 12px;
+                color: $font-size;
+                height: 28px;
+                line-height: 28px;
+                b {
+                    font-size: 20px;
+                    color: red;
+                }
+                a {
+                    text-decoration: none;
+                }
+                a:hover {
+                    text-decoration: underline;
+                }
+                i {
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+            }
+        }
+        ul.detail-num {
+            overflow: hidden;
+            list-style: none;
+            li {
+                font-size: 12px;
+                color: $font-size;
+            }
+            li.one {
+                float: left;
+                height: 50px;
+                line-height: 40px;
+            }
+            li.two {
+                ul {
+                    list-style: none;
+                    li.num {
+                        float: left;
+                        width: 33px;
+                        height: 28px;
+                        padding-left: 5px;
+                        line-height: 28px;
+                        margin: {
+                            top: 6px;
+                        }
+                        border: 1px solid #ccc;
+                    }
+                    li.add,
+                    li.dec {
+                        width: 16px;
+                        height: 12px;
+                        border: 1px solid #ccc;
+                        text-align: center;
+                        line-height: 12px;
+                        margin: {
+                            left: 3px;
+                        }
+                    }
+                    li.add {
+                        float: left;
+                        margin: {
+                            top: 6px;
+                        }
+                    }
+                    li.dec {
+                        float: left;
+                        margin: {
+                            top: 22px;
+                            left: -18px;
+                        }
+                    }
+                }
+            }
+        }
+        ul.detail-contents {
+            list-style: none;
+            li.one,
+            li.two {
+                float: left;
+                width: 100px;
+                height: 32px;
+                background-color: #ba7538;
+                color: white;
+                font-size: 16px;
+                line-height: 32px;
+                text-align: center;
+                margin: {
+                    right: 9px;
+                }
+                border: 1px solid #f0f0f0;
+                border-radius: 5px;
+            }
+            li.three {
+                float: left;
+                width: 138px;
+                height: 32px;
+                background-color: $base-color;
+                color: white;
+                font-size: 16px;
+                line-height: 32px;
+                text-align: center;
+                margin: {
+                    right: 9px;
+                }
+                border: 1px solid #f0f0f0;
+                border-radius: 5px;                
+            }
+            li.four {
+                float: left;
+                width: 138px;
+                height: 32px;
+                background-color: #2a729c;
+                color: white;
+                font-size: 16px;
+                line-height: 32px;
+                text-align: center;
+                margin: {
+                    right: 9px;
+                }
+                border: 1px solid #f0f0f0;
+                border-radius: 5px;                
+            }            
+        }
+        div.share-collect {
+            clear: both;
+            width: 160px;
+            height: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 3px 3px #f9f9f9,3px 0 3px #f9f9f9,0 -3px 3px #f9f9f9,-3px 0 3px #f9f9f9;
+            margin: {
+                top: 54px;
+            }
+            a {
+                text-decoration: none;
+                color: #005ea6;
+                font-size: 14px;
+            }
+            a.share {
+                display: inline-block;
+                width: 65px;
+                height: 25px;
+                line-height: 25px;
+                border-right: 1px solid #ccc;
+            }
+        }
+        div.shop-information {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 198px;
+            height: 305px;
+            border: 1px solid #e6e6e6;
+            .one {
+                height: 30px;
+                border-bottom: 1px solid #e6e6e6;
+                background-color: #f5f5f5;
+                padding-left: 5px;
+                h2 {
+                    color: $font-size;
+                    font-size: 12px;
+                    line-height: 30px;
+                }
+            }
+            .two {
+                height: 33px;
+                border-bottom: 1px solid #e6e6e6;
+                padding-left: 5px;
+                h2 {
+                    display: inline-block;
+                    color: $font-size;
+                    font-size: 14px;
+                    line-height: 33px;
+                }
+                img {
+                    display: inline-block;
+                    width: 80px;
+                }
+                i {
+                    font-size: 14px;
+                    color: $base-color;
+                }
+                b {
+                    font-size: 14px;
+                    color: $font-size;
+                }
+            }
+            .three {
+                padding: 5px;
+                ul {
+                    overflow: hidden;
+                    border-bottom: 1px dashed #e6e6e6;
+                    list-style: none;
+                    li.three-title {
+                        width: 188px;
+                        height: 18px;
+                        h3 {
+                            float: left;
+                            width: 88px;
+                            font-size: 14px;
+                            color: #777;
+                            line-height: 18px;
+                            font-weight: 700;
+                        }
+                        h4 {
+                            float: left;
+                            width: 80px;
+                            margin: {
+                                left: 15px;
+                            }
+                            font-size: 14px;
+                            color: #777;
+                            line-height: 18px;   
+                            font-weight: 400;
+                        }
+                    }
+                    li.three-contents {
+                        height: 24px;
+                        margin: {
+                            top: 5px;
+                        }
+                        %mr2 {
+                            margin: {
+                                right: 2px;
+                            }
+                        }
+                        p {
+                            float: left;
+                            width: 57px;
+                            height: 22px;
+                            font-size: 12px;
+                            color: #999;
+                            line-height: 22px;
+                            @extend %mr2;
+                        }
+                        i {
+                            float: left;
+                            width: 31px;
+                            height: 22px;
+                            font-size: 12px;
+                            color: #555;
+                            line-height: 22px;
+                            @extend %mr2;
+                        }
+                        b {
+                            float: left;
+                            width: 7px;
+                            height: 3px;
+                            margin: {
+                                top: 8px;
+                            }
+                            background-color: $base-color;
+                            @extend %mr2;
+                        }
+                        em {
+                            float: left;
+                            width: 31px;
+                            height: 22px;
+                            font-size: 12px;
+                            color: $base-color;
+                            line-height: 22px;  
+                            @extend %mr2;
+                        }
+                        img {
+                            float: left;
+                            height: 22px;
+                            line-height: 22px;
+                        }
+                    }
+                }
+            }
+            .four {
+                padding: 5px;
+                border-bottom: 1px solid #e6e6e6;
+                h2 {
+                    float: left;
+                    width: 70px;
+                    height: 24px;
+                    color: $font-size;
+                    font-size: 12px;
+                    line-height: 24px;                    
+                }
+            }
+            .five {
+                overflow: hidden;
+                padding: 5px;
+                border-bottom: 1px solid #e6e6e6;
+                h2 {
+                    float: left;
+                    width: 60px;
+                    color: $font-size;
+                    font-size: 12px;
+                    line-height: 24px;
+                }
+                b {
+                    float: left;
+                    width: 100px;
+                    color: #333;
+                    font-size: 12px;
+                    line-height: 24px;
+                }
+            }
+            .six {
+                overflow: hidden;
+                padding: 5px;
+                p {
+                    float: left;
+                    width: 75px;
+                    height: 22px;
+                    margin: {
+                        left: 15px;
+                    }
+                    color: #005ea6;
+                    font-size: 12px;
+                    line-height: 22px;
+                }
+                p.p2 {
+                    width: 50px;
+                }
+                span.num {
+                    float: left;
+                    height: 22px;
+                    line-height: 22px;
+                    font-size: 12px; 
+                    color: #999;
+                }
+            }
+        }
+    }    
 }
