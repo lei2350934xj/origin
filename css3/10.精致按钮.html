@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            background-color: #ededed;
+            margin: 30px 0 0 30px;
+            color: #999;
+        }
+        .button {
+	        display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            font: 14px/100% Arial, Helvetica, sans-serif;
+            cursor: pointer;
+            
+            /*设计 按钮圆角 盒子阴影 文本阴影特效*/
+            text-shadow: 0 1px 1px rgba(0,0,0,.3);
+            border-radius: .5em;
+            box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        }
+        .button:hover {
+            text-decoration: none;
+        }
+        .button:active {
+	        position: relative;
+            top: 1px;
+        }
+        .black {
+	        color: #d7d7d7;
+            border: 1px solid #333;
+            background-color: #333;
+            background: -webkit-gradient(linear,left top,left bottom,from(#666),to(#000));
+        }
+        .black:hover {
+	        background-color: #000;
+            background: -webkit-gradient(linear,left top,left bottom,from(#444),to(#000));
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="#" class="button black">圆角按钮</a>
+    </div>
+</body>
+</html>

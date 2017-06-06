@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #container {
+            display: -webkit-box;    /*盒布局*/
+            -webkit-box-orient: vertical;    /*竖直排布*/
+        }
+
+        #left-sidebar {
+            width: 200px;
+            padding: 20px;
+            background-color: orange;
+            /* -webkit-box-ordinal-group:3;/*定义顺序*/ */
+        }
+
+        #contents {
+            -webkit-box-flex: 1;
+            /*中间盒子 变为 弹性盒子*/
+            padding: 10px;
+            background-color: yellow;
+            /* -webkit-box-ordinal-group:1; */
+        }
+
+        #right-sidebar {
+            width: 200px;
+            padding: 20px;
+            background-color: limegreen;
+            /* -webkit-box-ordinal-group:2; */
+        }
+
+        #left-sidebar,
+        #contents,
+        #right-sidebar {
+            -webkit-box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="left-sidebar">
+            <h2>站内导航</h2>
+            <ul>
+                <li><a href="#">新闻</a></li>
+                <li><a href="#">微博</a></li>
+                <li><a href="#">博客</a></li>
+                <li><a href="#">社区</a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+        </div>
+        <div id="contents">
+            <h2>标题：js是最牛逼的语言了</h2>
+            <p>js是大大大花时间了解到哈伦和大红色的啊累很累的哈说大师柳大华了为期噢噢次啊我去哦 i 和成本会计坐标哦我 i 饿去哦 in 开发 i 去哦为怄气我 i 哦为 i 却哦 i 请问你的卡俄企鹅全文你看撒谎大师达克尼茨镇客户打青浦区皮擦上的离开你企鹅委屈哦 iu 哦啊是的呐飒来得及啊可怜滴综合哪大师看到卡急难险重去痘 i 飒 u 饭撒拉大空间啊老师作品</p>
+        </div>
+        <div id="right-sidebar">
+            <h2>友情链接</h2>
+            <ul>
+                <li><a href="">谷歌</a></li>
+                <li><a href="">百度</a></li>
+                <li><a href="">360</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
