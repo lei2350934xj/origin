@@ -1,0 +1,33 @@
+/**********************前端部分代码********************************/
+
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <div><a href="./xx.php?param=1">apple</div>
+    <div><a href="./xx.php?param=2">banana</div>
+    // 多个param 参数 用与来进行
+    <div><a href="./xx.php?param=2&&param1=3&&param2=4...">banana</div>
+</body>
+</html>
+
+   
+
+/**********************后台部分代码********************************/   
+<?php
+    $flag = $_GET['param'];
+
+    $apple = '苹果';
+    if($flag == 1){
+        echo '<div>.$apple.</div>'; // php中字符串拼接用 ..
+    }else if($flag == 2){
+        echo '<div>banana</div>';
+    }else{
+        echo '<div>orange</div>';
+    }
+?>

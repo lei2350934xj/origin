@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    
+</body>
+</html>
+
+
+<script>
+    //var  json= http_request.responseText;     // json格式数据,是一个字符串
+    // JSON.parse(json);   // JSON.parse()可以把 字符串 转化为 JSON对象，从而就可以访问对象的属性（也就是下面的name,category等）
+    // 推荐使用JSON.parse()方法
+    var json = JSON.parse(http_request.responseText);
+    
+    // eval() 方法同样可以把 json字符串 转化为 JSON对象:var json = eval("("+http_request.responseText+")");
+    // JSON.stringify() 方法可以把 JSON对象 转化为 字符串:var str = JSON.stringify(json);
+    var total = json.total;
+    var list = json.data;
+    var tag = "";
+    
+    for(var i=0;i<total;i++){
+        var book = list[i]; // book就是一条书的信息：书名 类别 描述信息
+        tag += "<tr><td>"+book.name+"</td><td>"+book.category+"</td><td>"+book.desc+"</td></tr>";
+    }
+    var tbody = document.createElement("tbody");
+    tbody.innerHTML = tag;
+    document.getElementById("bookInfo").appendChild(tbody);
+</script>
+
+
+// json 格式数据
+{
+    "total":"4",
+    "data":[
+        {"name":"三国演义","category":"文学","desc":"机关算尽斗智斗勇"},
+        {"name":"水浒传","category":"文学","desc":"梁山108好汉"},
+        {"name":"西游记","category":"文学","desc":"天马行空的神话故事"},
+        {"name":"红楼梦","category":"文学","desc":"四大家族的兴衰史"},
+    ]
+}

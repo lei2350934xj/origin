@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <div>
+        <!--    formCheck.php文件 放在 MAMP目录下的 myApp文件里 也就是Apache服务器上   -->
+        <!--    本文件 也必须 放在 MAMP目录下的 myApp文件里 也就是Apache服务器上，这样才能通过./ 访问后端的php文件   -->
+        <form action="./formCheck.php" method="post" id="form">
+            用户名：<input type="text"><br>
+            密码：<input type="password"><br>
+            <input type="button" value="登录" id="btn">
+        </form>
+    </div>
+</body>
+</html>
+
+
+<script>
+    function ajax() {
+        // ajax工作原理 
+        // 1.创建XMLHttpRequest对象
+        // 2.open() 配置请求信息： GET/POST  url地址  同步／异步
+        // 3.send() 发送  GET时候里面null 。POST时候里面String
+        // 4.onreadystatechange = function(){} 请求成功 处理函数
+
+        var http_request = null;
+        
+        // 1.
+        if(window.XMLHttpRequest) {    // 非IE浏览器
+            http_request = new XMLHttpRequest();
+        }else if(window.ActiveXObject) {    // IE浏览器
+            http_request = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        // 2.
+        // 设置异步请求目标为 ****的文件（这里是formCheck.php文件）,请求方法为GET
+        var form = document.getElementById("form");
+        var username = form.children[0].value;
+        var password = form.children[2].value;  // 这里children[2]是因为 <br>标签也是form的子元素 占了一个位置
+        //alert(form.children.length);
+        //alert(password); 
+        //alert(username); 
+        
+        // 不要把username password写死 动态拼接
+        var url = "./formCheck.php?usename="+username+"&&password="+password;
+        http_request.open("GET",url,true);
+//        http_request.open("GET","formCheck.php?username=liangting&&password=789",true);
+        
+
+        // 3.
+            // 3.1向服务器发送一个不包含任何参数的请求---GET方式
+        http_request.send(null);
+
+        // 4.
+        // 回调函数的具体代码: 这里的回调函数 就是当后台处理完请求之后 客户端执行的操作
+        // 获得服务器端的数据后 执行的 操作
+        http_request.onreadystatechange = function () {
+            if(http_request.readyState == 4) {  // 判断请求状态
+                if(http_request.status == 200) {     // 请求成功，开始处理返回结果
+//                    alert(http_request.responseText);
+                    // 根据服务器端返回的状态来 执行相应的渲染操作 
+                    // 服务器端返回的状态 在echo 语句里可以查看到 请见 formCheck.php文件
+                    if(http_request.responseText == 1) {
+                        alert("登录成功");
+                    }else if(http_request.responseText == 2) {
+                        alert("登录有点问题啊");
+                    }else {
+                        alert("炸了，完全登不上去");
+                    }
+                }else {
+                    alert("您请求的页面有错误！");    
+                }       
+            }
+        }        
+    }
+    
+    var btn = document.getElementById("btn");
+    
+    btn.onclick = function() {
+        // 这里用get方式，也就是仅仅 去请求服务端的信息，所有send方法里面参数为null
+        // 通过调用ajax函数 去获得服务器端的信息 并渲染到页面上
+        // 所以 下一步去写 后端代码 formCheck.php文件
+        ajax();
+    }
+</script>

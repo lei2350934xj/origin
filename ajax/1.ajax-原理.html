@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    
+</body>
+</html>
+
+
+<script>
+    // ajax工作原理 
+    // 1.创建XMLHttpRequest对象
+    // 2.open() 配置请求信息： GET/POST  url地址  同步／异步
+    // 3.send() 发送  GET时候里面null 。POST时候里面String
+    // 4.onreadystatechange = function(){} 请求成功 处理函数
+    var http_request = null;
+    
+    // 1.
+    if(window.XMLHttpRequest) {    // 非IE浏览器
+        http_request = new XMLHttpRequst（）;
+    }else if(window.ActiveXObject) {    // IE浏览器
+        try{
+            http_request = new ActiveXObject("Msxml2.XMLHTTP");
+        }catch(e){
+            try{
+                http_request = new ActiveXObject("Microsoft.XMLHTTP");
+            }catch(e){}
+        }
+    }
+    
+    // 2.
+    // 设置异步请求目标为request.jsp,请求方法为GET
+    http_request.open("GET","request.jsp",true);
+    
+    // 3.
+        // 3.1向服务器发送一个不包含任何参数的请求---GET方式----就是请求服务端的信息 所以send()的时候不带参数
+        // GET方式，表单的参数是拼接在ur后面的。如： formCheck.php?uesrname=liang&&password=123456
+    http_request.send(null);
+        // 3.2                           ---POST方式---就是提交表单的信息，所以send()的时候需要把表单的信息传进去
+        // POST方式，表单的参数是通过send(string);里面的string参数传递的。 例如，下面的
+        // 在发送POST请求时，需要设置Content-Type 请求头的值为“application/x-www-form-urlencoded”，
+        // 这时通过setRequestHeader()方法进行设置。
+        //向服务器发送POST请求
+    var param = "user="+form1.user.value+"&pwd="+form1.pwd.value+"&email"+form1.email.value;//组合参数
+    http_request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    http_request.send(param);
+    
+    // 4.
+    //回调函数的具体代码
+    http_request.onreadystatechange = function () {
+        if(http_request.readyState == 4) {  // 判断请求状态
+            if(http_request.status == 200) {     // 请求成功，开始处理返回结果
+                alert(http_request.responseText);
+            }else {
+                alert("您请求的页面有错误！");    
+            }       
+        }
+    }
+</script>

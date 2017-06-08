@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    
+</body>
+</html>
+
+
+<script>
+    // xml数据解析 原理---------xml格式太大了  而且解析起来很麻烦 -----所以 现在推荐 json
+    // 由于 xml文件内容是 标签组成的 所以通过document.getElementsByTagName("标签名称"); 来进行DOM操作
+    var  xml= http_request.responseXML;     // xml格式数据
+    var values = xml.getElementsByTagName("bookstore");   // 一般是从根元素开始
+        alert("值"+values);      // 调试用
+        alert("长度"+values.length);
+    // 解析获取内容
+    for(var i=0,len=values.length;i<len;i++){
+        var name1 = values[i].getElementsByTagName("name")[0].firstChild.data;
+        alert(name1);   // 调试用
+    }
+</script>
+
+
+// xml数据格式如下
+<?xml version="1.0" encoding="utf-8">
+<bookstore>
+    <book>
+        <name>三国演义</name>
+        <category>文学</category>
+        <desc>机关算尽斗智斗勇</desc>
+    </book>
+    <book>
+        <name>水浒传</name>
+        <category>文学</category>
+        <desc>梁山108好汉</desc>
+    </book>
+    <book>
+        <name>西游记</name>
+        <category>文学</category>
+        <desc>天马行空的神话故事</desc>
+    </book>   
+    <book>
+        <name>红楼梦</name>
+        <category>文学</category>
+        <desc>四大家族的兴衰史</desc>
+    </book>         
+</bookstore>
