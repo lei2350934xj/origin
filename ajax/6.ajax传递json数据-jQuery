@@ -1,0 +1,46 @@
+/*******************************html*********************************************/
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+
+<script type="text/javascript">
+ $(function(){
+   $("#send").click(function(){
+    var cont = $("input").serialize();  // 关键部分 把表单的数据（username）序列号为a=1&b=2&c=3&...的形式
+    $.ajax({
+      url:'ab.php',
+      type:'post',
+      dataType:'json',
+      data:cont,        // 关键部分 把表单的数据（username）序列号为a=1&b=2&c=3&...的形式
+      success:function(data){
+       var str = data.username + data.age + data.job;
+       $("#result").html(str);
+    }
+  });
+ });
+ });
+</script>
+</head>
+<body>
+<div id="result">一会看显示结果</div>
+<form id="my" action="" method="post">
+ <p><span>姓名：</span> <input type="text" name="username" /></p>
+ <p><span>年龄：</span><input type="text" name="age" /></p>
+ <p><span>工作：</span><input type="text" name="job" /></p>
+</form>
+<button id="send">提交</button>
+</body>
+</html>
+
+/********************************php********************************************/
+<?php
+header("Content-type:text/html;charset=utf-8");
+    $username = $_POST['username'];
+    $age = $_POST['age'];
+    $job = $_POST['job'];
+    // 注意 json格式的数据 后台需要一下两步操作 转化为正确的 json格式
+    $json_arr = array("username"=>$username,"age"=>$age,"job"=>$job);
+    $json_obj = json_encode($json_arr);     // json_encode()函数把PHP里面的数据转化为json格式
+    echo $json_obj;
+?>

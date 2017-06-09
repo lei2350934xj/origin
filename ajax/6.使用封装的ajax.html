@@ -7,30 +7,16 @@
 </head>
 
 <body>
-    
+    <div>
+        用户名：<input type="text"><br>
+        密码：<input type="password"><br>
+        <input type="button" value="提交">
+    </div>
 </body>
 </html>
 
 
 <script>
-        // 参数param 可能有的东西 如下
-        var param = {
-            type:"get/post",
-            url:"",
-            asyn:"true/flase",
-            dataType:"xml/json",
-            data:"",
-            success:function(value) {    // 自定义的回调函数---success
-                alert(value);
-            },
-            failure:function() {        // 自定义的回调函数---failure
-                alert("error");
-            }
-        };
-        // 注意 data:"" 可以是字符串或者JSON格式 
-        // 如： data='username=123&password=321'; ------------------字符串
-        //     data={"username":"123","password":"321"};-----------JSON  
-    
     function ajax(data) {
 
         var http_request = null;
@@ -81,16 +67,14 @@
                 }
             }
         }        
-    }  
-    
+    } 
     // 使用该ajax函数
     var param = {
             type:"get",
-            url:"./formCheck.php",
+            url:"./xxx.php",    // 注意更改 请求的服务器端url地址
             asyn:"true",
             dataType:"json",
-        // 注意 注意 注意 因为没有使用jquery的序列化函数 一下json的格式data后台不能_GTE[]得到---推荐jquery
-        // data:"username=liang&password=123";  // 字符串形式没问题 后台可以正确读取username password
+            // 注意 注意 注意 因为没有使用jquery的序列化函数 一下json的格式data后台不能_GTE[]得到---推荐jquery
             data:{"username":"liang","password":"123"},
             success:function(value) {    // 自定义的回调函数---success  alert一下当前的值
                 alert(value);
