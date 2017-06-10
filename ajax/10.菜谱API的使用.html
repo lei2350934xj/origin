@@ -18,6 +18,19 @@
 	        width: 960px;
             margin: 0 auto;
         }
+        .show-center {
+            display: block;
+            width: 230px;
+            height: 230px;
+            margin: 0 auto;
+        }
+        .font-red {
+            color: #f50949;
+            font-size: 36px;
+        }
+        hr {
+            margin: 15px;
+        }
     </style>
     
 <script type="text/javascript">
@@ -37,11 +50,15 @@
   url:"http://apis.juhe.cn/cook/query?key=caef02cb8ee5ca399813608e2abf9b15&rn=10&pn=3&dtype=jsonp&menu="+encodeURIComponent($menuName),
                 // dtype=jsonp 必须加上 不然就访问的不是jsonp 而是默认的json了
                 // 输入的菜单名大多是中文 需要encodeURIComponent() 进行URL编码
-                data:"西红柿炒蛋",
+                
                 // 当dataType设置为jsonp的时候，会全局的创建一个script 然后 src=url...那些
-                dataType:"jsonp",
-                jsonp:"callback", //传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
-                jsonpCallback:"handlefunc",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+                dataType:"jsonp",  
+                
+                // 下面三个都可以不写
+//                data:"西红柿炒蛋",   // 可以不写，因为菜单名在 url最后面动态的添加了，而且这里是get方式 
+//                jsonp:"callback", //传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+//                jsonpCallback:"handlefunc",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+                
                 success:function(json){
                     // 先清空容器---主要是清空 "正在加载...."
                     $showInfo.text("");
@@ -50,7 +67,7 @@
                         $showInfo.text("亲，没查到");
                         return;
                     }
-                    // 遍历
+                    // 遍历-----拼接字符串
                     for(var i=0;i<json.result.data.length;i++){
                         var mydata = json.result.data[i];  // 循环到的每一道菜
                         
@@ -61,13 +78,52 @@
                         var h2 = $('<h2>'+mydata.title+'</h2>');
                         all.append(h2);
                         
+                        // 标签
+                        var p1 = $('<p>标签：'+mydata.tags+'</p>');
+                        all.append(p1);
+                        
                         // 简介
-                        var p = $('<p class="intro">'+mydata.imtro+'</p>');
-                        all.append(p);
-                        // 图片
+                        var p2 = $('<p>'+mydata.imtro+'</p>');
+                        all.append(p2);
+                        
                         // 主料
+                        var p3 = $('<p>主料：'+mydata.ingredients+'</p>');
+                        all.append(p3);    
+                        
                         // 辅料
+                        var p4 = $('<p>辅料：'+mydata.burden+'</p>');
+                        all.append(p4);     
+                        
+                        // 图片
+//                        var img = $('<img class="show-center">');       // 创建img标签
+//                        img.attr("src",mydata.albums);      // 设置img的src属性为mydata.albums
+//                        all.append(img);                        
+                        // 图片有可能有多张，所以用数组遍历一下
+                        for(var k=0;k<mydata.albums.length;k++){
+                            var album = mydata.albums[k];
+                            var img = $('<img src="'+album+'">');   // src里面拼接字符串这样
+                            all.append(img);
+                        }
+                        
                         // 步骤
+                        var lc = $('<p>制作流程如下：</p>');
+                        all.append(lc);
+                        
+                        var steps = mydata.steps;    
+                        for(var j=0;j<steps.length;j++){
+                            var span = $('<span class="font-red">'+(j+1)+'</span>');   // 添加个序号
+                            all.append(span);
+                            
+                            var img = $('<img>');
+                            img.attr("src",steps[j].img);
+                            all.append(img);
+                            
+                            var pStep = $('<p>'+steps[j].step+'</p>'); 
+                            all.append(pStep);
+                        }
+                        
+                        // 添加分割线
+                        all.append("<hr>");
                     }
                 },
                 failure:function(){
@@ -87,6 +143,7 @@
         </form>
     </div>
     <div id="showInfo"></div>
+<!--    <img src="http://juheimg.oss-cn-hangzhou.aliyuncs.com/cookbook/t/1/307_874685.jpg" alt="">-->
 </body>
 </html>
 

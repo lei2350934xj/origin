@@ -1,0 +1,41 @@
+ 当使用ajax遇到跨域问题的时候------------
+     一般选用jsonp的方式进行访问，原生的js写的jsonp访问大致流程如下：
+
+==========================================================================================================
+
+jsonp 方式 原生（客户端的）
+    var script = document.createElement("script");  // 动态创建script标签
+    var url = "服务器上API的地址（支持跨域）";
+    script.src = url;
+    document.body.appendChild(script);    // 一加载创建好的script标签 就可以快速的执行url请求
+
+==========================================================================================================
+
+    由于jQuery封装好了ajax()函数，所以一般我们都直接用jQuery提供的ajax函数，方便一点
+    jQuery里面的ajax函数也提高了jsonp解决跨域问题的方法。 大致流程如下：
+
+==========================================================================================================                              
+            // 下面使用的jsop方式：不是httpRequest方式发的请求 而是script方式发的请求-------跨域
+            $.ajax({
+                type:"get",        // 必填
+                asyn:"true",       // 必填
+                url:"http://apis.juhe.cn/cook/query?a=1&b=2c=3&..",    // 必填
+                dataType:"jsonp",  // 必填，必须加上 不然就访问的不是jsonp 而是默认的json了
+                
+// 当dataType设置为jsonp的时候，会全局的创建一个script 然后 src=url...那些                
+// 下面三个都可以不写
+//              data:"西红柿炒蛋",   // 可以不写，因为菜单名在 url最后面动态的添加了，而且这里是get方式 
+//              jsonp:"callback", //传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+//              jsonpCallback:"handlefunc",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+                
+                success:function(json){
+                    // 解析数据
+
+                },
+                failure:function(){
+                    $showInfo.text("错误");
+                },
+            });
+
+注意：🌟🌟 get方式提交的时候，data参数可以不写，而把要传递的参数拼接到url里面。post方式必须写，data参数里面就是要传递的数据。
+如果没有遇到跨域问题，就按照正常的ajax请求数据并解析数据即可。                       

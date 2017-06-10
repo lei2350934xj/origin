@@ -153,6 +153,7 @@ var johnsCompany = members[1].Company;
                  async: false,
                  url: "http://flightQuery.com/jsonp/flightResult.aspx?code=CA1998",
                  dataType: "jsonp",
+                 // 也就是说 jsonp和jsonpCallback可以不写====也能通过dataType:jsonp来调用jsonp解决跨域
                  jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
                  jsonpCallback:"flightHandler",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
                  success: function(json){
@@ -165,7 +166,7 @@ var johnsCompany = members[1].Company;
              
          });
          </script>
-         </head>
+    </head>
       <body>
       </body>
      </html>

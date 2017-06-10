@@ -17,14 +17,14 @@
 <script>
     $(document).ready(fucntion(){
         $("#btn").click(function(){
-            var value = $("input").serialize();
+            var value = $("input").serialize();     // 序列化表单数据 ----a=1&b=2&c=3&...的形式
         
             jQuery.ajax({
                 type:"get",
                 dataType:"json",
                 url:"./xxx.php",
                 asyn:"true",
-                data:value,
+                data:value,         // 当序列化之后，json格式的数据后台就能正确获取了 不然只能传递拼接的字符串
                 success:function(result){
                     //...
                     $("#showInfo").html(result);
