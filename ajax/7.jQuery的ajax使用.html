@@ -17,6 +17,9 @@
 <script>
     $(document).ready(fucntion(){
         $("#btn").click(function(){
+            // 如果要表单元素的值包含到序列字符串中，元素必须使用 name 属性---在input里面要有name="username"这种
+            // <input type="text" name="username">
+            // <input type="password" name="password"> 这种！！！
             var value = $("input").serialize();     // 序列化表单数据 ----a=1&b=2&c=3&...的形式
         
             jQuery.ajax({
