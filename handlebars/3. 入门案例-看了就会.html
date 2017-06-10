@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+    <!--  1.导入handlebars的文件  -->
+    <script src="./handlebars-v4.0.10.js" type="text/javascript"></script>
+    <!--  2.定义自己的模版，通过class或者id进行访问，所以要给id或者class值  -->
+    <script id="tpl" type="text/x-handlebars-template">
+        <div class="demo">
+            <h1>{{name}}</h1>
+            <p>{{content}}</p>
+        </div>
+    </script>
+
+    <!--  3.操作模版：（1）获取模版（2）预编译（3）传递数据（4）渲染显示 -->
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script>
+        $(function(){
+        //用jquery获取模板
+        var source   =  $("#tpl").html();
+        //原生方法
+    //    var source = document.getElementById('#tpl').innerHTML;
+        //预编译模板
+        var template = Handlebars.compile(source);
+        //模拟json数据
+        var context = { name: "liangting", content: "learn Handlebars"};
+        //匹配json内容----生成的就是html代码了
+        var html = template(context);
+        //输入模板-----直接在页面上显示html代码
+        $("body").html(html); 
+        });
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>
+
+
+

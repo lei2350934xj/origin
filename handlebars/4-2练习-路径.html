@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+    <!--  1.导入handlebars的文件  -->
+    <script src="./handlebars-v4.0.10.js" type="text/javascript"></script>
+    <!--  2.定义自己的模版，通过class或者id进行访问，所以要给id或者class值  -->
+    <script id="tpl" type="text/x-handlebars-template">
+        <div class="entry">
+            <h1>{{title.id}}</h1>
+            <h2>By{{title.name}}</h2>
+            <div class="body">
+                {{body}}
+            </div>
+        </div>
+    </script>
+
+    <!--  3.操作模版：（1）获取模版（2）预编译（3）传递数据（4）渲染显示 -->
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script>
+        $(function(){
+        // 1.获取模版
+        var source   =  $("#tpl").html();
+        // 2.预编译
+        var template = Handlebars.compile(source);
+        
+            
+        //模拟json数据
+        var content = {
+            "title":{"id":"66","name":"liang"},
+            "body":"my love"
+        }; 
+        // 3.传递数据并渲染显示
+        $("body").html(template(content)); 
+        });
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>
+
+
+
+

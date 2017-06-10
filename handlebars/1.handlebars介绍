@@ -1,0 +1,31 @@
+为什么需要模板引擎
+关于前端的模板引擎，我用一个公式来解释
+
+            模板引擎 
+模板 + 数据 ========> html页面
+模板引擎就像是html的解析生成器，将对应的模板填充完数据之后生成静态的html页面。它可以在浏览器端（比如angular中指令所用的模板）也可以在服务器端执行，不过一般用于服务器端。因为它的一个作用是抽象公共页面来重用，如果在服务端填充数据，可以减少回填数据给页面的ajax请求，从而提升浏览器端整体页面渲染速度。
+
+1.Handlebars简单介绍：   无逻辑   、  预加载 
+----https://segmentfault.com/a/1190000000342636?from=androidqq 这个看了就会了（干货）
+----http://www.cnblogs.com/qieguo/p/5811988.html 
+
+Handlebars是JavaScript一个语义模板库，通过对view和data的分离来快速构建Web模板。它采用"Logic-less template"（无逻辑模版）的思路，在加载时被预编译，而不是到了客户端执行到代码时再去编译， 这样可以保证模板加载和运行的速度。Handlebars兼容Mustache，你可以在Handlebars中导入Mustache模板。
+
+2.参考文章：    
+    Handlebars官网：http://handlebarsjs.com/
+
+----handlebars玩家指南：http://cnodejs.org/topic/56a2e8b1cd415452622eed2d
+
+    Handlebars中文介绍（王赛）：http://www.ghostchina.com/introducing-the-handlebars-js-templating-engine/
+
+    Handlebars中文文档 - 块级helpers（译自官方版）：https://segmentfault.com/a/1190000000347965
+
+    Handlebars.js 中文文档：http://keenwon.com/992.html
+
+    js模版引擎handlebars.js实用教程：http://www.cnblogs.com/iyangyuan/p/3471227.html
+
+    com.github.jknack.handlebars.Helper：http://www.programcreek.com/java-api-examples/index.php?api=com.github.jknack.handlebars.Helper
+    
+3.块级Helpers使用技巧：
+    Handlebars内置了with，each，if，unless，log这5种基本的Helpers。if标签只能判断true或false，不能执行一些复杂的运算逻辑。这些基本的Helpers并不能满足我们所有的需求，因此需要自定义一些辅助Helpers。
+    
