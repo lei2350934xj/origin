@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <div id="showInfo"></div>
+</body>
+</html>
+
+
+<script src="./jquery-3.2.1.min.js"></script>
+<script src=./handlebars-v4.0.10.js></script>
+
+
+<!--由于handlebars内置的helper功能有限，所以有的时候需要我们手动编写helper去实现一些复杂的功能
+            很多时候，我们需要更加复杂的if判断逻辑，显然默认的if不能满足我们的需求。
+1)本例中，利用Handlebars.js中Helper强大的扩展性，定义了一个compare，它用来比较两个数的大小，如果第一个数大于第二个数，满足条件继续执行，否则执行{{else}}部分。
+============================================================================================================
+2)Handlebars.registerHelper用来定义Helper，它有两个参数，第一个参数是Helper名称，第二个参数是一个回调函数，用来执行核心业务逻辑。本例中的函数，有三个参数，其中前两个参数是需要比较的两个数，第三个参数是固定的，就叫options，如果加了该参数，就说明这个Helper是一个Block，块级别的Helper，有一定的语法结构，调用的时候加#号，就像if那样,没有options就不需要加#
+============================================================================================================
+3)关于options的使用，小菜所了解的就是这种用法，return options.fn(this);表示满足条件继续执行，也就是执行{{#compare }}和{{else}}之间的代码；return options.inverse(this);表示不满足条件，也就是执行{{else}}和{{/compare}}之间的代码。
+
+4)由于这是一个块级别的Helper，所以调用要加#，例如：{{#compare age 20}}，其中的age就是当前上下文中读取到的年龄，20是小菜随便写的值，意思是只要age比20大，就显示，否则全显示?（问好）。
+    读者可以看出，Helper中写的可以是任何js代码，现在想想，就知道Handlebars有多灵活了吧！！ 
+-->
+
+<script id="tpl" type="text/x-handlebars-template">
+{{#each student}}
+         {{#if name}}
+           {{#compare age 20}}
+             <tr>
+               <td>{{name}}</td>
+               <td>{{sex}}</td>
+               <td>{{age}}</td>
+             </tr>
+           {{else}}
+             <tr>
+               <td>？</td>
+               <td>？</td>
+               <td>？</td>
+             </tr>
+           {{/compare}}
+         {{/if}}
+       {{/each}}    
+</script>
+
+
+<script>
+    $(function(){
+        var source = $("#tpl").html();
+        var template = Handlebars.compile(source);
+        
+        var context = {
+             "student": [
+                         {
+                             "name": "张三",
+                             "sex": "0",    // 一会儿还有一个transformat Helper根据 0 1 转化成正确的性别
+                             "age": 23
+                         },
+                         {
+                             "name":"王二狗",
+                             "sex": "0",
+                             "age": 22
+                         },
+                         {
+                             "name": "如花",
+                             "sex": "1",
+                             "age": 18
+                         }
+                     ]            
+        };
+        
+        // 自定义一个Helper
+        Handlebars.registerHelper('compare',function(v1,v2,options){
+            if(v1>v2){
+                // 满足添加条件继续执行
+                return options.fn(this);
+            }else{
+                // 不满足条件执行 else部分
+                return options.inverse(this);
+            }
+        });
+        var html = template(context);
+        
+        $("#showInfo").html(html);
+    });
+</script>

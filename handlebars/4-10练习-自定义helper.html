@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+     <!--基础html框架-->
+     <table>
+       <thead>
+         <tr>
+           <th>姓名</th>
+           <th>性别</th>
+           <th>年龄</th>
+           <th>个人主页</th>
+         </tr>
+       </thead>
+       <tbody id="tableList">
+         
+       </tbody>
+     </table>
+</body>
+</html>
+
+
+<script src="./jquery-3.2.1.min.js"></script>
+<script src=./handlebars-v4.0.10.js></script>
+
+<script id="tpl" type="text/x-handlebars-template">
+{{#each student}}
+         {{#if name}}
+           {{#compare age 20}}
+             <tr>
+               <td>{{name}}</td>
+               <td>{{transformat sex}}</td>
+               <td>{{age}}</td>
+             </tr>
+           {{else}}
+             <tr>
+               <td>？</td>
+               <td>？</td>
+               <td>？</td>
+             </tr>
+           {{/compare}}
+         {{/if}}
+       {{/each}}    
+</script>
+
+
+<script>
+    $(function(){
+        var source = $("#tpl").html();
+        var template = Handlebars.compile(source);
+        
+        var context = {
+             "student": [
+                         {
+                             "name": "张三",
+                             "sex": "0",    // 一会儿还有一个transformat Helper根据 0 1 转化成正确的性别
+                             "age": 23
+                         },
+                         {
+                             "name":"王二狗",
+                             "sex": "1",
+                             "age": 22
+                         },
+                         {
+                             "name": "如花",
+                             "sex": "1",
+                             "age": 18
+                         }
+                     ]            
+        };
+        
+        // 自定义一个Helper: 比较大小
+        Handlebars.registerHelper('compare',function(v1,v2,options){
+            if(v1>v2){
+                // 满足添加条件继续执行
+                return options.fn(this);
+            }else{
+                // 不满足条件执行 else部分
+                return options.inverse(this);
+            }
+        });
+        // 自定义一个Helper：转换性别代号0和1 。为正确的性别汉字
+        Handlebars.registerHelper('transformat',function(value){
+            if(0==value){
+                return "男";
+            }else if(1==value){
+                return "女";
+            }
+        });
+        var html = template(context);
+        
+        $("#tableList").html(html);
+    });
+</script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .entry {
+            width: 200px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 30px;
+        }
+    </style>    
+</head>
+
+<body>
+    <div id="showInfo"></div>
+</body>
+</html>
+
+
+<script src="./jquery-3.2.1.min.js"></script>
+<script src=./handlebars-v4.0.10.js></script>
+
+<!--
+一般情况下，Handlebars 模板在计算值时，会把传递给模板的参数作为上下文。
+    var source   = "<p>{{lastName}}, {{firstName}}</p>";
+    var template = Handlebars.compile(source);
+    template({firstName: "Alan", lastName: "Johnson"});
+结果如下：
+    <p>Johnson, Alan</p>
+不过也可以在模板的某个区域切换上下文，使用内置的 with helper即可。
+    <div class="entry">
+      <h1>{{title}}</h1>
+      {{#with author}}
+      <h2>By {{firstName}} {{lastName}}</h2>
+      {{/with}}
+    </div>    
+在使用下面数据作为上下文时：
+    {
+      title: "My first post!",
+      author: {
+        firstName: "Charles",
+        lastName: "Jolley"
+      }
+    }  
+会得到如下结果：  
+    <div class="entry">
+      <h1>My first post!</h1>
+      <h2>By Charles Jolley</h2>
+    </div>
+如果不用with 来切换上下文，则需要用author.firstname      author.lastname这样的方式去访问
+-->
+<script id="tpl" type="text/x-handlebars-template">
+    <div class="entry">
+        <h3>{{title}}</h3>
+        {{#with author}}
+            <h1>{{firstname}}{{lastname}}</h1>
+        {{/with}}
+        <!--   如果不用with 来切换上下文，则需要用author.firstname      author.lastname这样的方式去访问  -->
+        <h2>{{author.firstname}}{{author.lastname}}</h2>
+    </div>
+</script>
+
+<script>
+    $(function(){
+        var source = $("#tpl").html();
+        var template = Handlebars.compile(source);
+        
+        var context = {
+            title:"my love",
+            author:{
+                firstname:"lll",
+                lastname:"ttt"
+            }
+        };
+        
+        var html = template(context);
+        
+        $("#showInfo").html(html);
+    });
+</script>

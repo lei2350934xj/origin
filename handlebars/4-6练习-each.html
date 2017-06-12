@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <div id="showInfo"></div>
+</body>
+</html>
+
+<script src=./jquery-3.2.1.min.js></script>
+<script src="./handlebars-v4.0.10.js"></script>
+
+<script id="tpl1" type=text/x-handlebars-template>
+    <ul>
+        {{#each people}}
+        <!--  this来引用遍历的元素  -->
+        <!--  事实上，可以使用 this 表达式在任何上下文中表示对当前的上下文的引用。 -->
+        <!--  在使用 each 来循环列表的时候，可以使用 {{@index}} 来表示当前循环的索引值。 -->
+            <li>{{@index}}:{{this}}</li>   
+        <!--  对于 object 类型的循环，可以使用 {{@key}} 来表示 -->
+<!--
+            {{#each object}}
+              {{@key}}: {{this}}
+            {{/each}}
+-->
+        {{/each}}
+    </ul>
+</script>
+
+<!--还可以选择性的使用 else ，当被循环的是一个空列表的时候会显示其中的内容。-->
+<script id="tpl2" type=text/x-handlebars-template>
+    <ul>
+        <!--   这里的house是一个空的json数据    -->
+        {{#each house}}
+            <li>{{this}}</li>    
+        {{else}}
+            <p>No content</p>
+        {{/each}}
+    </ul>
+</script>
+
+<script>
+    $(document).ready(function(){
+        var source = $("#tpl1").html();
+        var template = Handlebars.compile(source);
+        
+        var context = {
+            people:["liming","zhangliang","dawang"]
+        };
+        
+        var html = template(context);
+        $("#showInfo").html(html);
+    });
+</script>

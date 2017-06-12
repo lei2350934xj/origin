@@ -25,7 +25,7 @@
     //    var source = document.getElementById('#tpl').innerHTML;
         //预编译模板
         var template = Handlebars.compile(source);
-        //模拟json数据
+        //模拟json数据------context称之为 上下文   也就是参数
         var context = { name: "liangting", content: "learn Handlebars"};
         //匹配json内容----生成的就是html代码了
         var html = template(context);

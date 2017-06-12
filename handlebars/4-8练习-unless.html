@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <div id="showInfo"></div>
+</body>
+</html>
+
+
+<script src="./jquery-3.2.1.min.js"></script>
+<script src=./handlebars-v4.0.10.js></script>
+
+<!--unless helper 和 if helper　是正好相反的，当表达式返回假值时就会渲染其内容：-->
+<!--如果在当前上下文中查找 license 返回假值，Handlebars 就会渲染这段警告信息。反之，就什么也不输出。-->
+<script id="tpl" type="text/x-handlebars-template">
+    {{#unless people}}
+        <p>空的，啥有效内容都没有</p>
+    {{/unless}}
+</script>
+
+
+<script>
+    $(function(){
+        var source = $("#tpl").html();
+        var template = Handlebars.compile(source);
+        
+        var context = {
+            author:{"name":"lili","age":"32"},
+            people:""
+        };
+        
+        var html = template(context);
+        
+        $("#showInfo").html(html);
+    });
+</script>

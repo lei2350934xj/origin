@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .entry {
+            width: 200px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 30px;
+        }
+    </style>    
+</head>
+
+<body>
+    <div id="showInfo"></div>
+</body>
+</html>
+
+
+<script src="./jquery-3.2.1.min.js"></script>
+<script src=./handlebars-v4.0.10.js></script>
+
+<!--
+Handlebars 支持简单的路径
+    <p>{{name}}</p>
+Handlebars 同样也支持嵌套的路径，这样的话就可以在当前的上下文中查找内部嵌套的属性了。
+    <div class="entry">
+      <h1>{{title}}</h1>
+      <h2>By {{author.name}}</h2>
+      <div class="body">
+        {{body}}
+      </div>
+    </div>  
+上面的模板使用下面这段上下文：
+    var context = {
+      title: "My First Blog Post!",
+      author: {
+        id: 47,
+        name: "Yehuda Katz"
+      },
+      body: "My first post. Wheeeee!"
+    };   
+这样一来 Handlebars 就可以直接把JSON数据拿来用了。
+巢状嵌套的 handlebars 路径也可以使用 ../， 这样会把路径指向父级（上层）上下文。
+    <h1>Comments</h1>
+    <div id="comments">
+      {{#each comments}}
+      <h2><a href="/posts/{{../permalink}}#{{id}}">{{title}}</a></h2>
+      <div>{{body}}</div>
+      {{/each}}
+    </div>    
+尽管 a 链接在输出时是以 comment 评论为上下文的，但它仍然可以退回上一层的上下文（post上下文）并取出permalink（固定链接）值。 
+    var context = {
+      post: {
+        body:'这是文章内容',
+        permalink: 'http://xx.com/xx',
+        comments:[{
+          title:'这篇文章不错，赞一个'
+        },{
+          title:'好文要顶！'
+        }]
+      }
+    }     
+../ 标识符表示对模板的父级作用域的引用，并不表示在上下文数据中的上一层。这是因为块级 helpers 可以以任何上下文来调用一个块级表达式，所以这个【上一层】的概念用来指模板作用域的父级更有意义些。
+
+Handlebars也允许通过一个 this 的引用来解决 helpers 和 数据字段间的名字冲突：
+    <p>{{./name}} or {{this/name}} or {{this.name}}</p> 
+上面的这一种方式都会将 name 字段引用到当前上下文上，而不是 helper 上的同名属性。        
+-->
+<script id="tpl" type="text/x-handlebars-template">
+    <div class="entry">
+        {{#with person}}
+            <p>person的name:{{this.name}}<br>company的name:{{../company.name}}</p>
+        {{/with}}
+    </div>
+</script>
+
+<script>
+    $(function(){
+        var source = $("#tpl").html();
+        var template = Handlebars.compile(source);
+
+            var context = {
+                "person":{"name":"lll"},
+                "company":{"name":"ttt"}                
+            };  
+        
+        var html = template(context);
+        
+        $("#showInfo").html(html);
+    });
+</script>

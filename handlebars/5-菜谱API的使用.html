@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="./jquery-3.2.1.min.js" type="text/javascript"></script>
+    <style>
+        *{margin:0;padding: 0;}
+        #box{
+            width: 200px;
+            height: 100px;
+            background-color: skyblue;
+            margin: 30px auto;
+            margin-bottom: 10px;
+        }
+        #showInfo {
+	        width: 960px;
+            margin: 0 auto;
+        }
+        .show-center {
+            display: block;
+            width: 230px;
+            height: 230px;
+            margin: 0 auto;
+        }
+        .font-red {
+            color: #340310;
+            font-size: 20px;
+        }
+        hr {
+            margin: 15px;
+        }
+    </style>
+ 
+<script src="./handlebars-v4.0.10.js"></script>   
+<script id="tpl" type="text/x-handlebars-template">
+<!--        <p>{{resultcode}}</p>-->
+    <!-- 1. Block块级，限定在result里面  -->
+    {{#result}}
+        <!--   2. data是数组，那我就遍历 each    -->
+        {{#each data}}
+            <!--      3. this指代当前遍历的元素，这里可以加也可以不加     -->
+            <h2>菜名：{{title}}</h2>
+            <p>标签：{{this.tags}}</p>
+            <p>简介：{{this.imtro}}</p>
+            <h3>主料：{{this.ingredients}}</h3>
+            <h4>辅料：{{this.burden}}</h4>
+            <!--     4. albums也是个数组，继续遍历       -->
+            {{#each albums}}
+                <!--      5.注意图片img的src={{this}}         -->
+                <img src="{{this}}" alt="" class="show-center">
+            {{/each}}
+            <!--      6. 同理，流程steps也是数组，继续遍历 注意写上遍历的数组名称 #each steps      -->
+            {{#each steps}}
+                <p><img src="{{img}}" alt=""></p>
+                <p class="font-red">{{step}}</p>
+            {{/each}}
+        {{/each}}
+    {{/result}}
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+            
+        $("#btnSearch").click(function(){
+            var $menuName = $("#menuName").val();   // jqeury的方法 val(),获取收入内容
+            var $showInfo = $("#showInfo");
+            
+            $showInfo.text("正在加载...");
+            
+            
+            // 下面使用的jsop方式：不是httpRequest方式发的请求 而是script方式发的请求-------跨域
+            $.ajax({
+                type:"get",
+                asyn:"true",
+  url:"http://apis.juhe.cn/cook/query?key=caef02cb8ee5ca399813608e2abf9b15&rn=10&pn=3&dtype=jsonp&menu="+encodeURIComponent($menuName),
+                // dtype=jsonp 必须加上 不然就访问的不是jsonp 而是默认的json了
+                // 输入的菜单名大多是中文 需要encodeURIComponent() 进行URL编码
+                
+                // 当dataType设置为jsonp的时候，会全局的创建一个script 然后 src=url...那些
+                dataType:"jsonp",  
+                
+                success:function(json){
+                    // 先清空容器---主要是清空 "正在加载...."
+                    $showInfo.text("");
+                    // 解析数据
+                    if(json.resultcode != 200) {
+                        $showInfo.text("亲，没查到");
+                        return;
+                    }
+                    // handlebars模版 使用
+                    var source = $("#tpl").html();
+                    var template = Handlebars.compile(source);
+                    var context = json;     // 这里的数据是从后台获取过来的
+                    var html = template(context);
+                    $("#showInfo").html(html);
+                },
+                failure:function(){
+                    $showInfo.text("错误");
+                },
+            });
+        }); 
+    });
+</script>    
+</head>
+
+<body>
+    <div id="box">
+        <form action="">
+            <input type="text" placeholder="菜谱名" id="menuName">
+            <input type="button" value="查询" id="btnSearch">
+        </form>
+    </div>
+    <div id="showInfo"></div>
+</body>
+</html>
+

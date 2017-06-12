@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+     <!--基础html框架-->
+     <table>
+       <thead>
+         <tr>
+           <th>姓名</th>
+           <th>性别</th>
+           <th>年龄</th>
+           <th>个人主页</th>
+         </tr>
+       </thead>
+       <tbody id="tableList">
+         
+       </tbody>
+     </table>
+</body>
+</html>
+
+
+<script src="./jquery-3.2.1.min.js"></script>
+<script src=./handlebars-v4.0.10.js></script>
+
+<!--
+把下面一段"debug helper"加载到你的JavaScript代码里,然后在模板文件里通过{{debug}}或是{{debug someValue}}方便调试数据
+
+    Handlebars.registerHelper("debug", function(optionalValue) {  
+      console.log("Current Context");
+      console.log("====================");
+      console.log(this);
+      if (optionalValue) {
+        console.log("Value");
+        console.log("====================");
+        console.log(optionalValue);
+      }
+    });
+-->
+<script id="tpl" type="text/x-handlebars-template">
+    {{#each student}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{sex}}</td>
+            <td>{{age}}</td>
+            <!--    debug调试使用       -->
+            <td>{{debug name}}</td>
+            {{#compare age 20}}
+            <!--     年龄大于20的童鞋个人主页被编码，直接展示出来        -->
+                <td>{{homepage}}</td>
+            {{else}}
+            <!--     而年龄小于20的童鞋，个人主页被当成html解析，显示的是一个超链接         -->
+                <td>{{{homepage}}}</td>
+            {{/compare}}
+        </tr>
+    {{/each}}
+</script>
+
+
+<script>
+    $(function(){
+        var source = $("#tpl").html();
+        var template = Handlebars.compile(source);
+        
+        var context = {
+             "student": [
+                         {
+                             "name":"张三",
+                             "sex":"0",    
+                             "age":"23",
+                             "homepage":"<a href='javascript:void(0);'>张三的个人主页</a>"
+                         },
+                         {
+                             "name":"李四",
+                             "sex":"1",
+                             "age":"22",
+                             "homepage":"<a href='javascript:void(0);'>李四的个人主页</a>"
+                         },
+                         {
+                             "name":"如花",
+                             "sex":"1",
+                             "age":"18",
+                             "homepage":"<a href='javascript:void(0);'>如花的个人主页</a>"
+                         }
+                     ]            
+        };
+        
+        // 自定义一个Helper: 比较大小
+        Handlebars.registerHelper('compare',function(v1,v2,options){
+            if(v1>v2){
+                // 满足添加条件继续执行
+                return options.fn(this);
+            }else{
+                // 不满足条件执行 else部分
+                return options.inverse(this);
+            }
+        });
+        // debug  调试
+        Handlebars.registerHelper("debug", function(optionalValue) {  
+          console.log("Current Context");
+          console.log("====================");
+          console.log(this);
+          if (optionalValue) {
+            console.log("Value");
+            console.log("====================");
+            console.log(optionalValue);
+          }
+        });
+        var html = template(context);
+        
+        $("#tableList").html(html);
+    });
+</script>

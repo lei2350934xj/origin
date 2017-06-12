@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+     <!--基础html框架-->
+     <table>
+       <thead>
+         <tr>
+           <th>姓名</th>
+           <th>性别</th>
+           <th>年龄</th>
+           <th>个人主页</th>
+         </tr>
+       </thead>
+       <tbody id="tableList">
+         
+       </tbody>
+     </table>
+</body>
+</html>
+
+
+<script src="./jquery-3.2.1.min.js"></script>
+<script src=./handlebars-v4.0.10.js></script>
+
+<!--
+编码： 把{{}}里面的内容转化为纯文本，像html里面的标签< 都用&lt; 代替
+html 解析： 把html的标签正确显示出来
+通过{{}}取出来的内容，都会经过编码，也就是说，如果取出的内容中包含html标签，会被转码成纯文本，不会被当成html解析，实际上就是做了类似这样的操作：把<用&lt;替代。
+    这样做是很好的，既可以显示html代码，又可以避免xss注入。这个功能在做代码展示的时候是非常有用的。
+    但是有时候我们可能需要解析html，不要转码，很简单，把{{}}换成{{{}}}就可以啦。
+    本例中，年龄大于20的童鞋个人主页被编码，直接展示出来；而年龄小于20的童鞋，个人主页被当成html解析，显示的是一个超链接。
+-->
+<script id="tpl" type="text/x-handlebars-template">
+    {{#each student}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{sex}}</td>
+            <td>{{age}}</td>
+            {{#compare age 20}}
+            <!--     年龄大于20的童鞋个人主页被编码，直接展示出来        -->
+                <td>{{homepage}}</td>
+            {{else}}
+            <!--     而年龄小于20的童鞋，个人主页被当成html解析，显示的是一个超链接         -->
+                <td>{{{homepage}}}</td>
+            {{/compare}}
+        </tr>
+    {{/each}}
+</script>
+
+
+<script>
+    $(function(){
+        var source = $("#tpl").html();
+        var template = Handlebars.compile(source);
+        
+        var context = {
+             "student": [
+                         {
+                             "name":"张三",
+                             "sex":"0",    
+                             "age":"23",
+                             "homepage":"<a href='javascript:void(0);'>张三的个人主页</a>"
+                         },
+                         {
+                             "name":"李四",
+                             "sex":"1",
+                             "age":"22",
+                             "homepage":"<a href='javascript:void(0);'>李四的个人主页</a>"
+                         },
+                         {
+                             "name":"如花",
+                             "sex":"1",
+                             "age":"18",
+                             "homepage":"<a href='javascript:void(0);'>如花的个人主页</a>"
+                         }
+                     ]            
+        };
+        
+        // 自定义一个Helper: 比较大小
+        Handlebars.registerHelper('compare',function(v1,v2,options){
+            if(v1>v2){
+                // 满足添加条件继续执行
+                return options.fn(this);
+            }else{
+                // 不满足条件执行 else部分
+                return options.inverse(this);
+            }
+        });
+        var html = template(context);
+        
+        $("#tableList").html(html);
+    });
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .entry {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #ccc;
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="showInfo"></div>
+</body>
+</html>
+
+<script src=./jquery-3.2.1.min.js></script>
+<script src="./handlebars-v4.0.10.js"></script>
+
+<!--handlebars表达式，是以 {{ 开始，跟一些内容，然后以 }} 结束。-->
+<script id="tpl1" type=text/x-handlebars-template>
+    <div class="entry">
+        <p>name:{{name}}</p>
+        <p>age:{{age}}</p>
+    </div>
+</script>
+
+<script>
+    $(document).ready(function(){
+        var source = $("#tpl1").html();
+        var template = Handlebars.compile(source);
+        
+        var context = {
+            name:"xiaozhang",
+            age:"13"
+        };
+        
+        var html = template(context);
+        $("#showInfo").html(html);
+    });
+</script>

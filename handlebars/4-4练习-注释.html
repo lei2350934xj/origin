@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .entry {
+            width: 200px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 30px;
+        }
+    </style>    
+</head>
+
+<body>
+    <div id="showInfo"></div>
+</body>
+</html>
+
+
+<script src="./jquery-3.2.1.min.js"></script>
+<script src=./handlebars-v4.0.10.js></script>
+
+<!--
+你可以在 handlebars 代码中加注释，就跟在代码中写注释一样。对于有一定程度的逻辑的部分来说，这倒是一个很好的实践
+    单行注释{{!注释内容}}
+    多行注释{{!--注释内容--}}
+    
+注释是不会最终输出到返回结果中的。如果你希望把注释展示出来，就使用 HTML 的注释就行了。    
+-->
+<script id="tpl" type="text/x-handlebars-template">
+    <div class="entry">
+        {{!单行注释-这里的东西不会显示出来}}
+        <p>{{person.name}}</p>
+        {{#with company}}
+            <p>{{name}}</p>
+            <!--HTML 注释，这里会输出显示-->
+        {{/with}}
+    </div>
+</script>
+
+<script>
+    $(function(){
+        var source = $("#tpl").html();
+        var template = Handlebars.compile(source);
+
+            var context = {
+                "person":{"name":"lll"},
+                "company":{"name":"ttt"}                
+            };  
+        
+        var html = template(context);
+        
+        $("#showInfo").html(html);
+    });
+</script>
