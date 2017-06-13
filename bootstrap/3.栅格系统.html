@@ -23,19 +23,22 @@
     大屏幕 大桌面显示器 (≥1200px)    类前缀 .col-lg-
     .container 最大宽度	None （自动）	750px	970px	1170px
 -->
-<!--    <div class="container">-->
+        <!-- 所有“列（column）必须放在 ” .row 内 -->
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
-          <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+          <div class="col-sm-6 col-md-4">.col-sm-6 .col-md-4</div>
         </div>
         <div class="row">
           <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
           <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
-          <!-- Optional: clear the XS cols if their content doesn't match in height -->
           <div class="clearfix visible-xs-block"></div>
           <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
         </div>
-<!--    </div>-->
+        <!-- .col-md-pull-* 类就可以很容易的改变列（column）的顺序 -->
+        <div class="row">
+          <div class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3</div>
+          <div class="col-md-3 col-md-pull-9">.col-md-3 .col-md-pull-9</div>
+        </div>
     
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
