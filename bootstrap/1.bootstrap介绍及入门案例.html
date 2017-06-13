@@ -1,0 +1,57 @@
+<!--基本使用流程如下:
+1.惯例，我们先要去它的官网http://v3.bootcss.com/getting-started/进行下载：(这里下载生成环境的)
+2.下载成功后可以得到一个.zip的文件，解压后我们可以得到一个包含css、fonts和js的文件夹
+3.新建一个项目，把上述三个文件添加进工程里
+4.新建一个index.html
+回到bootstrap的官网，导航栏选择“起步”，向下拖动或在右侧选择“基本模板”，将下列代码进行复制，粘贴到index.html中
+5.点击index.html即可看到运行效果
+        脚本放在body标签或者html标签底部的原因：因为有些script里面要加载资源，回阻碍html结构的渲染。
+        放在底部当html结构渲染完成再加载script就不会影响页面展示。
+        而样式文件css是在上方引入的，为了不影响展示效果，所以要先导入样式。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!--  设置当前html文件的字符编码  -->
+    <meta charset="utf-8">
+    <!--  设置浏览器兼容模式版本-----这句话的意思：让IE使用最新的渲染引擎来渲染  -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--  声明当前网页在移动端浏览器中展示的相关设置  -->
+    <!--  
+        - 视口的作用：在移动浏览器中，当页面宽度超出设备，浏览器内部虚拟的一个页面容器(container)，
+                   将这个页面容器缩放到设备这么大，然后展示。
+        - 目前大多数手机浏览器的视口(承载页面的容器)，默认的宽度都是980
+        - 视口的宽度可以通过meta标签设置，一般我们把视口width设置为设备一样宽，即width=device-width
+        - 常见视口属性:
+                    width:视口的宽度
+                    initial-scale:初始化缩放
+                    user-scalable:是否允许用户自行缩放 (yes/no,默认no,不可自行缩放)
+                    minimum-scale:最小缩放 maximum-scale:最大缩放
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!--  上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！  -->
+    
+    <title>Bootstrap Template</title>
+    
+    <!--  Bootstrap  -->
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    
+    <!--  条件注释:判断条件满足时，就会执行注释中的HTML代码,不满足就当作注释  -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->   
+</head>
+
+<body>
+    <h1>你好，世界！</h1>
+    
+    <!--  Bootstrap的所有JS组件都是依赖jQuery的，所以要先引用jQuery的库  -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+</body>
+</html>

@@ -1,0 +1,273 @@
+/*
+*约定：（1）样式都通过ID去限定（2）尽可能多使用直接子代选择器 >
+*/
+/*公共样式*/
+body {
+    font-family: Microsoft YaHei, Simsun;
+}
+
+/*字体图标*/
+@font-face {
+    font-family: "weijinsuo";
+    src: url("../fonts/glyphicons-halflings-regular.eot") format("embedded-opentype"),
+        url("../fonts/glyphicons-halflings-regular.svg") format("svg"),
+        url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"),
+        url("../fonts/glyphicons-halflings-regular.woff") format("woff");
+}
+
+/*
+    自定义button样式:把bootstrap.css里面的btn-default之类的复制过来，自己重新命名，并根据需要修改里面的样式
+*/
+.btn-register {
+  color: #f8eded;
+  background-color: #f08911;
+  border-color: #ccc;
+}
+.btn-register:focus,
+.btn-register.focus {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #8c8c8c;
+}
+.btn-register:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+.btn-register:active,
+.btn-register.active,
+.open > .dropdown-toggle.btn-register {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+.btn-register:active:hover,
+.btn-register.active:hover,
+.open > .dropdown-toggle.btn-register:hover,
+.btn-register:active:focus,
+.btn-register.active:focus,
+.open > .dropdown-toggle.btn-register:focus,
+.btn-register:active.focus,
+.btn-register.active.focus,
+.open > .dropdown-toggle.btn-register.focus {
+  color: #333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+.btn-register:active,
+.btn-register.active,
+.open > .dropdown-toggle.btn-register {
+  background-image: none;
+}
+.btn-register.disabled:hover,
+.btn-register[disabled]:hover,
+fieldset[disabled] .btn-register:hover,
+.btn-register.disabled:focus,
+.btn-register[disabled]:focus,
+fieldset[disabled] .btn-register:focus,
+.btn-register.disabled.focus,
+.btn-register[disabled].focus,
+fieldset[disabled] .btn-register.focus {
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-register .badge {
+  color: #fff;
+  background-color: #333;
+}
+
+/*
+    自定义样式:导航
+*/
+.navbar-mynav {
+  background-color: #fff;
+  border-color: #f5f5f5;
+}
+.navbar-mynav .navbar-brand {
+  color: #777;
+}
+.navbar-mynav .navbar-brand:hover,
+.navbar-mynav .navbar-brand:focus {
+  color: #5e5e5e;
+  background-color: transparent;
+}
+.navbar-mynav .navbar-text {
+  color: #777;
+}
+.navbar-mynav .navbar-nav > li > a {
+  color: #777;
+}
+.navbar-mynav .navbar-nav > li > a:hover,
+.navbar-mynav .navbar-nav > li > a:focus {
+  color: #333;
+  background-color: transparent;
+}
+.navbar-mynav .navbar-nav > .active > a,
+.navbar-mynav .navbar-nav > .active > a:hover,
+.navbar-mynav .navbar-nav > .active > a:focus {
+  color: #555;
+  background-color: #e7e7e7;
+}
+.navbar-mynav .navbar-nav > .disabled > a,
+.navbar-mynav .navbar-nav > .disabled > a:hover,
+.navbar-mynav .navbar-nav > .disabled > a:focus {
+  color: #ccc;
+  background-color: transparent;
+}
+.navbar-mynav .navbar-toggle {
+  border-color: #ddd;
+}
+.navbar-mynav .navbar-toggle:hover,
+.navbar-mynav .navbar-toggle:focus {
+  background-color: #ddd;
+}
+.navbar-mynav .navbar-toggle .icon-bar {
+  background-color: #888;
+}
+.navbar-mynav .navbar-collapse,
+.navbar-mynav .navbar-form {
+  border-color: #e7e7e7;
+}
+.navbar-mynav .navbar-nav > .open > a,
+.navbar-mynav .navbar-nav > .open > a:hover,
+.navbar-mynav .navbar-nav > .open > a:focus {
+  color: #555;
+  background-color: #e7e7e7;
+}
+@media (max-width: 767px) {
+  .navbar-mynav .navbar-nav .open .dropdown-menu > li > a {
+    color: #777;
+  }
+  .navbar-mynav .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-mynav .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #333;
+    background-color: transparent;
+  }
+  .navbar-mynav .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-mynav .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-mynav .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+  }
+  .navbar-mynav .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-mynav .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-mynav .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+  }
+}
+.navbar-mynav .navbar-link {
+  color: #777;
+}
+.navbar-mynav .navbar-link:hover {
+  color: #333;
+}
+.navbar-mynav .btn-link {
+  color: #777;
+}
+.navbar-mynav .btn-link:hover,
+.navbar-mynav .btn-link:focus {
+  color: #333;
+}
+.navbar-mynav .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-mynav .btn-link:hover,
+.navbar-mynav .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-mynav .btn-link:focus {
+  color: #ccc;
+}
+/*所有以icon-开头的,或者里面有icon-的*/
+[class^="icon-"],
+[class*=" icon-"]{
+    font-family: weijinsuo;
+}
+
+/*
+    在每个 <p> 元素的内容之后插入新内容
+    p::after
+    { 
+        content:"台词：";
+    }
+*/
+.icon-mobilephone::before {
+    content: ""\e908";
+    font-size: 12px;
+}
+.icon-telephone::before {
+    content: "\e909";
+    font-size: 15px;
+}
+
+/*
+*头部区域
+*/
+#header {
+    height: 200px;
+/*    background-color: #f2f2f2;*/
+}
+
+#header > .topbar {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #c0c0c0;
+}
+#header > .topbar > .container > .row > div {
+    height: 40px;
+}
+/*下一个兄弟
+#header > .topbar > .container > .row > div 可以选择到第一个div
++div 意思就是选择满足该条件的后面的所有兄弟div
+*/
+#header > .topbar > .container > .row > div + div {
+    border-left: 1px solid #ccc;
+}
+
+#header .mobile-link {
+    font-size: 12px;
+    color: #888;
+}
+#header .mobile-link:hover {
+    font-size: 12px;
+    color: #fc0a0a;
+    text-decoration: none;
+}
+
+#header .mobile-link > img {
+    position: absolute;
+    top: 29px;
+    left: 3px;
+    display: none;
+}
+
+#header .mobile-link:hover > img {
+    display: block;
+}
+/*
+#header > .topbar > .container > .row > div{
+    height: 40px;
+    background-color: green;
+}
+#header > .topbar > .container > .row > div:nth-of-type(2n+1){
+    height: 40px;
+    background-color: blue;
+}
+*/
+
+/*
+*测试样式区域
+*/
+section {
+    height: 200px;
+    background-color: skyblue;
+} 
+section:nth-of-type(2n+1) {
+    /*  选择1，3，5的section  */
+    background-color: pink;
+}
+
+/*
+*脚注区域
+*/
+#footer {
+    height: 200px;
+    background-color: #f2f2f2;
+}

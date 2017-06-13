@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    
+    <title>Bootstrap Template</title>
+    
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->   
+    <style>
+        .container {
+	        height: 100px;
+            background-color: #f2f2f2;
+        }
+        /* 注意：当我们使用最小宽度(min-width)作为判断条件的时候一定要从小到大来判断
+                因为CSS从上往下执行.如果用max-width，则反之。
+            自己写响应式：
+            .container {                // 小于768px的 默认 100%
+	           width: 100%;
+            }  
+            @media (min-width:768px) {        // 屏幕宽度大于768px时
+                .container {
+	                width: 750px;             // 屏幕展示750px
+                }
+            } 
+            @media (min-width:992px) {
+                .container {
+	                width: 970px;
+                }
+            }        
+            @media (min-width:1200px) {    // 屏幕宽度大于1200px时
+                .container {
+	                width: 1170px;        // 屏幕展示1170px
+                }
+            }
+        */
+    </style>
+</head>
+
+<body>
+    <!-- 布局容器container:也就是常说的版心，但是是响应式的，页面宽度变化依旧可以居中
+        这个container有几个档位，也就是CSS3媒体查询的判断节点
+    -->
+    <div class="container">
+        好东西
+    </div>
+    
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+</body>
+</html>
