@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    
+    <title>Bootstrap Template</title>
+    
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->   
+</head>
+
+<body>
+    <!-- Single button -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        按钮式下拉菜单 <span class="caret"></span>
+      </button>
+    <!--  把按钮变成下拉菜单：在div.btn-group里面添加ul.dropdown-menu  -->
+      <ul class="dropdown-menu">
+        <li><a href="#">html</a></li>
+        <li><a href="#">css</a></li>
+        <li><a href="#">javascript</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">swift oc</a></li>
+      </ul>
+    </div> 
+    
+    <!--   分裂式按钮下拉菜单     -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-danger">分裂式下拉菜单</button>
+      <!--   也就是多写一个按钮   -->
+      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">html</a></li>
+        <li><a href="#">css</a></li>
+        <li><a href="#">javascript</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">swift oc</a></li>
+      </ul>
+    </div> 
+    
+    <!-- Large button group -->
+    <div class="btn-group">
+      <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Large button <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">css</a></li>
+      </ul>
+    </div>
+
+    <!-- Small button group -->
+    <div class="btn-group">
+      <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Small button <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">js</a></li>
+      </ul>
+    </div>
+
+    <!-- Extra small button group -->
+    <div class="btn-group">
+      <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Extra small button <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">html</a></li>
+      </ul>
+    </div>          
+    
+    <br><br><br><br>
+    
+    <!--  上拉菜单显示  -->
+    <div class="btn-group dropup">
+      <button type="button" class="btn btn-default">Dropup</button>
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">html</a></li>
+        <li><a href="#">css</a></li>
+        <li><a href="#">javascript</a></li>
+      </ul>
+    </div>    
+    
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+</body>
+</html>

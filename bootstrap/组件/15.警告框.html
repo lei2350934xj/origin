@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    
+    <title>Bootstrap Template</title>
+    
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->   
+</head>
+
+<body>
+    <!-- 将任意文本和一个可选的关闭按钮组合在一起就能组成一个警告框，.alert 类是必须要设置的，
+        另外我们还提供了有特殊意义的4个类（例如，.alert-success），代表不同的警告信息 
+    -->
+    <div class="alert alert-success" role="alert">一段很有道理的文字</div>
+    <div class="alert alert-info" role="alert">一段很有道理的文字</div>
+    <div class="alert alert-warning" role="alert">一段很有道理的文字</div>
+    <div class="alert alert-danger" role="alert">一段很有道理的文字</div>
+    
+    <!--  可关闭的警告框  -->
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>警告！！!</strong>请检查一下程序
+    </div>
+    
+    <!--  用 .alert-link 工具类，可以为链接设置与当前警告框相符的颜色  -->
+    <div class="alert alert-success" role="alert">
+      <a href="#" class="alert-link">一段很有道理的文字</a>
+    </div>
+    <div class="alert alert-info" role="alert">
+      <a href="#" class="alert-link">一段很有道理的文字</a>
+    </div>
+    <div class="alert alert-warning" role="alert">
+      <a href="#" class="alert-link">一段很有道理的文字</a>
+    </div>
+    <div class="alert alert-danger" role="alert">
+      <a href="#" class="alert-link">一段很有道理的文字</a>
+    </div>
+    
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+</body>
+</html>

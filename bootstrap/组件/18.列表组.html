@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    
+    <title>Bootstrap Template</title>
+    
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->   
+</head>
+
+<body>  
+    <!--  最简单的列表组仅仅是一个带有多个列表条目的无序列表，另外还需要设置适当的类  -->
+    <ul class="list-group">
+      <li class="list-group-item">html</li>
+      <li class="list-group-item">css</li>
+      <li class="list-group-item">js</li>
+      <li class="list-group-item">jquery</li>
+      <li class="list-group-item">bootstrap</li>
+    </ul>
+    
+    <!--  给列表组加入徽章组件，它会自动被放在右边  -->
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge"><i class="glyphicon glyphicon-pencil"></i></span>
+            一段很有道理的文字
+        </li>
+    </ul>
+    
+    <!--  用 <a> 标签代替 <li> 标签可以组成一个全部是链接的列表组（还要注意的是，我们需要将 <ul> 标签替换
+        为 <div> 标签）。没必要给列表组中的每个元素都加一个父元素  
+    -->
+    <div class="list-group">
+      <a href="#" class="list-group-item">
+        一段很有道理的文字
+      </a>
+      <a href="#" class="list-group-item">一段很有道理的文字</a>
+      <a href="#" class="list-group-item active">一段很有道理的文字</a>
+      <a href="#" class="list-group-item">一段很有道理的文字</a>
+      <a href="#" class="list-group-item">一段很有道理的文字</a>
+    </div>
+    
+    <!--  列表组中的元素也可以直接就是按钮（也同时意味着父元素必须是 <div> 而不能用 <ul> 了），并且无需为
+        每个按钮单独包裹一个父元素。注意不要使用标准的 .btn 类！  
+    -->
+    <div class="list-group">
+      <button type="button" class="list-group-item">按钮1</button>
+      <button type="button" class="list-group-item active">按钮2</button>
+      <button type="button" class="list-group-item">按钮3</button>
+      <button type="button" class="list-group-item">按钮4</button>
+      <button type="button" class="list-group-item">按钮5</button>
+    </div>
+    
+    <div class="list-group">
+      <a href="#" class="list-group-item disabled">一段很有道理的文字</a>
+      <a href="#" class="list-group-item">一段很有道理的文字</a>
+      <a href="#" class="list-group-item active">一段很有道理的文字</a>
+      <a href="#" class="list-group-item">一段很有道理的文字</a>
+      <a href="#" class="list-group-item">一段很有道理的文字</a>
+    </div>
+               
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-success">D一段很有道理的文字</a>
+      <a href="#" class="list-group-item list-group-item-info">C一段很有道理的文字</a>
+      <a href="#" class="list-group-item list-group-item-warning">P一段很有道理的文字</a>
+      <a href="#" class="list-group-item list-group-item-danger">V一段很有道理的文字</a>
+    </div>               
+           
+    <!-- 列表组中的每个元素都可以是任何 HTML 内容，甚至是像下面的带链接的列表组 -->
+    <div class="list-group">
+      <a href="#" class="list-group-item">
+        <h4 class="list-group-item-heading">List group item heading</h4>
+        <p class="list-group-item-text">一段很有道理的文字</p>
+      </a>
+      <a href="#" class="list-group-item active">
+        <h4 class="list-group-item-heading">List group item heading</h4>
+        <p class="list-group-item-text">一段很有道理的文字</p>
+      </a>
+      <a href="#" class="list-group-item">
+        <h4 class="list-group-item-heading">List group item heading</h4>
+        <p class="list-group-item-text">一段很有道理的文字</p>
+      </a>      
+    </div>   
+                           
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    
+    <title>Bootstrap Template</title>
+    
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->   
+</head>
+
+<body>   
+    <!--  模态框经过了优化，更加灵活，以弹出对话框的形式出现
+        千万不要在一个模态框上重叠另一个模态框  
+    -->
+    
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      Launch demo modal
+    </button>
+
+        <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                <p>一段很有道理的文字</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    <!--  用法：
+        通过 data 属性或 JavaScript 调用模态框插件，可以根据需要动态展示隐藏的内容。
+        模态框弹出时还会为 <body> 元素添加 .modal-open 类，从而覆盖页面默认的滚动行为，
+        并且还会自动生成一个 .modal-backdrop 元素用于提供一个可点击的区域，点击此区域就即可关闭模态框。
+    -->
+    <!--  1.通过 data 属性
+        不需写 JavaScript 代码也可激活模态框。通过在一个起控制器作用的元素（例如：按钮）上添加 data-toggle="modal" 
+        和 data-target="#foo" 属性，再或者 href="#foo" 属性，用于指向被控制的模态框
+    -->
+    <button data-toggle="modal" data-target="#myModal">我自己写的触发模态框的按钮</button>
+    <!--  2.通过 JavaScript 调用
+        只需一行 JavaScript 代码，即可通过元素的 id myModal 调用模态框：看下方js代码
+    -->
+    <button id="mybtn">我自己写的js按钮，控制模态框</button>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+       $(function(){
+           $("#mybtn").click(function(){    // 点击自己写的按钮触发 模态框
+               $("#myModal").modal();
+           });
+       });
+    </script>
+    
+    
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+</body>
+</html>
