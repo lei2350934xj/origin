@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    
+    <title>Bootstrap Template</title>
+    
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->   
+</head>
+
+<body>
+    <a href="#" class="btn btn-default active">我不光是按钮更是超链接</a> 
+    <button class="btn btn-warning btn-block">输入信息</button>
+    <input type="text" class="btn btn-danger btn-sm" value="注册">
+    <input type="text" class="btn btn-primary btn-xs" value="提交">
+    <!--  
+        如果 <a> 元素被作为按钮使用 -- 并用于在当前页面触发某些功能 -- 而不是用于链接其他页面或链接当前页面中的其他部分，
+        那么，务必为其设置 role="button" 属性。
+    -->
+    <a href="#" class="btn btn-default btn-lg active" role="button">超链接做内部按钮</a>
+    <a href="#" class="btn btn-default btn-lg disabled" role="button">超链接做内部按钮-设置样式.disabled</a>
+    <button type="button" class="btn btn-default btn-lg" disabled="disabled">无法点击的按钮-设置属性disabled</button>
+    
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+</body>
+</html>

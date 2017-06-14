@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    
+    <title>Bootstrap Template</title>
+    
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->   
+</head>
+
+<body>
+    <!--  单独的表单控件会被自动赋予一些全局样式。所有设置了 .form-control 类的 <input>、<textarea> 
+        和 <select> 元素都将被默认设置宽度属性为 width: 100%;。 将 label 元素和前面提到的控件包裹在
+        form-group 中可以获得最好的排列。
+        
+          不要将表单组直接和输入框组混合使用。建议将输入框组嵌套到表单组中使用。  
+    -->
+    <form action="">
+        <div class="form-group">
+            <label for="id1">Email</label>
+            <input type="email" class="form-control" id="id1" placeholder="Email">
+        </div>   
+        <div class="form-group">
+            <label for="id2">Password</label>
+            <input type="password" class="form-control" id="id2" placeholder="password">
+        </div>   
+        <div class="form-group">
+            <label for="id3">选择文件</label>
+            <input type="file" id="id3">
+        </div>    
+        <div class="form-group">
+            <input type="checkbox">选择
+        </div>                     
+        <div class="form-group">
+            <input type="button" class="btn btn-danger" value="提交">
+        </div>     
+    </form>
+    
+    <form action="" class="form-inline">
+        <div class="form-group">
+            <label for="username">用户名</label>
+            <input type="text" id="username">
+        </div>
+        <div class="form-group">
+            <label for="password">密码</label>
+            <input type="password" id="password">
+        </div>
+    </form>
+    
+    <form class="form-inline">
+      <div class="form-group">
+        <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+          <div class="input-group-addon">.00</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Transfer cash</button>
+    </form>
+    
+    <!--  
+        通过为表单添加 .form-horizontal 类，并联合使用 Bootstrap 预置的栅格类，可以将 label 标签和控件组水平并排布局。
+        这样做将改变 .form-group 的行为，使其表现为栅格系统中的行（row），因此就无需再额外添加 .row 了。
+    -->
+    <form action="" class="form-horizontal">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+            <input type="text" class="col-md-10" id="inputEmail3">
+        </div>
+    </form>
+    
+    <label class="checkbox-inline">
+      <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+    </label>
+    <br>
+    <label class="radio-inline">
+      <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+    </label>
+    
+    <select class="form-control">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+    
+    <!--  对于标记了 multiple 属性的 <select> 控件来说，默认显示多选项  -->
+    <select name="" id="" class="form-control" multiple>
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+        <option value="">4</option>
+        <option value="">5</option>
+        <option value="">6</option>
+        <option value="">7</option>
+    </select>
+    
+    <!--  表单静态控件  -->
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">我是账户</p>
+            </div>
+        </div>
+    </form>
+    
+    <form class="form-inline">
+      <div class="form-group">
+        <label class="sr-only">Email</label>
+        <p class="form-control-static">email@example.com</p>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword2" class="sr-only">Password</label>
+        <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-default">Confirm identity</button>
+    </form>    
+    
+    <input class="form-control input-lg" type="text" placeholder=".input-lg">
+    <input class="form-control" type="text" placeholder="Default input">
+    <input class="form-control input-sm" type="text" placeholder=".input-sm">
+
+    <select class="form-control input-lg">...</select>
+    <select class="form-control">...</select>
+    <select class="form-control input-sm">...</select>
+    
+    <form class="form-horizontal">
+      <div class="form-group form-group-lg">
+        <label class="col-sm-2 control-label" for="formGroupInputLarge">Large label</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" id="formGroupInputLarge" placeholder="Large input">
+        </div>
+      </div>
+      <div class="form-group form-group-sm">
+        <label class="col-sm-2 control-label" for="formGroupInputSmall">Small label</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" id="formGroupInputSmall" placeholder="Small input">
+        </div>
+      </div>
+    </form> 
+    
+    <div class="row">
+      <div class="col-xs-2">
+        <input type="text" class="form-control" placeholder=".col-xs-2">
+      </div>
+      <div class="col-xs-3">
+        <input type="text" class="form-control" placeholder=".col-xs-3">
+      </div>
+      <div class="col-xs-4">
+        <input type="text" class="form-control" placeholder=".col-xs-4">
+      </div>
+      <div class="col-xs-3">
+        <input type="text" class="form-control" placeholder=".col-xs-3">
+      </div>
+    </div>          
+    
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+</body>
+</html>
