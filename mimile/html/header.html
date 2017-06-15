@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /** 清除内外边距 **/
+        body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
+        dl, dt, dd, ul, ol, li, em,
+        pre,
+        form, fieldset, legend, button, input, textarea,
+        th, td {
+          margin: 0;
+          padding: 0;
+        }
+
+        .inner_c {
+          width: 1200px;
+          margin: 0 auto;
+        }
+
+        header {
+          height: 100px;
+          background-color: #fafafa;
+          overflow: hidden;
+        }
+
+        .hot {
+          height: 70px;
+        }
+
+        .welcome {
+          height: 30px;
+        }
+        .welcome p {
+          float: left;
+          margin-right: 510px;
+          font-size: 14px;
+          line-height: 30px;
+          color: #777;
+        }
+        .welcome p span.spn1 {
+          color: #fe4455;
+        }
+        .welcome p span.spn2 {
+          color: #333;
+        }
+        .welcome p a {
+          color: #333;
+          text-decoration: none;
+        }
+        .welcome p a:hover {
+          text-decoration: underline;
+        }
+        .welcome ul {
+          list-style: none;
+        }
+        .welcome ul li {
+          float: left;
+          width: 80px;
+          margin-left: 10px;
+          font-size: 14px;
+          line-height: 30px;
+          color: #777;
+        }
+        .welcome ul li em {
+          font-size: 14px;
+          line-height: 30px;
+          margin-left: 5px;
+        }
+
+        .top {
+          overflow: hidden;
+        }
+        .top .logo {
+          float: left;
+          display: block;
+          width: 136px;
+          height: 57px;
+          margin-top: 27px;
+          margin-left: 52px;
+        }
+        .top .searchBar {
+          position: relative;
+          float: left;
+          width: 500px;
+          height: 42px;
+          margin-top: 14px;
+          margin-left: 112px;
+          background-color: #D93600;
+        }
+        .top .searchBar .keyWord {
+          position: absolute;
+          top: 3px;
+          left: 3px;
+          width: 414px;
+          height: 32px;
+          font-size: 14px;
+          background-color: #fff;
+        }
+        .top .searchBar label {
+          position: absolute;
+          top: 12px;
+          left: 10px;
+          font-size: 14px;
+          color: #777;
+        }
+        .top .searchBar .searchBtn {
+          position: absolute;
+          top: 3px;
+          right: 3px;
+          width: 76px;
+          height: 36px;
+          text-align: center;
+          color: #f0f0f0;
+          font-size: 16px;
+          line-height: 36px;
+        }
+        .top .searchBar .searchBtn:hover {
+          cursor: pointer;
+        }
+        .top .shoppingCart {
+          position: relative;
+          float: left;
+          width: 126px;
+          height: 40px;
+          background-color: #fafafa;
+          border: 1px solid #f0f0f0;
+          margin-top: 14px;
+          margin-left: 176px;
+        }
+        .top .shoppingCart i {
+          position: absolute;
+          top: 10px;
+          left: 5px;
+          width: 20px;
+          height: 16px;
+        }
+        .top .shoppingCart em {
+          position: absolute;
+          top: 10px;
+          left: 30px;
+          color: #777;
+          font-size: 14px;
+        }
+        .top .shoppingCart .cart-cal {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          font-size: 14px;
+          color: #777;
+        }
+        .top .qrCode {
+          float: right;
+          width: 73px;
+          height: 73px;
+          margin-top: 14px;
+          background: url(../images/6.jpg) no-repeat;
+        }
+
+        nav {
+          position: relative;
+        }
+        nav .line {
+          position: absolute;
+          top: 40px;
+          left: 0;
+          width: 100%;
+          border-bottom: 2px solid #d93600;
+        }
+        nav .top2 {
+          margin-top: 27px;
+        }
+        nav .top2 dl {
+          position: relative;
+          float: left;
+          width: 190px;
+          /* height: 342px; */
+        }
+        nav .top2 dl:hover > dd {
+          cursor: pointer;
+          display: block;
+        }
+        nav .top2 dl dt {
+          height: 40px;
+          background-color: #d93600;
+          font-size: 14px;
+          line-height: 40px;
+          color: white;
+        }
+        nav .top2 dl dt span {
+          display: inline-block;
+          margin-left: 80px;
+          font-size: 12px;
+        }
+        nav .top2 dl dt:hover {
+          cursor: pointer;
+        }
+        nav .top2 dl dd {
+          z-index: 1000;
+          position: absolute;
+          top: 40px;
+          left: 0;
+          display: none;
+          width: 190px;
+          height: 300px;
+          margin-top: 1px;
+          background-color: #dfdfdf;
+        }
+        nav .top2 dl dd ol {
+          padding-left: 20px;
+          list-style: none;
+        }
+        nav .top2 dl dd ol li {
+          width: 170px;
+          height: 30px;
+          color: #777;
+          font-size: 14px;
+          line-height: 30px;
+        }
+        nav .top2 ul {
+          list-style: none;
+        }
+        nav .top2 ul li {
+          float: left;
+          width: 120px;
+          height: 40px;
+          margin-right: 10px;
+          line-height: 40px;
+          text-align: center;
+          font-size: 16px;
+          color: #777;
+        }
+        nav .top2 ul li:hover {
+          color: red;
+          cursor: pointer;
+        }
+        nav .top2 ul li:first-child {
+          margin-left: 10px;
+        }
+
+        /*# sourceMappingURL=index.css.map */
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="hotAd" class="hot inner_c">
+            <a href="#"><img src="../images/1.jpg" alt=""></a>
+        </div>
+        <div class="welcome inner_c">
+            <p>您好<span class="spn1">xxxx</span>，欢迎来到<span class="spn2">米米乐商城</span><a href="">[退出]</a></p>
+            <ul>
+                <li>APP下载<em>v</em></li>
+                <li>用户中心<em>v</em></li>
+                <li>我的订单<em>v</em></li>
+                <li>客户服务<em>v</em></li>
+                <li>网站导航<em>v</em></li>
+            </ul>
+        </div>
+    </header>
+    
+    <div class="top inner_c">
+        <a href="#" class="logo"><img src="../images/2.jpg" alt=""></a>
+        <div class="searchBar">
+            <input type="text" class="keyWord" id="key"><label for="key">请输入您要搜索的商品关键字</label>
+            <div class="searchBtn">搜索</div>
+        </div>
+        <div class="shoppingCart">
+            <i><img src="../images/4.jpg" alt=""></i>
+            <em>购物车结算</em>
+            <span class="cart-cal">V</span>
+        </div>
+        <div class="qrCode"></div>
+    </div>
+    
+    <nav>
+        <div class="top2 inner_c">
+            <dl>
+                <dt>所有商品分类<span>V</span></dt>
+                <dd>
+                    <ol>
+                        <li>111</li>
+                        <li>222</li>
+                        <li>333</li>
+                        <li>444</li>
+                    </ol>
+                </dd>
+            </dl>
+            <ul>
+                <li>首页</li>
+                <li>米商</li>
+                <li>米生活</li>
+                <li>乐社区</li>
+                <li>商家入驻</li>
+                <li>8.8天天抢</li>
+                <li>米金融</li>
+            </ul>
+        </div>
+        <div class="line"></div>
+    </nav>    
+</body>
+</html>

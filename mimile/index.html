@@ -1,12 +1,503 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>米米乐商城</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->    
 </head>
 
 <body>
+    <header id="header">
+        <!--   页面内容用container包裹，以便响应式    -->
+        <div class="container">
+            <!--    row代表一行   -->
+            <div class="row">
+                <!--  图片上加img-responsive即可实现图片自适应屏幕宽度 -->
+                <img src="./images/1.jpg" alt="" class="img-responsive">                                   
+            </div>
+            
+            <div class="topbar-welcome row">
+                <div class="col-md-8">
+                    <p>您好，欢迎来到
+                        <span>米米乐商城</span>
+                        [<a href="#">登录</a>]
+                        [<a href="#">注册</a>]
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <ul class="navbar-tools">
+                        <li><a href="#">APP下载<span class="caret"></span></a></li>
+                        <li><a href="#">用户中心<span class="caret"></span></a></li>
+                        <li><a href="#">我的订单<span class="caret"></span></a></li>
+                        <li><a href="#">客户服务<span class="caret"></span></a></li>
+                        <li><a href="#">网站导航<span class="caret"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </header>
     
+    <nav id="nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <!--      搜索框      -->
+                    <nav class="navbar">
+                        <div class="navbar navbar-header">
+                            <a href="#" class="navbar-brand">
+                                <img src="./images/2.jpg" alt="">
+                            </a>
+                        </div>
+                        <form action="" class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="搜索8.8试试">
+                            </div>
+                            <button type="button" class="btn btn-default">搜索</button>
+                            <ul>
+                                <li>热门搜索：</li>
+                                <li><a href="#">嘉熙</a></li>
+                                <li><a href="#">iphone 5s</a></li>
+                                <li><a href="#">平板</a></li>
+                                <li><a href="#">联想</a></li>
+                                <li><a href="#">哈尔斯</a></li>
+                                <li><a href="#">天喔</a></li>
+                                <li><a href="#">白家粉丝</a></li>
+                                <li><a href="#">国琳</a></li>
+                                <li><a href="#">德长莱饭</a></li>
+                            </ul>
+                        </form>
+                    </nav>                     
+                </div>
+                <div class="col-md-4">
+                    <div class="shopping-cart">
+                        <span></span>
+                        购物车结算
+                        <span class="caret"></span>
+                    </div>
+                    <a href="#"><img src="./images/6.jpg" alt=""></a>
+                </div>               
+            </div>
+                       
+            <!--     下拉菜单       -->
+            <div class="dropdown">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    所有商品分类
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><span></span>手机数码</a></li>
+                    <li><a href="#"><span></span>电脑办公</a></li>
+                    <li><a href="#"><span></span>食品饮酒</a></li>
+                    <li><a href="#"><span></span>日用百货</a></li>
+                    <li><a href="#"><span></span>服装鞋帽</a></li>
+                    <li><a href="#"><span></span>母婴玩具</a></li>
+                    <li><a href="#"><span></span>家居生活</a></li>
+                    <li><a href="#"><span></span>个人美妆</a></li>
+                    <li><a href="#"><span></span>运动健康</a></li>
+                    <li><a href="#"><span></span>家用电器</a></li>
+                    <li><a href="#"><span></span>生鲜食品</a></li>
+                    <li><a href="#"><span></span>图书音像</a></li>
+                    <li><a href="#"><span></span>汽车用品</a></li>
+                </ul>    
+            </div>
+            <!--      导航      -->
+            <ul class="nav nav-tabs nav-justified" role="navigation">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">米商</a></li>
+                <li><a href="#">米生活</a></li>
+                <li><a href="#">乐社区</a></li>
+                <li><a href="#">商家入驻</a></li>
+                <li><a href="#">8.8天天抢</a></li>
+                <li><a href="#">米金融</a></li>
+            </ul>            
+        </div>        
+    </nav>
+    
+    <section id="section">
+        <div class="container">
+            
+            <!--     轮播图       -->
+            <div class="slider">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                       <img src="./images/22.jpg" alt="" style="width:100%">   
+                    </div>
+                    <div class="item">
+                       <img src="./images/23.jpg" alt="" style="width:100%">   
+                    </div>
+                    <div class="item">
+                       <img src="./images/24.jpg" alt="" style="width:100%">
+                    </div>                
+                    <div class="item">
+                       <img src="./images/25.jpg" alt="" style="width:100%"> 
+                    </div>  
+                    <div class="item">
+                        <img src="./images/26.jpg" alt="" style="width:100%">
+                    </div>   
+                    <div class="item">
+                        <img src="./images/27.jpg" alt="" style="width:100%">
+                    </div>                               
+                  </div>
+
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>                
+            </div>     
+            
+          <!--                  Tab栏切换:                 -->  
+            <!--   tab栏-1L   -->
+            <div id="floor-one" class="container">
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#floorOneOne" aria-controls="home" role="tab" data-toggle="tab">米抢购</a></li>
+                <li role="presentation"><a href="#floorOnetwo" aria-controls="profile" role="tab" data-toggle="tab">9月活动集锦</a></li>
+                <li role="presentation"><a href="#floorOnethree" aria-controls="messages" role="tab" data-toggle="tab">天天8.8元</a></li>
+                <li role="presentation"><a href="#floorOnefour" aria-controls="settings" role="tab" data-toggle="tab">天天特价</a></li>
+                <li role="presentation"><a href="#floorOnefive" aria-controls="settings" role="tab" data-toggle="tab">生鲜天天免单</a></li>                
+                <li role="presentation"><a href="#floorOnesix" aria-controls="settings" role="tab" data-toggle="tab">糖猫智能手表</a></li>                
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="floorOneOne">
+                    <ul>
+                        <li>
+                            <img src="./images/50.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>
+                        </li>
+                        <li>
+                            <img src="./images/51.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/52.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/53.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/54.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/55.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="floorOnetwo">
+                    <ul>
+                        <li>
+                            <img src="./images/52.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>
+                        </li>
+                        <li>
+                            <img src="./images/51.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/50.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/53.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/55.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/50.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                    </ul>                    
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="floorOnethree">
+                    <ul>
+                        <li>
+                            <img src="./images/52.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>
+                        </li>
+                        <li>
+                            <img src="./images/50.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/52.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/55.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/52.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/50.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                    </ul>                    
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="floorOnefour">
+                    <ul>
+                        <li>
+                            <img src="./images/50.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>
+                        </li>
+                        <li>
+                            <img src="./images/55.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/52.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/51.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/50.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/53.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                    </ul>                    
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="floorOnefive">
+                    <ul>
+                        <li>
+                            <img src="./images/50.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>
+                        </li>
+                        <li>
+                            <img src="./images/51.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/52.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/54.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/50.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/55.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                    </ul>                    
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="floorOnesix">
+                    <ul>
+                        <li>
+                            <img src="./images/55.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>
+                        </li>
+                        <li>
+                            <img src="./images/52.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/54.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/51.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/50.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                        <li>
+                            <img src="./images/53.jpg" alt="">
+                            <p>9月10日 舒肤佳维他命E精华呵护型洗手液250ML</p>
+                            <span>12.80</span>                            
+                        </li>
+                    </ul>                    
+                </div>                    
+              </div>                
+            </div>
+            
+            <!--     楼层之间的广告:1L和2L之间      -->
+            <div class="ad-floorone-floortwo">
+                <a href="#">
+                    <img src="./images/57.jpg" alt="" class="img-responsive">
+                </a>
+            </div> 
+            
+            <!--   tab栏-2L   -->
+            <div id="floor-two" class="container">
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation"><a href="#" style="font-size:16px;color:black;"><span class="glyphicon glyphicon-phone"></span>手机通讯</a></li>
+                <li role="presentation" class="active"><a href="#floorTwoOne" aria-controls="home" role="tab" data-toggle="tab">商品推荐</a></li>
+                <li role="presentation"><a href="#floorTwotwo" aria-controls="profile" role="tab" data-toggle="tab">贸易机</a></li>
+                <li role="presentation"><a href="#floorTwothree" aria-controls="messages" role="tab" data-toggle="tab">运营商</a></li>
+                <li role="presentation"><a href="#floorTwofour" aria-controls="settings" role="tab" data-toggle="tab">手机配件</a></li>
+                <li><a href="#">查看更多>></a></li>                
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="floorTwoOne">
+                    <div class="left"></div>
+                    <div class="right">
+                        <ul>
+                            <li class="li-one">
+                                <img src="./images/60.jpg" alt="">
+                                <h2>htc</h2>
+                                <p>M9et 5.2英寸2K超清</p>
+                                <p>每拍 美拍 眼界大开</p>
+                                <p class="speciel-logo">concise外貌</p>
+                                <p>商务 生活 旅行 随享自在</p>
+                            </li>
+                            <li class="li-two">
+                                <img src="./images/60.jpg" alt="">
+                                <h2>apple</h2>
+                                <p>M9et 5.2英寸2K超清</p>
+                                <p>每拍 美拍 眼界大开</p>
+                                <p class="speciel-logo">concise外貌</p>
+                                <p>商务 生活 旅行 随享自在</p>                                
+                            </li>
+                            <li class="li-three">
+                                <img src="./images/60.jpg" alt="">
+                                <h2>xiaomi</h2>
+                                <p>M9et 5.2英寸2K超清</p>
+                                <p>每拍 美拍 眼界大开</p>
+                                <p class="speciel-logo">concise外貌</p>
+                                <p>商务 生活 旅行 随享自在</p>                                
+                            </li>
+                            <li class="li-four">
+                                <img src="./images/60.jpg" alt="">
+                                <h2>huawei</h2>
+                                <p>M9et 5.2英寸2K超清</p>
+                                <p>每拍 美拍 眼界大开</p>
+                                <p class="speciel-logo">concise外貌</p>
+                                <p>商务 生活 旅行 随享自在</p>                                
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="floorTwotwo">  
+                    <div class="left"></div>
+                    <h1>贸易机</h1>               
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="floorTwothree">
+                    <div class="left"></div>
+                    <h1>运营商</h1> 
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="floorTwofour">
+                    <div class="left"></div>
+                    <h1>手机配件</h1> 
+                </div>              
+              </div>  
+            </div>            
+            
+            <!--    各类电脑商标      -->
+            <div  class="computer-brand" role="navigation">
+                <ul class="nav navbar">
+                      <li><a href="#" class="brand-1"></a></li>
+                      <li><a href="#" class="brand-2"></a></li>
+                      <li><a href="#" class="brand-3"></a></li>
+                      <li><a href="#" class="brand-4"></a></li>
+                      <li><a href="#" class="brand-5"></a></li>
+                      <li><a href="#" class="brand-6"></a></li>
+                      <li><a href="#" class="brand-7"></a></li>
+                      <li><a href="#" class="brand-8"></a></li>
+                      <li><a href="#" class="brand-9"></a></li>
+                      <li><a href="#" class="brand-10"></a></li>
+                </ul>             
+            </div>  
+        </div>           
+    </section>
+    <section>
+        <div class="container">
+            <h1>很多内容</h1>
+            <h1>很多内容</h1>
+            <h1>很多内容</h1>
+            <h1>很多内容</h1>
+            <h1>很多内容</h1>
+            <h1>很多内容</h1>            
+        </div>
+    </section>
+    
+    <footer id="footer">
+        
+    </footer>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script> 
 </body>
 </html>

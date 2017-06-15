@@ -1,0 +1,250 @@
+/** 清除内外边距 **/
+        body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+        dl, dt, dd, ul, ol, li, em,/* list elements 列表元素 */
+        pre, /* text formatting elements 文本格式元素 */
+        form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+        th, td /* table elements 表格元素 */ {
+            margin: 0;
+            padding: 0;
+        }
+$border-base-color: #f0f0f0;    /*边框基础色*/
+$font-base-color: #777;    /*字体基础色*/
+$font-base-color-black: #333;    /*字体基础色-黑*/
+$font-base-size: 12px;    /*基础字号*/
+$base-color: #d93600;    /*页面基础色*/
+
+/*header*/
+#header {
+    height: 100px;
+    border-bottom: 1px solid $border-base-color;
+    .topbar-welcome {
+        .col-md-8 {
+            p {
+                height: 30px;
+                line-height: 30px;
+                font-size: $font-base-size;
+                color: $font-base-color;
+                span {
+                    color: $font-base-color-black;
+                }
+                a {
+                    color: $font-base-color-black;
+                }
+            }
+        }
+        .col-md-4 {
+            ul {
+                list-style: none;
+                li {
+                    float: left;
+                    width: 70px;
+                    height: 30px;
+                    line-height: 30px;
+                    font-size: $font-base-size;
+                    a {
+                        color: $font-base-color;
+                    }
+                }
+            }
+        }        
+    }
+}
+
+#nav {
+.navbar {
+        .navbar-form {
+            width: 500px;
+            height: 70px;
+            border: 3px solid $base-color;
+            margin: {
+                left: 90px;
+            }
+            .form-control {
+                width: 415px;
+                height: 36px;
+                margin-left: -15px;
+            }
+            .btn {
+                width: 79px;
+                height: 36px;
+                margin-right: -20px;
+                margin-left: -4px;
+                background-color: $base-color;
+            }
+            ul {
+                list-style: none;
+                li {
+                    float: left;
+                    height: 28px;
+                    line-height: 28px;
+                    font-size: $font-base-size;
+                    margin-right: 8px;
+                    a {
+                        color: $font-base-color-black;
+                    }
+                }
+            }
+        }
+    }    
+    .dropdown {
+        float: left;
+    }
+    .shopping-cart {
+        float: left;
+	    width: 126px;
+        height: 40px;
+        border: 1px solid $border-base-color;
+        margin: 10px;
+    }    
+}
+
+#section {
+    .slider {
+        width: 774px;
+        height: 400px;
+        margin: 0 auto;
+        #carousel-example-generic {
+
+        }        
+    }
+    #floor-one {
+        margin-top: 20px;
+        .tab-pane {
+            height: 250px;
+            padding: 10px;
+            border: 3px solid $border-base-color;
+            ul {
+                list-style: none;
+                li {
+                    float: left;
+                    font-size: $font-base-size;
+                    padding: 10px;
+                    width: 187px;
+                    margin-right: 1px dashed $font-base-color;
+                    img {
+                        width: 105px;
+                        height: 130px;
+                    }
+                    p {
+                        color: $font-base-color;
+                    }
+                    span {
+                        color: $base-color;
+                    }
+                }
+            }
+        }
+    }
+    .ad-floorone-floortwo {
+        margin: {
+            top: 20px;
+        }
+    } 
+    
+    #floor-two {
+        margin-top: 20px;
+        .tab-content {
+            margin-top: 10px;
+            div.left {
+                float: left;
+                width: 340px;
+                height: 498px;
+                background: url("../images/59.jpg") no-repeat;
+            } 
+            div.right {
+                float: left;                
+                width: 830px;
+                height: 500px;
+                ul {
+                    list-style: none;
+                    li {
+                        float: left;
+                        width: 370px;    /*319*/
+                        height: 240px;    /*168*/
+                        padding: 10px 10px 10px 20px;
+                        padding: 36px 27px 36px 74px;
+                        margin: 0 0 10px 10px;
+                        img {
+                            float: left;
+                        }
+                        h2 {
+                            float: left;
+                            margin-left: 80px;
+                            color: #83c324;    
+                        }
+                        p {
+                            float: left;
+                            margin-left: 50px;
+                            margin-top: 10px;
+                            font-size: $font-base-size;
+                            color: black;
+                        }
+                        p.speciel-logo {
+                            color: $base-color;
+                        }
+                        
+                    }
+                    li.li-one {
+                        background-color: #f1f9e2;
+                    }
+                    li.li-two {
+                        background-color: #faf7f0;
+                    }
+                    li.li-three {
+                        background-color: #e6f1f7;
+                    }
+                    li.li-four {
+                        background-color: #f8ecee;
+                    }
+                }
+            }           
+        }
+    }
+    .computer-brand {
+        margin-top: 10px;
+        ul {
+            list-style: none;
+            background-color: #f6f6f6;
+            li {
+                float: left;
+                a {
+                    display: block;
+                    width: 107px;
+                    height: 50px;
+                    border: 1px solid $border-base-color;
+                    margin: 4px 4px;
+                }
+                a.brand-1 {
+                    background: url("../images/72.jpg") no-repeat -6px -5px;
+                }
+                a.brand-2 {
+                    background: url("../images/72.jpg") no-repeat -125px -5px;
+                }
+                a.brand-3 {
+                    background: url("../images/72.jpg") no-repeat -244px -5px;
+                }
+                a.brand-4 {
+                    background: url("../images/72.jpg") no-repeat -363px -5px;
+                }
+                a.brand-5 {
+                    background: url("../images/72.jpg") no-repeat -482px -5px;
+                }
+                a.brand-6 {
+                    background: url("../images/72.jpg") no-repeat -600px -5px;
+                }
+                a.brand-7 {
+                    background: url("../images/72.jpg") no-repeat -720px -5px;
+                }
+                a.brand-8 {
+                    background: url("../images/72.jpg") no-repeat -838px -5px;
+                }
+                a.brand-9 {
+                    background: url("../images/72.jpg") no-repeat -958px -5px;
+                }
+                a.brand-10 {
+                    background: url("../images/72.jpg") no-repeat -1076px -5px;
+                }
+            }
+        }
+    }
+}
