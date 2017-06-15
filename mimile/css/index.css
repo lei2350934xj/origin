@@ -123,27 +123,45 @@ th, td {
 #section .ad-floorone-floortwo {
   margin-top: 20px;
 }
-#section #floor-two {
+#section #floor-two,
+#section #floor-three,
+#section #floor-four,
+#section #floor-five {
   margin-top: 20px;
 }
-#section #floor-two .tab-content {
+#section #floor-two .tab-content,
+#section #floor-three .tab-content,
+#section #floor-four .tab-content,
+#section #floor-five .tab-content {
   margin-top: 10px;
 }
-#section #floor-two .tab-content div.left {
+#section #floor-two .tab-content div.left,
+#section #floor-three .tab-content div.left,
+#section #floor-four .tab-content div.left,
+#section #floor-five .tab-content div.left {
   float: left;
   width: 340px;
   height: 498px;
   background: url("../images/59.jpg") no-repeat;
 }
-#section #floor-two .tab-content div.right {
+#section #floor-two .tab-content div.right,
+#section #floor-three .tab-content div.right,
+#section #floor-four .tab-content div.right,
+#section #floor-five .tab-content div.right {
   float: left;
   width: 830px;
   height: 500px;
 }
-#section #floor-two .tab-content div.right ul {
+#section #floor-two .tab-content div.right ul,
+#section #floor-three .tab-content div.right ul,
+#section #floor-four .tab-content div.right ul,
+#section #floor-five .tab-content div.right ul {
   list-style: none;
 }
-#section #floor-two .tab-content div.right ul li {
+#section #floor-two .tab-content div.right ul li,
+#section #floor-three .tab-content div.right ul li,
+#section #floor-four .tab-content div.right ul li,
+#section #floor-five .tab-content div.right ul li {
   float: left;
   width: 370px;
   /*319*/
@@ -153,34 +171,58 @@ th, td {
   padding: 36px 27px 36px 74px;
   margin: 0 0 10px 10px;
 }
-#section #floor-two .tab-content div.right ul li img {
+#section #floor-two .tab-content div.right ul li img,
+#section #floor-three .tab-content div.right ul li img,
+#section #floor-four .tab-content div.right ul li img,
+#section #floor-five .tab-content div.right ul li img {
   float: left;
 }
-#section #floor-two .tab-content div.right ul li h2 {
+#section #floor-two .tab-content div.right ul li h2,
+#section #floor-three .tab-content div.right ul li h2,
+#section #floor-four .tab-content div.right ul li h2,
+#section #floor-five .tab-content div.right ul li h2 {
   float: left;
   margin-left: 80px;
   color: #83c324;
 }
-#section #floor-two .tab-content div.right ul li p {
+#section #floor-two .tab-content div.right ul li p,
+#section #floor-three .tab-content div.right ul li p,
+#section #floor-four .tab-content div.right ul li p,
+#section #floor-five .tab-content div.right ul li p {
   float: left;
   margin-left: 50px;
   margin-top: 10px;
   font-size: 12px;
   color: black;
 }
-#section #floor-two .tab-content div.right ul li p.speciel-logo {
+#section #floor-two .tab-content div.right ul li p.speciel-logo,
+#section #floor-three .tab-content div.right ul li p.speciel-logo,
+#section #floor-four .tab-content div.right ul li p.speciel-logo,
+#section #floor-five .tab-content div.right ul li p.speciel-logo {
   color: #d93600;
 }
-#section #floor-two .tab-content div.right ul li.li-one {
+#section #floor-two .tab-content div.right ul li.li-one,
+#section #floor-three .tab-content div.right ul li.li-one,
+#section #floor-four .tab-content div.right ul li.li-one,
+#section #floor-five .tab-content div.right ul li.li-one {
   background-color: #f1f9e2;
 }
-#section #floor-two .tab-content div.right ul li.li-two {
+#section #floor-two .tab-content div.right ul li.li-two,
+#section #floor-three .tab-content div.right ul li.li-two,
+#section #floor-four .tab-content div.right ul li.li-two,
+#section #floor-five .tab-content div.right ul li.li-two {
   background-color: #faf7f0;
 }
-#section #floor-two .tab-content div.right ul li.li-three {
+#section #floor-two .tab-content div.right ul li.li-three,
+#section #floor-three .tab-content div.right ul li.li-three,
+#section #floor-four .tab-content div.right ul li.li-three,
+#section #floor-five .tab-content div.right ul li.li-three {
   background-color: #e6f1f7;
 }
-#section #floor-two .tab-content div.right ul li.li-four {
+#section #floor-two .tab-content div.right ul li.li-four,
+#section #floor-three .tab-content div.right ul li.li-four,
+#section #floor-four .tab-content div.right ul li.li-four,
+#section #floor-five .tab-content div.right ul li.li-four {
   background-color: #f8ecee;
 }
 #section .computer-brand {
@@ -229,6 +271,29 @@ th, td {
 }
 #section .computer-brand ul li a.brand-10 {
   background: url("../images/72.jpg") no-repeat -1076px -5px;
+}
+
+.elevator-nav {
+  position: fixed;
+  top: 400px;
+  left: 10px;
+  list-style: none;
+  width: 80px;
+  background-color: #d93600;
+}
+.elevator-nav li {
+  height: 30px;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 5px;
+  background-color: #d93600;
+  font-size: 14px;
+  color: #faf9f9;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+.elevator-nav li:hover {
+  background-color: #ef2804;
 }
 
 /*# sourceMappingURL=index.css.map */

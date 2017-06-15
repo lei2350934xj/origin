@@ -141,7 +141,10 @@ $base-color: #d93600;    /*页面基础色*/
         }
     } 
     
-    #floor-two {
+    #floor-two,
+    #floor-three,
+    #floor-four,
+    #floor-five {
         margin-top: 20px;
         .tab-content {
             margin-top: 10px;
@@ -246,5 +249,28 @@ $base-color: #d93600;    /*页面基础色*/
                 }
             }
         }
+    }
+}
+
+.elevator-nav {
+    position: fixed;
+    top: 400px;
+    left: 10px;
+    list-style: none;
+    width: 80px;
+    background-color: $base-color;
+    li {
+        height: 30px;
+        border-bottom: 1px solid #f0f0f0;
+        border-radius: 5px;
+        background-color: $base-color;
+        font-size: 14px;
+        color: #faf9f9;
+        line-height: 30px;
+        text-align: center;
+        cursor: pointer;
+    }
+    li:hover {
+        background-color: #ef2804;
     }
 }
