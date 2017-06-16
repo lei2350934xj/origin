@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>seajs入门案例</title>
+    <script src="./node_modules/seajs/dist/sea.js"></script>
+    <!--  如果没有seajs，我们引用定义的calculator函数需要像下面这样去引包，但是有
+        了seajs，我们就不要这样操作，seajs会自动去帮我们处理这些依赖关系  
+        <script src="./js/calculator.js"></script>
+    -->
+    
+    <!--  seajs使用  -->
+    <script>
+        // 在Seajs中模块的引入需要相对路径完整写法,注意不要再用script标签引入哦，否则用模块化就没意义了
+        // 第一个参数是 模块的地址，是相对于当前html文件的。
+        seajs.use('./js/calculator.js',function(calculator){
+            
+            //calculator其实就是calculator.js中的exports对象，这样便可以用其方法了
+            var ta = document.getElementById('txt_a');
+            var tb = document.getElementById('txt_b');
+            var tres = document.getElementById('txt_res');
+            var btn = document.getElementById('btn');
+            var op = document.getElementById('sel_op');
+
+            btn.onclick = function() {
+                switch (op.value) {
+                    case '+':
+                        tres.value = calculator.add(ta.value, tb.value);
+                        break;
+                    case '-':
+                        tres.value = calculator.subtract(ta.value, tb.value);
+                        break;
+                    case 'x':
+                        tres.value = calculator.multiply(ta.value, tb.value);
+                        break;
+                    case '÷':
+                        tres.value = calculator.divide(ta.value, tb.value);
+                        break;
+                }
+            };            
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="txt_a">
+    <select name="" id="sel_op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="x">x</option>
+        <option value="÷">÷</option>
+    </select>    
+    <input type="text" id="txt_b">
+    <input type="button" id="btn" value="=">
+    <input type="text" id="txt_res">
+</body>
+</html>
