@@ -21,6 +21,30 @@ define(function(require, exports, module) {
 -1.require
     require 函数用来访问其他模块提供的 API。
     require.async该方法可用来异步加载模块，并在加载完成后执行回调函数。
+    define(function(require, exports, module) {
+      // 加载一个模块
+      require.async('./b', function(b) {
+        b.doSomething();
+      });
+
+      // 加载多个模块
+      require.async(['./c', './d'], function(c, d) {
+        // do something
+      });
+    });    
+在 require、 require.async 等加载函数中，第一个参数都是模块标识。
+    相对标识:相对标识只出现在模块环境中，以 "." 开头。会相对当前模块的 URI 来解析：
+    // 在 http://example.com/js/a.js 中：
+        require('./b'); // 也就是在a.js中引入b.js，解析的路径相对于a.js所在的url地址
+    // => http://example.com/js/b.js  
+    顶级标识：顶级标识不以点（"."）或斜线（"/"）开始， 会相对 SeaJS 的 base 路径来解析：
+    // 假设 base 路径是：http://example.com/js/libs/
+    // 在模块代码里：
+        require('jquery/1.7.1/jquery');
+    // => http://example.com/js/libs/jquery/1.7.1/jquery.js  
+    普通路径：除了相对和顶级标识之外的标识都是普通路径。普通路径的解析规则，和 HTML 代码中
+    的 script.src 一样，会相对当前页面来解析
+    seajs.use(ids, ...) 和 define(id, ...) 中的模块标识始终是普通路径，因为这两个方法是在全局环境中执行的。
 -2.exports
     exports 用来向外提供模块的 API.
     // 定义一个模块，遵循Seajs的写法
@@ -76,7 +100,21 @@ seajs.config({
   timeout: 20000
 });
 -1.alias 当模块标识很长时，可以使用 alias 配置来简化。
+    a.js:
+    define(function(require, exports, module) {
+        var $ = require('jquery');
+          //=> http://path/to/libs/jquery/1.7.1/jquery.js
+        var biz = require('app/biz');
+          //=> http://path/to/app/biz.js
+    });
 -2.preload 使用 preload 配置项，可以在普通模块加载前，提前加载并初始化好特定模块
+    // 在老浏览器中，提前加载好 ES5 和 json 模块：
+    seajs.config({
+      preload: [
+        Function.prototype.bind ? '' : 'es5-safe',
+        this.JSON ? '' : 'json'
+      ]
+    });
 -3.debug 值为 true 时，加载器会使用 console.log 输出所有警告和错误。 默认为 false, 加载器只抛出异常
 -4.map
 -5.base 请不要配置 base 路径，除非加载器无法自动获取
