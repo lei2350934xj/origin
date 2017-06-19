@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                todos:[
+                    {text:'学习javascript'},
+                    {text:'学习vue'},
+                    {text:'学习html'},
+                ]
+            }
+        });    
+    </script>
+</body>
+</html>
