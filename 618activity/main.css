@@ -105,11 +105,11 @@ body {
 .sliderbar {
   z-index: 999;
   position: fixed;
-  top: 498px;
-  left: 0;
-  width: 170px;
-  height: 518px;
-  background: url(../images/siderbar.jpg);
+  top: 220px;
+  right: 5px;
+  width: 160px;
+  height: 510px;
+  background: url(../images/sliderbar.png);
 }
 .sliderbar ul.body-sliderbar {
   list-style: none;
@@ -120,6 +120,11 @@ body {
   width: 110px;
   height: 30px;
   cursor: pointer;
+}
+.sliderbar ul.body-sliderbar li.pic {
+  width: 95px;
+  height: 95px;
+  margin: 10px;
 }
 
 .content2-ykj {

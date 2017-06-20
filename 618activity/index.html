@@ -227,6 +227,8 @@
                 <li></li>
                 <li></li>
                 <li></li>
+                <li class="pic"></li>
+                <li class="go-top"></li>
             </ul>
         </div>
         <!--      /sliderbar        -->
@@ -239,12 +241,12 @@
         var lis = ul.children;
 //        alert(lis.length);
         
-        var leader=0, target=0, timer=null;
+        var leader=0, target=0, timer=null,leader1=0,target1=0,timer1=null;
         var floor = ["content2Ykj","content3Rqdp","content4Rxtz",
                      "content5Kbmy","content6Gmbj","content7Grhl"];
         
         window.onscroll = function(){
-            leader = scroll().top;
+            leader1 = scroll().top;
         }
         
         for(var i = 0, len = lis.length; i < len; i++) {
@@ -253,6 +255,17 @@
             lis[i].onclick = function() {
                 clearInterval(timer);
                 
+            // 返回顶部
+            if(this.index==7) {
+                timer1 = setInterval(function(){
+                    leader1 = leader1 + (target1 - leader1) / 10;
+                    window.scrollTo(0,leader1);
+                    if(leader1==target1){
+                        clearInterval(timer1);
+                    }
+                },20); 
+                //alert(555);
+            }else{  // 电梯导航,因为这里的导航不是ul这种，而是拥有独立id号的div,如div.floor-two
                 var targetID = floor[this.index];           
 
                 target = document.getElementById(targetID).offsetTop;
@@ -264,7 +277,8 @@
                     if(Math.abs(leader-target)<5){
                         clearInterval(timer);
                     }
-                },70);                 
+                },70);    
+            }                        
             }
         }
         
