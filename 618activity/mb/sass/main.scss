@@ -1,0 +1,382 @@
+/** 清除内外边距 **/
+        body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+        dl, dt, dd, ul, ol, li, em,/* list elements 列表元素 */
+        pre, /* text formatting elements 文本格式元素 */
+        form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+        th, td /* table elements 表格元素 */ {
+            margin: 0;
+            padding: 0;
+        }
+
+//@media screen and (min-width: 320px) {html{font-size:50px;}}
+//@media screen and (min-width: 360px) {html{font-size:56.25px;}}
+//@media screen and (min-width: 375px) {html{font-size:58.59375px;}}
+//@media screen and (min-width: 400px) {html{font-size:62.5px;}}
+//@media screen and (min-width: 414px) {html{font-size:64.6875px;}}
+//@media screen and (min-width: 440px) {html{font-size:68.75px;}}
+//@media screen and (min-width: 480px) {html{font-size:75px;}}
+//@media screen and (min-width: 520px) {html{font-size:81.25px;}}
+//@media screen and (min-width: 560px) {html{font-size:87.5px;}}
+//@media screen and (min-width: 600px) {html{font-size:93.75px;}}
+//@media screen and (min-width: 640px) {html{font-size:100px;}}
+//@media screen and (min-width: 680px) {html{font-size:106.25px;}}
+//@media screen and (min-width: 720px) {html{font-size:112.5px;}}
+//@media screen and (min-width: 760px) {html{font-size:118.75px;}}
+//@media screen and (min-width: 800px) {html{font-size:125px;}}
+//@media screen and (min-width: 960px) {html{font-size:150px;}}
+
+body {
+    height: 20000px;
+    background-color: #ffe1a7;
+}
+
+.inner_c {
+    width: 10rem;
+    margin: 0 auto;
+}
+
+.clearfix {
+	clear: both;
+}
+
+@mixin font-dpr($font-size){
+    font-size: $font-size;
+
+    [data-dpr="2"] & {
+        font-size: $font-size * 2;
+    }
+
+    [data-dpr="3"] & {
+        font-size: $font-size * 3;
+    }
+}
+
+.banner {
+    height: 4.7rem;
+    text-align: center;
+    img {
+        display: block;
+        width: 10rem;
+        height: 4.7rem;
+    }
+}
+
+.content1-zc {
+    padding: 0 0.05rem;
+    .content1-inner {
+        width: 9.48rem;    /*620px*/
+        height: 1.7rem;    /*128px*/
+        padding: 0.15rem;    /*10px*/
+        background-color: #f8dcd0;
+        a {
+            float: left;
+            display: block;
+            width: 3.15rem;    /*202px*/
+            height: 1.71rem;    /*110px*/
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.content2-ykjzq {
+    margin-top: 0.31rem;    /*20px*/
+    .content2-title {
+        height: 0.9rem;    /*58px*/
+        margin-left: 0.9rem;    /*58px*/
+        img {
+            display: block;
+            width: 8.35rem;    /*535px*/
+            height: 0.9rem;    /*58px*/
+        }
+    }
+    ul.content2-body-subtitle {
+        list-style: none;
+        overflow: hidden;
+        margin-top: 0.15rem;    /*10px*/
+        @include font-dpr(24px);
+        color: #fff;
+        li {
+            float: left;
+            width: 3.32rem;    /*213px*/
+            height: 0.68rem;        /*44px*/
+            line-height: 0.68rem;
+            background-color: #fda435;
+            text-align: center;
+            cursor: pointer;
+        }
+        .active {
+	        background-color: #fe791b;
+        }
+    }
+    .body-ykjzq {
+        height: 5.96rem;    /*382px*/
+        overflow: hidden;
+        margin-top: 0.07rem;
+        ul.content2-body-1 {
+            width: 20rem;    /*很大的一个盒子*/
+            height: 5.96rem;
+            list-style: none;
+            li {
+                float: left;
+                width: 5.04rem;    /*323px*/
+                height: 5.96rem;    /*382px*/
+                margin-right: 0.15rem;    /*10px*/
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }        
+    }
+}
+
+.content3-rqdp {
+    margin-top: 0.31rem;
+    .content3-title {
+        height: 1.01rem;     /*65px*/
+        margin-left: 0.9rem;
+        img {
+            display: block;
+            width: 8.35rem;
+            height: 100%;
+        }
+    }
+    .content3-body {
+        margin-top: 0.14rem;    /*9px*/
+        a {
+            display: block;
+//            width: 9.96rem;    /*638px*/
+            height: 4.37rem;    /*280px*/
+            img {
+                vertical-align: bottom;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        a:nth-of-type(10) {
+            height: 3.43rem;    /*220px*/
+        }
+    }
+}
+
+.content4-rxtz {
+    overflow: hidden;
+    background-color: #faf1ea;
+    padding: 0.48rem 0 0 0;    /*31px*/
+    .content4-title {
+        height: 1rem;    /*64px*/
+        margin-left: 0.9rem;
+        img {
+            display: block;
+            width: 8.32rem;    /*533px*/
+            height: 100%;
+        }
+    }
+    .content4-body {
+        margin-top: 0.43rem;    /*28px*/
+        ul.body-rxtz {
+            overflow: hidden;
+            list-style: none;
+            li {
+                float: left;
+                margin-bottom: 0.15rem;    /*10px*/
+                a {
+                    display: block;
+                    width: 4.92rem;    /*315px*/
+                    height: 5.75rem;    /*368px*/
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            li:nth-child(2n) {    /*选中偶数*/
+                margin-left: 0.15rem;    /*10px*/
+            }
+        }
+    }
+}
+
+.content5-kbmy {
+    .content5-title { 
+        width: 8.2rem;
+        height: 1.26rem;    /*101px*/   
+        background-color: #faf1ea;
+        padding: 0.31rem 0.9rem 0;
+        img {
+            display: block;
+            width: 8.34rem;    /*534px*/
+            height: 100%;
+        }
+    }
+    ul.content5-body-subtitle {
+        list-style: none;
+        overflow: hidden;
+//        margin-top: 0.15rem;    /*10px*/
+        @include font-dpr(24px);
+        color: #fff;
+        li {
+            float: left;
+            width: 3.32rem;    /*213px*/
+            height: 0.68rem;        /*44px*/
+            line-height: 0.68rem;
+            background-color: #fda435;
+            text-align: center;
+            cursor: pointer;
+        }
+        .active {
+	        background-color: #fe791b;
+        }
+    }
+    ul.content5-body-1 {
+        overflow: hidden;
+        list-style: none;
+        li {
+            float: left;
+            margin: {
+                left: 0.15rem;
+                top: 0.15rem;
+            }
+            a {
+                width: 4.76rem;    /*305px*/
+                height: 5.95rem;    /*381px*/                
+                display: block;
+                img {
+                    vertical-align: bottom;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+.content6-gmbj {
+    .content6-title { 
+        width: 8.2rem;
+        height: 1.26rem;    /*101px*/   
+//        background-color: #faf1ea;
+        padding: 0.31rem 0.9rem 0;
+        img {
+            display: block;
+            width: 8.34rem;    /*534px*/
+            height: 100%;
+        }
+    }	
+    ul.content6-body-subtitle {
+        list-style: none;
+        overflow: hidden;
+        @include font-dpr(24px);
+        color: #fff;
+        li {
+            float: left;
+            width: 3.32rem;    /*213px*/
+            height: 0.68rem;        /*44px*/
+            line-height: 0.68rem;
+            background-color: #fda435;
+            text-align: center;
+            cursor: pointer;
+        }
+        .active {
+	        background-color: #fe791b;
+        }
+    } 
+    ul.content6-body-1 {
+        overflow: hidden;
+        list-style: none;
+        li {
+            float: left;
+            margin: {
+                left: 0.15rem;
+                top: 0.15rem;
+            }
+            a {
+                width: 4.76rem;    /*305px*/
+                height: 5.95rem;    /*381px*/                
+                display: block;
+                img {
+                    vertical-align: bottom;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }    
+}
+
+.content7-grhl {
+    .content7-title { 
+        width: 8.2rem;
+        height: 1.26rem;    /*101px*/   
+        padding: 0.31rem 0.9rem 0;
+        img {
+            display: block;
+            width: 8.34rem;    /*534px*/
+            height: 100%;
+        }
+    }	
+    ul.content7-body-subtitle {
+        list-style: none;
+        overflow: hidden;
+        @include font-dpr(24px);
+        color: #fff;
+        li {
+            float: left;
+            width: 3.32rem;    /*213px*/
+            height: 0.68rem;        /*44px*/
+            line-height: 0.68rem;
+            background-color: #fda435;
+            text-align: center;
+            cursor: pointer;
+        }
+        .active {
+	        background-color: #fe791b;
+        }
+    } 
+    ul.content7-body-1 {
+        overflow: hidden;
+        list-style: none;
+        li {
+            float: left;
+            margin: {
+                left: 0.15rem;
+                top: 0.15rem;
+            }
+            a {
+                width: 4.76rem;    /*305px*/
+                height: 5.95rem;    /*381px*/                
+                display: block;
+                img {
+                    vertical-align: bottom;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }   	
+}
+
+.bottom-ad {
+    overflow: hidden;
+    a {
+        display: block;
+        width: 4.9rem;    /*314px*/
+        height: 2rem;    /*128px*/
+        float: left;
+        margin: {
+            left: 0.04rem;    /*3px*/
+            top: 0.15rem;    /*10px*/
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    a:nth-child(2n) {
+        margin-left: 0.1rem;
+    }
+}
