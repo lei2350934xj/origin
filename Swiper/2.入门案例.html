@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <title>新建H5自适应模板</title>
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <style>
+        .swiper-container { width: 600px; height: 300px; background-color: pink;}
+    </style>
+</head>
+<body>
+    <!-- Slider main container -->
+    <div class="swiper-container">
+    <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+        <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+        </div>
+
+        <!-- 分页器 小圆点 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 前进后退 按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>    
+    
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/swiper.jquery.min.js"></script>
+    
+    <script>
+        var swiper = new Swiper('.swiper-container',{
+                       pagination:'.swiper-pagination',
+                       slidesPerView:1,
+                       paginationClickable:true,
+                       spaceBetween:30,
+                       nextButton:'.swiper-button-next',
+                       prevButton:'.swiper-button-prev',
+                       keyboardControl:true,  //开启键盘控制翻页
+                    });
+    </script>
+</body>
+</html>

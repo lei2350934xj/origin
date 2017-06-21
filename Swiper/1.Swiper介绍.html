@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <title>新建H5自适应模板</title>
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <style>
+        *{margin: 0;padding: 0;}
+        .swiper-container { width: 400px; height: 200px; background-color: pink;}
+        p {margin-left: 50px;font-size: 14px;margin-top:1px;font-family: "Microsoft YaHei";}
+    </style>
+</head>
+<body>
+    <!-- Slider main container -->
+    <div class="swiper-container">
+    <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+        <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+        </div>
+
+        <!-- 分页器 小圆点 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 前进后退 按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div> 
+    <div>
+        <h1>Swiper-官方文档:http://www.swiper.com.cn/api/index.html</h1>
+        <h3>Swiper参数说明：</h3>
+        <h4>Basic:</h4>
+        <p>initialSlide，设定初始化时slide的索引===initialSlide :2</p>
+        <p>direction，Slides的滑动方向，可设置水平(horizontal)或垂直(vertical)===direction:'vertical'</p>
+        <p>speed,滑动速度，即slider自动滑动开始到结束的时间（单位ms），也是触摸滑动时释放至贴合的时间===speed:1000</p>
+        <p>autoplay,自动切换的时间间隔（单位ms），不设定该参数slide不会自动切换===autoplay:1000</p>
+        <p>autoplayDisableOnInteraction,用户操作swiper之后，是否禁止autoplay。默认为true：停止。如果设置为false，用户操作swiper之后自动切换不会停止，每次都会重新启动autoplay。操作包括触碰，拖动，点击pagination等</p>
+        <p>autoplayStopOnLast,如果设置为true，当切换到最后一个slide时停止自动切换。（loop模式下无效）</p>
+        <p>grabCursor,设置为true时，鼠标覆盖Swiper时指针会变成手掌形状，拖动时指针会变成抓手形状。（根据浏览器形状有所不同）</p>
+        <p>parallax,具体看文档说明，内容太多，不写上来了</p>
+        <h4>Progress:</h4>
+        <p>watchSlidesProgress,开启这个参数来计算每个<i>slide的</i>progress(进度、进程)，<i>Swiper的</i>progress无需设置即开启</p>
+        <p>-对于slide的progress属性，活动的那个为0，其他的依次减1。例：如果一共有6个slide，活动的是第三个，从第一个到第六个的progress属性分别是：2、1、0、-1、-2、-3。</p>
+        <p>-对于swiper的progress属性，活动的slide在最左（上）边时为0，活动的slide在最右（下）边时为1，其他情况平分。例：有6个slide，当活动的是第三个时swiper的progress属性是0.4，当活动的是第五个时swiper的progress属性是0.8。</p>
+        <p>watchSlidesVisibility,开启watchSlidesVisibility选项前需要先开启watchSlidesProgress，如果开启了watchSlidesVisibility，则会在每个可见slide增加一个classname，默认为'swiper-slide-visible'</p>
+        <h4>Free Mode:</h4>
+        <p>freeMode,默认为false，普通模式：slide滑动时只滑动一格，并自动贴合wrapper，设置为true则变为free模式，slide会根据惯性滑动且不会贴合</p>
+        <p>freeModeMomentum,free模式动量。free模式下，若设置为false则关闭动量，释放slide之后立即停止不会滑动</p>
+        <p>freeModeMomentumRatio,free模式动量值（移动惯量）。设置的值越大，当释放slide时的滑动距离越大</p>
+        <p>freeModeMomentumVelocityRatio,free模式惯性速度，设置越大，释放后滑得越快</p>
+        <p>freeModeMomentumBounce,动量反弹。false时禁用free模式下的动量反弹，slides通过惯性滑动到边缘时，无法反弹</p>
+        <p>freeModeMomentumBounceRatio,值越大产生的边界反弹效果越明显，反弹距离越大</p>
+        <p>freeModeSticky,使得freeMode也能自动贴合==应用实例:利用freeModeSticky制作一个选择器</p>
+        <p>- 单个屏滑动的时候，会自动贴合到边上。如苹果手机 Assisstant 左右贴靠效果</p>
+    </div>   
+    
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/swiper.jquery.min.js"></script>
+    
+    <script>
+        var swiper = new Swiper('.swiper-container',{
+//            autoplay: 1000,
+            loop: true, //循环播放
+            direction : 'horizontal',
+            speed: 1000,
+            grabCursor:true,    // 鼠标变爪爪
+            freeMode:true,  // 变成scroll这种 。可以自由滑动的效果
+            //freeModeMomentum: false,    // 类似于惯性的效果，鼠标拿开立即停止，没有惯性效果
+            //freeModeMomentumRatio: 2,     // 滑动距离
+            freeModeMomentumVelocityRatio: 3,    // 滑动速度
+            //freeModeMomentumBounce: false,
+            //freeModeMomentumBounceRatio: 3,
+            freeModeSticky: true,   // 一个屏 滑动的时候，会自动贴合到边上。如苹果手机 Assisstant 左右贴靠效果
+        });
+        // new Swiper(swiperContainer, parameters)
+        // 用于初始化一个Swiper，返回初始化后的Swiper实例
+        // swiperContainer : 必选，HTML元素或者string类型，Swiper容器的css选择器，例如“.swiper-container”。
+        // parameters : 可选，参见配置选项
+    </script>
+</body>
+</html>
