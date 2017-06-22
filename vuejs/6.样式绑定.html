@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!--  引用vue.js  -->
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .inactive {
+            background-color: green;
+        }
+        .noactive {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- v-bind指令可以在其名称后面带一个参数，中间放一个冒号隔开，这个参数通常是HTML元素
+        的特性（attribute），例如：v-bind:class 
+        v-bind:argument="expression" 
+        注意：expression里面的格式， 这里用的三目表达式， ！！注意加引号！！，不然不对！
+    -->
+    <div id="app">
+        <div v-bind:class="active==true ? 'inactive' : 'noactive'"></div>
+    </div>
+
+    <!--  新建Vue脚本  -->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                active: false,
+            },
+        });
+    </script>
+</body>
+
+</html>

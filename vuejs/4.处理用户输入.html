@@ -9,19 +9,21 @@
 </head>
 
 <body>
-    <!-- html代码块  -->
+    <!-- 注意注意！！！v-model，是del不是dal  -->
+    <!-- v-model:为页面输入框进行数据绑定，如input，select，textarea，comonents（组件）  -->
     <div id="app">
-        {{message}}
+        <p>您最喜欢的游戏：{{mygame}}</p>
+        <input type="text" v-model="mygame">
     </div>
-    
+
     <!--  新建Vue脚本  -->
     <script>
         var app = new Vue({
-            el:'#app',
-            data:{
-                message:'Hello Vue.js!',
+            el: '#app',
+            data: {
+                mygame:'超级马里奥'
             }
-        });    
+        });
     </script>
 </body>
 </html>
