@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="./css/swiper.min.css">
     <style>
         *{margin: 0;padding: 0;}
-        .swiper-container { width: 400px; height: 200px; background-color: pink;}
+        .swiper-container { width: 400px; height: 200px; border: 3px solid pink; padding: 15px 0;}
+        .swiper-slide { width: 400px; height: 200px; background-color: skyblue;}
         p {margin-left: 50px;font-size: 14px;margin-top:1px;font-family: "Microsoft YaHei";}
     </style>
 </head>
@@ -19,15 +20,30 @@
         <!-- Slides -->
             <div class="swiper-slide">Slide 1</div>
             <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">
+                <img data-src="./images/001.jpg" class="swiper-lazy">
+                <div class="swiper-lazy-preloader"></div>
+            </div>
+            <div class="swiper-slide">
+               <div class="swiper-zoom-container">
+                    <img data-src="./images/002.jpg" class="swiper-lazy">
+                    <div class="swiper-lazy-preloader"></div>                    
+               </div>           
+            </div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
         </div>
 
+<!--        <div class="swipe-handler">你只能拖动这里</div>-->
         <!-- 分页器 小圆点 -->
         <div class="swiper-pagination"></div>
 
         <!-- 前进后退 按钮 -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev swiper-button-white"></div>
+        <div class="swiper-button-next swiper-button-black"></div>
+        
+        <!-- 如果需要滚动条 -->
+        <div class="swiper-scrollbar"></div>        
     </div> 
     <div>
         <h1>Swiper-官方文档:http://www.swiper.com.cn/api/index.html</h1>
@@ -55,6 +71,96 @@
         <p>freeModeMomentumBounceRatio,值越大产生的边界反弹效果越明显，反弹距离越大</p>
         <p>freeModeSticky,使得freeMode也能自动贴合==应用实例:利用freeModeSticky制作一个选择器</p>
         <p>- 单个屏滑动的时候，会自动贴合到边上。如苹果手机 Assisstant 左右贴靠效果</p>
+        <h4>Slides grid:</h4>
+        <p>coverflow,设定为true时，活动块会居中，而不是默认状态下的居左</p>
+        <p>slidesPerView,设置slider容器能够同时显示的slides数量(carousel模式),loop模式下如果设置为'auto'还需要设置另外一个参数loopedSlides</p>
+        <p>slidesPerGroup,在carousel mode下定义slides的数量多少为一组</p>
+        <p>spaceBetween,slide之间的距离（单位px）</p>
+        <p>slidesPerColumn,多行布局里面每列的slide数量</p>
+        <p>slidesPerColumnFill.多行布局中以什么形式填充.'column'（列）和'row'（行）</p>
+        <p>slidesOffsetBefore,设定slide与左边框的预设偏移量（单位px）</p>
+        <p>slidesOffsetAfter,设定slide与右边框的预设偏移量（单位px）</p>
+        <h4>Effects:</h4>
+        <p>effect,slide的切换效果，默认为"slide"（位移切换），可设置为"fade"（淡入）"cube"（方块）"coverflow"（3d流）"flip"（3d翻转）</p>
+        <p>-effect的每个属性值也可以设置参数，详细请看文档</p>
+        <h4>Clicks</h4>
+        <p>preventClicks,当swiper在触摸时阻止默认事件（preventDefault），用于防止触摸时触发链接跳转</p>
+        <p>preventClicksPropagation,阻止click冒泡。拖动Swiper时阻止click事件</p>
+        <p>slideToClickedSlide,设置为true则点击slide会过渡到这个slide</p>
+        <h4>Touches:</h4>
+        <p>touchRatio,触摸距离与slide滑动距离的比率,可以是0.5, 1, -0.5取反向</p>
+        <p>simulateTouch,默认为true，Swiper接受鼠标点击、拖动。设置为false，则鼠标无效</p>
+        <p>onlyExternal,值为true时，slide无法拖动，只能使用扩展API函数例如slideNext() 或slidePrev()或slideTo()等改变slides滑动.上述几个是内置的Methods</p>
+        <p>followFinger,如设置为false，拖动slide时它不会动，当你释放时slide才会切换</p>
+        <p>shortSwipes,设置为false时，进行快速短距离的拖动无法触发Swiper</p>
+        <p>longSwipesRatio,进行longSwipes时触发swiper所需要的最小拖动距离比例，即定义longSwipes距离比例。值越大触发Swiper所需距离越大。最大值0.5</p>
+        <p>threshold,拖动的临界值（单位为px），如果触摸距离小于该值滑块不会被拖动</p>
+        <p>touchAngle,允许触发拖动的角度值。默认45度，即使触摸方向不是完全水平也能拖动slide</p>
+        <p>longSwipes,设置为false时，进行长时间长距离的拖动无法触发Swiper</p>
+        <p>longSwipesMs,定义longSwipes的时间（单位ms），超过则属于longSwipes</p>
+        <p>touchMoveStopPropagation,true时阻止touchmove冒泡事件</p>
+        <p>resistance,边缘抵抗。当swiper已经处于第一个或最后一个slide时，继续拖动Swiper会离开边界，释放后弹回。边缘抵抗就是拖离边界时的抵抗力。值为false时禁用，将slide拖离边缘时完全没有抗力。可以通过resistanceRatio设定抵抗力大小</p>
+        <p>resistanceRatio,抵抗率。边缘抵抗力的大小比例。值越小抵抗越大越难将slide拖离边缘，0时完全无法拖离</p>
+        <p>iOSEdgeSwipeDetection,设置为true开启IOS的UIWebView环境下的边缘探测。如果拖动是从屏幕边缘开始则不触发swiper</p>
+        <p>iOSEdgeSwipeThreshold,IOS的UIWebView环境下的边缘探测距离。如果拖动小于边缘探测距离则不触发swiper.</p>
+        <p>-iOSEdgeSwipeDetection : true,</p>
+        <p>-iOSEdgeSwipeThreshold : 50,</p>
+        <h4>Swiping/No swiping</h4>
+        <p>noSwiping,设为true时，可以在slide上（或其他元素）增加类名'swiper-no-swiping'，使该slide无法拖动，希望文字被选中时可以考虑使用。
+该类名可通过noSwipingClass修改</p>
+       <p>noSwipingClass,不可拖动块的类名，当noSwiping设置为true时，并且在slide加上此类名，slide无法拖动</p>
+       <p>allowSwipeToNext,设置为false可禁止向右或下滑动。作用类似mySwiper.lockSwipeToNext()</p>
+       <p>allowSwipeToPrev,设为false可禁止向左或上滑动。作用类似mySwiper.lockSwipeToPrev()</p>
+       <p>swipeHandler,CSS选择器或者HTML元素。你只能拖动它进行swiping</p>
+       <h4>Pagination(分页器)</h4>
+       <p>pagination,分页器容器的css选择器或HTML标签。分页器等组件可以置于container之外，不同Swiper的组件应该有所区分，如#pagination1，#pagination2</p>
+       <p>paginationType,分页器样式类型，可选‘bullets’  圆点（默认）,‘fraction’  分式,‘progress’  进度条,‘custom’ 自定义</p>
+       <p>paginationClickable,此参数设置为true时，点击分页器的指示点分页器会控制Swiper切换</p>
+       <p>paginationHide,默认分页器会一直显示。这个选项设置为true时点击Swiper会隐藏/显示分页器</p>
+       <p>paginationElement,设定分页器指示器（小点）的HTML标签。默认：span,举例：li</p>
+       <p>paginationBulletRender,渲染分页器小点。这个参数允许完全自定义分页器的指示点。接受指示点索引和指示点类名作为参数</p>
+       <p>-paginationBulletRender: function (swiper, index, className) {
+      return '<span class="' + className + '">' + (index + 1) + '</span>';
+  }</p>
+       <h4>Navigation Buttons(前进后退按钮):</h4>
+       <p>nextButton,前进按钮的css选择器或HTML元素</p>
+       <p>preButton,</p>
+       <h4>Scrollbar(滚动条):</h4>
+       <p>scrollbar,Scrollbar容器的css选择器或HTML元素。</p>
+       <p>scrollbarHide,滚动条是否自动隐藏。默认：true会自动隐藏</p>
+       <p>scrollbarDraggable,该参数设置为true时允许拖动滚动条</p>
+       <p>scrollbarSnapOnRelease,如果设置为true，释放滚动条时slide自动贴合</p>
+       <h4>Keyboard/Mousewheel(鼠标、键盘控制选项)</h4>
+       <p>keyboardControl,是否开启键盘控制Swiper切换。设置为true时，能使用键盘方向键控制slide滑动</p>
+       <p>mousewheelControl,是否开启鼠标控制Swiper切换。设置为true时，能使用鼠标滚轮控制slide滑动</p>
+       <h4>Images(图片选项):</h4>
+       <p>preloadImages,默认为true，Swiper会强制加载所有图片</p>
+       <p>updateOnImagesReady,当所有的内嵌图像（img标签）加载完成后Swiper会重新初始化。使用此选项需要先开启preloadImages: true</p>
+       <p>lazyLoading,设为true开启图片延迟加载，使preloadImages无效。需要将图片img标签的src改写成data-src，并且增加类名swiper-lazy。背景图的延迟加载则增加属性data-background</p>
+       <p>lazyLoadingInPrevNext,设置为true允许将延迟加载应用到最接近的slide的图片（前一个和后一个slide）</p>
+       <p>lazyLoadingInPrevNextAmount,设置在延迟加载图片时提前多少个slide。个数不可少于slidesPerView的数量。默认为1，提前1个slide加载图片，例如切换到第三个slide时加载第四个slide里面的图片</p>
+       <p>lazyLoadingOnTransitionStart,默认当过渡到slide后开始加载图片，如果你想在过渡一开始就加载，设置为true</p>
+       <h4>Loop(环路):</h4>
+       <p>loop,设置为true 则开启loop模式。loop模式：会在原本slide前后复制若干个slide并在合适的时候切换，让Swiper看起来是循环的。 loop模式在与free模式同用时会产生抖动，因为free模式下没有复制slide的时间点</p>
+       <p>loopAdditionalSlides,loop模式下会在slides前后复制若干个slide,，前后复制的个数不会大于原总个数</p>
+       <p>-默认为0，前后各复制1个。 0,1,2 --> 2,0,1,2,0===取值为1，0,1,2 --> 1,2,0,1,2,0,1===取值为2或以上，0,1,2 --> 0,1,2,0,1,2,0,1,2</p>
+       <p>loopedSlides,在loop模式下使用slidesPerview:'auto',还需使用该参数设置所要用到的loop个数。如loop : true,
+slidesPerView : 'auto',loopedSlides :8,</p>
+       <h4>Zoom(调焦)</h4>
+       <p>zoom,焦距功能：双击slide会放大，并且在手机端可双指触摸缩放,需要在slide中增加类名swiper-zoom-container</p>
+       <p>zoomMax,最大缩放焦距（放大倍率）,如果要在单个slide上设置，可以使用data-swiper-zoom</p>
+       <p>zoomMin,</p>
+       <p>zoomToggle,是否允许双击缩放,设置为false，不允许双击缩放，只允许手机端触摸缩放</p>
+       <h4>Controller(双向控制)</h4>
+       <p>control,设置为另外一个Swiper实例开始控制该Swiper,也就是第二个swiper去控制第一个swiper</p>
+       <p>controlInverse,设置为true时控制方向倒转</p>
+       <p>controlBy,设定Swiper相互控制时的控制方式。当两个swiper的slide数量不一致时可用.例：有4个slide的swiper1控制有7个slide的swiper2</p>
+       <p>normalizeSlideIndex,使你的活动块指示为最左边的那个slide（没开启centeredSlides时）</p>
+       <h4>Observer(监视器):</h4>
+       <p>observer,启动动态检查器(OB/观众/观看者)，当改变swiper的样式（例如隐藏/显示）或者修改swiper的子元素时，自动初始化swiper。默认false，不开启，可以使用update()方法更新</p>
+       <p>observeParents,将observe应用于Swiper的父元素。当Swiper的父元素变化时，例如window.resize，Swiper更新</p>
+       <h4>Callbacks:</h4>
+       <p>onInit(swiper)，回调函数，初始化后执行，可选Swiper实例作为参数</p>
     </div>   
     
     <script src="./js/jquery-3.2.1.min.js"></script>
@@ -66,19 +172,58 @@
             loop: true, //循环播放
             direction : 'horizontal',
             speed: 1000,
-            grabCursor:true,    // 鼠标变爪爪
-            freeMode:true,  // 变成scroll这种 。可以自由滑动的效果
+            //grabCursor:true,    // 鼠标变爪爪
+            //freeMode:true,  // 变成scroll这种 。可以自由滑动的效果
             //freeModeMomentum: false,    // 类似于惯性的效果，鼠标拿开立即停止，没有惯性效果
             //freeModeMomentumRatio: 2,     // 滑动距离
-            freeModeMomentumVelocityRatio: 3,    // 滑动速度
+            //freeModeMomentumVelocityRatio: 3,    // 滑动速度
             //freeModeMomentumBounce: false,
             //freeModeMomentumBounceRatio: 3,
-            freeModeSticky: true,   // 一个屏 滑动的时候，会自动贴合到边上。如苹果手机 Assisstant 左右贴靠效果
+            //freeModeSticky: true,   // 一个屏 滑动的时候，会自动贴合到边上。如苹果手机 Assisstant 左右贴靠效果
+            //slidesPerView:3,      // 一个容器里一次能显示多少个slide
+            //loopedSlides:3,
+            //slidesPerGroup:3,       // 轮播图模式下，多少个slide为一组
+            spaceBetween: 15,    // slide之间的距离
+            //slidesPerColumn : 2,    // 加上这个属性，就自动变成多行布局，2就是2行。3就是3行
+            //slidesPerColumnFill: 'row',   // 多行的填充方式
+            //slidesOffsetBefore: 10,     // 距离左边框的预设距离
+            //slidesOffsetAfter: 10,
+            //effect: "coverflow",    // 切换动画
+            //preventClicks: false,   //设为了false，因此触摸时链接跳转了
+            //preventLinksPropagation : false,
+            //slideToClickedSlide: true,  // 要把slidesPerView:3这个加上，才好点击其他slide
+            //followFinger:false,
+            //threshold : 100,  // 触摸的临界值，低于临界值不能滑动
+            //resistance: true,   // 有回弹的抵抗力
+            //swipeHandler : '.swipe-handler',  // 内置的一个焦点（小原点）功能的滑动条，你只能通过它来滑动
+            //pagination : '.swiper-pagination',  // 分页器
+            //paginationType: 'fraction',
+            //paginationClickable: true,  // 分页器可以控制轮播图切换
+            //paginationHide: true,   // 分页器会自动隐藏或显示
+            prevButton:'.swiper-button-prev',   // 前进后退按钮
+            nextButton:'.swiper-button-next',
+            scrollbar:'.swiper-scrollbar',
+            //scrollbarDraggable: false,
+            keyboardControl: true,  // 开启键盘方向键控制
+            //mousewheelControl: true,    // 开启鼠标滚轮控制
+            lazyLoading: true,  // 开始图片懒加载
+            zoom : true,    // 聚焦功能 双击会变大
+            zoomMax: 5, // 放大的倍数
+            //zoomToggle: true,
+            //Swiper1.params.control = Swiper2;     // 用Swiper1去控制Swiper2
+            observer: true, // 监视swiper,当子元素发生变化时会自动重新初始化swiper,类似重绘
+            onInit: function(swiper){
+                //Swiper初始化了
+                //alert(swiper.activeIndex);提示Swiper的当前索引
+            }
         });
         // new Swiper(swiperContainer, parameters)
         // 用于初始化一个Swiper，返回初始化后的Swiper实例
         // swiperContainer : 必选，HTML元素或者string类型，Swiper容器的css选择器，例如“.swiper-container”。
         // parameters : 可选，参见配置选项
+//        $('#btn1').click(function(){
+//            $(".swiper-wrapper .swiper-slide1").remove();         
+//        }
     </script>
 </body>
 </html>
