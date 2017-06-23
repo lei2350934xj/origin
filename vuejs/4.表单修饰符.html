@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!--  引用vue.js  -->
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 表单修饰符: .lazy .number .trim -->
+        <!-- .lazy 用户输入内容时不做绑定数据的更新处理，在控件的onchange事件中更新绑定的变量 -->
+        <!-- 表单输入的时候，懒装入很有用，这样不会实时解析你输入的信息，而是等你输入完了再解析。更符合输入的情景 -->
+        用户名：<input v-model.lazy="username">
+        <p>你输入的用户名：{{username}}</p>
+        
+        <!-- .number 将用户输入的内容转化为数值类型，如果用户输入非数值的时候，则返回NaN-->
+        年龄：<input v-model.number="age">
+        <p>你输入的年龄：{{age}}</p>
+        
+        <!-- .trim 自动去掉用户输入内容两端的空格 -->
+        意见：<textarea cols="10" rows="5" v-model.trim="content"></textarea>
+        你输入的内容是：<textarea rows="5" colos="10">{{content}}</textarea>
+    </div>
+
+    <!--  新建Vue脚本  -->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                username: '',
+                age:'',
+                content:''
+            }
+        });
+    </script>
+</body>
+</html>
