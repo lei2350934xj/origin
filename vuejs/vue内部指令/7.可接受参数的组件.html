@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!--  引用vue.js  -->
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        请输入名字:<input v-model.lazy="myname">
+        <say-name v-bind:pname="myname"></say-name>
+    </div>
+
+    <!--  新建Vue脚本  -->
+    <script>
+        // 1. 定义全局的组件,哪里都可以使用
+        Vue.component('say-name',{
+            props:['pname'],
+            template:'<div>你输入的名字是:{{pname}}</div>',
+        });        
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                myname:'',
+            },
+        });
+
+    </script>
+</body>
+
+</html>

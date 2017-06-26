@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>hello vue.js</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../node_modules/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <!-- v-pre:原样输出    
+             v-cloak:渲染完成才显示   
+             v-once:在第一次DOM时进行渲染，渲染完成后视为静态内容，跳出以后的渲染过程
+        -->
+        <div id="app">
+            <p v-cloak>{{message}}</p>
+            <div v-once>第一次绑定的值：{{message}}</div>
+            <div><input type="text" v-model="message"></div>
+        </div>
+        <script>
+            var vm = new Vue({
+                el:'#app',
+                data: {
+                    message:'',
+                },
+            });
+        </script>
+    </body>
+</html>

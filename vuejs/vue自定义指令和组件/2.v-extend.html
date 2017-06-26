@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../node_modules/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>Vue.extend 扩展实例构造器</h1>
+        <hr>
+        <author></author>
+
+        <script>
+            var authorExtend = Vue.extend({
+                template:"<p><a v-bind:href='authorURL'>{{authorName}}</a></p>",
+                // 不能直接附值，要用return
+                data:function(){
+                    return {
+                        authorName:'llltingting',
+                        authorURL:'http://67.209.179.81'
+                    }
+                }
+            });
+            // 绑定
+            new authorExtend().$mount("author");
+        </script>
+    </body>
+</html>

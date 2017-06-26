@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../node_modules/vue/dist/vue.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <panda here="China"></panda>
+            <!--<panda v-bind:here="message"></panda>-->
+        </div>
+
+        <script>
+            // props选项就是设置和获取标签上的属性值的
+            var vm = new Vue({
+                el:'#app',
+                data:{
+                    message:'hello'
+                },
+                components: {
+                    "panda":{
+                        template:'<h2 style="color:blue;">Panda from {{here}}</h2>',
+                        props:['here'],
+                        // props:[hereHome] ,小驼峰写法，前面第一个单词小驼峰 第二个大驼峰
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

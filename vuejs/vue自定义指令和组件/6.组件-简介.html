@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../node_modules/vue/dist/vue.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <mycomponent></mycomponent>
+            <panda></panda>
+        </div>
+
+        <script>
+            // 组件名 组件内容
+            Vue.component('mycomponent',{
+                template:'<h2>自定义的组件<h2>'
+            });
+            var vm = new Vue({
+                el:'#app',
+                data:{
+                    message:'hello'
+                },
+                components: {
+                    "panda":{
+                        template:'<h2 style="color:blue;">我是局部的组件</h2>'
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

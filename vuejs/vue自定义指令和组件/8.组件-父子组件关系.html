@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../node_modules/vue/dist/vue.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <panda here="China"></panda>
+            <!--<panda v-bind:here="message"></panda>-->
+        </div>
+
+        <script>
+            var city={
+                template:`<div>Sichuan of China</div>`
+            }
+            var tpl = {
+                template:`<div><p> Panda from China!</p><city></city></div>`,
+                    // 父组件tpl使用 子组件 city来进行渲染
+                    components:{
+                        "city":city
+                    }
+                }
+
+            var vm = new Vue({
+                el:'#app',
+                data:{
+                    message:'hello'
+                },
+                components: {
+                    "panda":tpl
+                }
+            });
+        </script>
+    </body>
+</html>

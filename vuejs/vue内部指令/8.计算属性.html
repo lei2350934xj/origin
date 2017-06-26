@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!--  引用vue.js  -->
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{message}}</p>
+        <p>{{reverseMessage}}</p>
+    </div>
+
+   
+    <!--  新建Vue脚本  -->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message:'a409wudilihai'
+            },
+            computed: {
+                reverseMessage: function(){
+                    // 注意认真一点，函数名称拼写 写正确！！！
+                    return this.message.split('').reverse().join('');
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

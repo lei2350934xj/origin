@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!--  引用vue.js  -->
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        1. v-on 侦听组件事件，当组件触发事件后进行事件处理
+        2. $emit 触发事件，并将数据提交给事件侦听者
+    -->
+    <div id="app">
+        <h1>人生加法</h1>
+        <add-method :a="6" :b="10" @add_event="getAddResult"></add-method>
+        <h3>{{result}}</h3>
+    </div>
+
+    <!--  新建Vue脚本  -->
+    <script>
+        Vue.component('add-method',{
+            props:['a','b'], 
+            template:'<div><button @click="add">加吧</button></div>',
+            methods: {
+                add:function(){
+                    var value = 0;
+                    value = this.a + this.b;
+                    // 子组件 去 触发一个 add_event事件
+                    this.$emit('add_event',{
+                        result:value
+                    });
+                }
+            }
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                result:0
+            },
+            methods: {
+                getAddResult:function(pval){
+                    this.result = pval.result;
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

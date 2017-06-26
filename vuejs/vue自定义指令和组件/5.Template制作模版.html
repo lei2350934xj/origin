@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../node_modules/vue/dist/vue.min.js"></script>
+    </head>
+    <body>
+        <div id="tpl1">
+            {{message}}
+        </div>
+
+        <template id="tpl2">
+            <h2 style="color:blue;">我是template标签模版</h2>
+        </template>
+
+        <script type="x-template" id="tpl3">
+            <h2 style="color:red">我是script标签模板</h2>
+        </script>
+
+        <script>
+            var vm = new Vue({
+                el:'#tpl1',
+                data:{
+                    message:'hello'
+                },
+                // 用的是tab键上面的键
+                // template: `<h1>你好,我是选项模版</h1>`
+                // template:"#tpl2",
+                template:"#tpl3"
+            });
+        </script>
+    </body>
+</html>

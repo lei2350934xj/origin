@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <h1>自定义指令</h1>
+    <br>
+    <div id="app">
+        <!--之前写了个指令 colorChange,应该是跟某些指令冲突了，不能运用上-->
+        <div v-dsd="color" id="demo">
+            {{num}}
+        </div>
+        <div>
+            <button @click="add">Add</button>
+        </div>
+    </div>
+
+    <script>
+        // 指令时标签属性  而组件是标签
+        Vue.directive("dsd", function (el, binding) {
+            // console.log(el);
+            el.style = "color:" + binding.value;
+            // console.log(binding);
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                num: 10,
+                color: 'blue'
+            },
+            methods: {
+                add: function () {
+                    this.num += 1;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

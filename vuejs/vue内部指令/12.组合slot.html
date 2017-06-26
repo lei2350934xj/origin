@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!--  引用vue.js  -->
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        slot 是父组件与子组件的通讯方式，可以将父组件的内容显示在子组件当中
+        就是把<say-to>xxxx</say-to>中的内容xxxx能在子组件中显示出来 
+        slot命名：在子组件中通过给多个slot进行命名，来接受父组件的不同内容的数据
+    -->
+    <div id="app">
+        <nba-all-stars c="奥尼尔" pf="加内特">
+            <!--  sf就插入到sf对应的插槽中 -->
+            <span slot="sf">皮尔斯</span>
+            <span slot="sg">雷阿伦</span>
+            <span slot="pg">詹姆斯</span>
+        </nba-all-stars>
+    </div>
+
+   
+    <!--  新建Vue脚本  -->
+    <script>
+        Vue.component('nba-all-stars',{
+            props:['c','pf'],
+            template:'<div>'
+            +'<div>中锋：{{c}}</div>'
+            +'<div>大前：{{pf}}</div>'
+            +'<div>小前：<slot name="sf"></slot></div>'
+            +'<div>分卫：<slot name="sg"></slot></div>'
+            +'<div>控卫：<slot name="pg"></slot></div>'
+            +'</div>'
+        });
+        
+        var app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+        });
+
+    </script>
+</body>
+
+</html>

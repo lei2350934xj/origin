@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!--  引用vue.js  -->
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- watch,里面传递你要观察的元素。该元素变化的时候会执行function  -->
+    <div id="app">
+        <p>今年热卖的switch价格：{{price}}日元，含税价格：{{priceIntax}}日元，折合人民币：{{priceChinaRMB}}</p>
+        <button @click="btnClick(10000)">加价10000日元</button>
+    </div>
+
+   
+    <!--  新建Vue脚本  -->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                price:29980,
+//                priceIntax:0,
+//                priceChinaRMB:0,
+            },
+            methods: {
+                btnClick:function(newPrice){
+                    this.price += newPrice;
+                }
+            },
+            // watch，观察里面是要观察的东西，这里是price
+            watch: {
+                price:function(newVal,oldVal){
+                    console.log(newVal,oldVal);
+                    this.priceIntax = Math.round(this.price * 1.08);
+                    this.priceChinaRMB = Math.round(this.priceIntax / 16.75);
+                }
+            }
+        });
+        app.price = 29980;
+
+    </script>
+</body>
+
+</html>

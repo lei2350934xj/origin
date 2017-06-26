@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!--  引用vue.js  -->
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- html代码块  -->
+    <div id="app">
+        <!--  v-if为false时候，元素不会渲染到HTML上，也就是不会渲染DOM -->
+        <div v-if="seen">2017热卖新款</div>
+        <table style="width:200px;height:200px;" border="1px solid #f0f0f0">
+            <tr>
+                <td>热卖游戏</td>
+                <td>价格</td>
+            </tr>
+            <tr v-for="game in games">
+                <td>{{game.title}}</td>
+                <td>{{game.price}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!--  新建Vue脚本  -->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                seen: true,
+                games: [{
+                        "title": "马里奥之死",
+                        "price": "99"
+                    },
+                    {
+                        "title": "炸弹人",
+                        "price": "105"
+                    },
+                    {
+                        "title": "消灭星星",
+                        "price": "80"
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>

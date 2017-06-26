@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!--  引用vue.js  -->
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- 注意注意！！！v-model，是del不是dal  -->
+    <!-- v-model:为页面输入框进行数据绑定，如input，select，textarea，comonents（组件）  -->
+    <div id="app">
+        <p>您最喜欢的游戏：{{mygame}}</p>
+        <input type="text" v-model="mygame">
+    </div>
+
+    <!--  新建Vue脚本  -->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                mygame:'超级马里奥'
+            }
+        });
+    </script>
+</body>
+</html>

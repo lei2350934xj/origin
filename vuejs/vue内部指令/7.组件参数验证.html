@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!--  引用vue.js  -->
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>身世之谜</h1>
+        <show-member-info name="55kai" v-bind:age="25" :detail="{address:'深圳',language:'中文'}"></show-member-info>
+    </div>
+
+    <!--  新建Vue脚本  -->
+    <script>
+        Vue.component('show-member-info',{
+            props:{
+                name:{type:String,required:true},
+                age:{type:Number,validator:function(value){return value>=0 && value<=130;}},
+                detail:{type:Object,default:function(){return {address:'US',language:'English'}}}
+            },
+            template:'<div>姓名:{{this.name}}<br/>'
+                +'年龄:{{this.age}}岁<br/>'
+                +'地址:{{this.detail.address}}<br/>'
+                +'语言:{{this.detail.language}}</div>'
+        });        
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                myname:'',
+            },
+        });
+
+    </script>
+</body>
+
+</html>

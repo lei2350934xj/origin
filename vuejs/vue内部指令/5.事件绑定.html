@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!--  引用vue.js  -->
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- v-on为页面的元素绑定事件（keydown keyup click ）  -->
+    <!-- v-bind多用于class的绑定，也就是样式的绑定   -->
+    <div id="app">
+        <p>您最喜欢的游戏是:{{mygame}}</p>
+        <button v-on:click="btnClick('炸弹人')">炸弹人</button>
+        <button v-on:click="btnClick('我的世界')">我的世界</button>
+        <button v-on:click="btnClick('英雄联盟')">英雄联盟</button>
+        <!--    简写，可以用 @ 代替 v-on:    -->
+        <button @click="btnClick('穿越火线')">穿越火线</button>
+    </div>
+
+    <!--  新建Vue脚本  -->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                mygame: '坦克世界',
+            },
+            methods: {
+                btnClick: function(pname) {
+                    this.mygame = pname;
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
