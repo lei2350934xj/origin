@@ -13,6 +13,9 @@
     <div id="app">
         <p>{{message}}</p>
         <p>{{reverseMessage}}</p>
+        <div v-for="item in items">{{item}}</div>
+        <h2>排序之后:</h2>
+        <div v-for="item in sortItem">{{item}}</div>
     </div>
 
    
@@ -21,15 +24,22 @@
         var app = new Vue({
             el: '#app',
             data: {
-                message:'a409wudilihai'
+                message:'a409wudilihai',
+                items:[53,17,23,69,33]
             },
             computed: {
                 reverseMessage: function(){
                     // 注意认真一点，函数名称拼写 写正确！！！
                     return this.message.split('').reverse().join('');
+                },
+                sortItem:function(){
+                    return this.items.sort(sortNumber);
                 }
             }
         });
+        function sortNumber(a,b){
+            return a-b;
+        }
 
     </script>
 </body>

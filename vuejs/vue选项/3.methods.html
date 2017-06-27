@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <h1>computed</h1>
+    <hr>
+    <div id="app">
+        <p>{{num}}</p>     
+        <input type="button" @click="add(3)" value="加3">
+        <btn @click.native="add(3)"></btn>
+    </div>
+
+    <script type="text/javascript">
+        var btn = {
+            template:'<button>组件btn<button>'
+        }
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                num:11
+            },
+            methods:{
+                add:function(value){
+                    this.num += value;
+                }
+            },
+            components:{
+                'btn':btn
+            }
+        });
+    </script>
+</body>
+
+</html>

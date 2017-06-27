@@ -7,6 +7,9 @@
         <script src="../node_modules/vue/dist/vue.min.js"></script>
     </head>
     <body>
+        // Vue.set 的作用就是在构造器外部操作构造器内部的数据、属性或者方法。比如在vue构造器
+        // 内部定义了一个count为1的数据，我们在构造器外部定义了一个方法，要每次点击按钮给值加1
+        // 就需要用到Vue.set
         <h1>Vue.set 全局操作</h1>
         <hr>
         <div id="app">

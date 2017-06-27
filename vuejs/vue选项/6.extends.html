@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <!--
+        delimiters的作用是改变我们插值的符号。Vue默认的插值是双大括号{{}}。但有时我们会有需求更改这个插值的形式
+    -->
+    <h1>extends</h1>
+    <hr>
+    <div id="app">
+        <p>${num}</p>
+        <button type="button" @click="add">加1</button>
+    </div>
+
+    <script type="text/javascript">
+        var extendsObj = {
+            updated:function(){
+                console.log("我是扩展的update");
+            },
+            //  如果方法名和原生的一样 则不会执行扩展的方法
+            methods:{
+                add:function(){
+                    console.log("我是扩展出的add方法");
+                    this.num += 1;
+                }
+            }
+        };
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                num:1
+            },
+            methods: {
+                add:function(){
+                    console.log("我是原生的方法");
+                    this.num += 1;
+                }
+            },
+            updated:function(){
+                console.log("我是原生的update");
+            },
+            extends:extendsObj,
+            delimiters:['${','}']
+            // delimiters:['${','}']
+        });
+    </script>
+</body>
+
+</html>

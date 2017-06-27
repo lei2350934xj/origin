@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+    <script src="../jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <!--
+        实例事件就是在构造器外部写一个调用构造器内部的方法。这样写的好处是可以通过
+        这种写法在构造器外部调用构造器内部的数据
+    -->
+    <h1>on</h1>
+    <hr>
+    <div id="app">
+        <p>{{num}}</p>
+        <input type="button" name="" value="加1" @click="add">
+    </div>
+    <input type="button" name="" value="减1" onclick="reduce()">    
+
+    <script type="text/javascript">    
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                num:1,
+            },
+            methods:{
+                add:function(){
+                    this.num += 1;
+                }
+            }
+        });
+
+        vm.$on("reduce",function(){
+            console.log("外部on方式改变num的值");
+            this.num -= 1;
+        });
+
+        function reduce(){
+            vm.$emit('reduce');
+        }
+    </script>
+</body>
+
+</html>

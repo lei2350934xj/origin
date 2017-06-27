@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+    <script src="../jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <!--
+    -->
+    <h1>example1111</h1>
+    <hr>
+    <div id="app">
+        {{message}}
+    </div>
+
+    <script type="text/javascript">    
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message:"hello world"
+            },
+            methods: {
+                add:function(){
+                    console.log("调用了内部的add方法");
+                }
+            },
+            // 只有在mounted和update里面才能用jquery
+            mounted:function(){
+                $("#app").html("我是jquery~");
+            }
+        });
+        vm.add();
+    </script>
+</body>
+
+</html>

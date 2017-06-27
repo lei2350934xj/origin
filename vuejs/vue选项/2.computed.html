@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <!--computed 的作用主要是对原数据进行改造输出。改造输出：包括格式的编辑，大小写转换，顺序重排，添加符号……-->
+    <h1>computed</h1>
+    <hr>
+    <div id="app">
+        <p>{{newPrice}}</p>
+        <ul>
+            <li v-for="item in newList">{{item.title}}-{{item.date}}</li>
+        </ul>
+        <h4>逆序之后:</h4>
+        <ul>
+            <li v-for="item in reverseNews">{{item.title}}-{{item.date}}</li>
+        </ul>        
+    </div>
+
+    <script type="text/javascript">
+        var newList = [
+            {title:"新闻标题1111",date:'2017-6-24'},
+            {title:"新闻标题222",date:'2016-5-23'},
+            {title:"新闻标题333",date:'2015-4-22'},
+            {title:"新闻标题444",date:'2014-3-21'},
+        ];
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                price:100,
+                newList:newList
+            },
+            computed:{
+                newPrice:function(){
+                    return this.price = '¥' + this.price + '元';
+                },
+                reverseNews:function(){
+                    return this.newList.reverse();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

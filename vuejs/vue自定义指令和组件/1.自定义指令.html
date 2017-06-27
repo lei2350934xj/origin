@@ -22,11 +22,28 @@
     </div>
 
     <script>
-        // 指令时标签属性  而组件是标签
-        Vue.directive("dsd", function (el, binding) {
+        // 指令是标签属性  而组件是标签
+        // el: 指令所绑定的元素，可以用来直接操作DOM。
+        // binding:  一个对象，包含指令的很多信息。
+        // vnode: Vue编译生成的虚拟节点。
+        // 自定义指令有5个钩子函数,也就是生命周期 bind inserted update componentUpdated unbind
+        Vue.directive("dsd",{
             // console.log(el);
-            el.style = "color:" + binding.value;
+            // el 就是用来直接DOM操作的选项
             // console.log(binding);
+            bind:function(el,binding){//被绑定
+                el.style = "color:" + binding.value;
+                console.log('1 - bind');
+            },
+            inserted:function(){//绑定到节点
+                console.log('2 - inserted');
+            },
+            update:function(){//组件更新
+                console.log('3 - update');
+            },
+            componentUpdated:function(){//组件更新完成
+                console.log('4 - componentUpdated');
+            },            
         });
 
         var vm = new Vue({

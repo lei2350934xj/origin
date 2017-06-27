@@ -11,10 +11,13 @@
 <body>
     <!-- html代码块  -->
     <!--  普通文本绑定{{}}  -->
-    <!--  html结构绑定v-html  -->
+    <!--  html结构绑定v-html:少用这个标签，容易受到xss攻击  -->
+    <!--v-text会在加载完成才会显示-->
     <div id="app">
         <p>{{message_text}}</p>
-        <div v-html="message_html"></div>
+        <p v-html="message_html"></p>
+        <p>原样输出:{{message_html}}</p>
+        <p v-html="message_html"></p>
     </div>
 
     <!--  新建Vue脚本  -->

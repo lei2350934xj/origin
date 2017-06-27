@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+    <script src="../jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <!--
+    -->
+    <h1>$mount</h1>
+    <hr>
+    <div id="app"></div>
+    <p><button onclick="destroy()">销毁</button></p>
+
+    <script type="text/javascript">    
+        var myextend = Vue.extend({
+            template:'<p>{{message}}</p>',
+            // 扩展的时候必须要匿名函数的形式，不能用对象的形式
+            data:function(){
+                return {
+                    message:'Hello world'
+                }
+            },
+            mounted:function(){
+                console.log("mounted被创建！");
+            },
+            destroyed:function(){
+                console.log("销毁成功!");
+            }
+        });
+        var vm = new myextend().$mount("#app");
+        function destroy(){
+            vm.$destroy();
+        }
+    </script>
+</body>
+
+</html>

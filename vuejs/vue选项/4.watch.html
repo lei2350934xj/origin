@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <h1>computed</h1>
+    <hr>
+    <div id="app">
+        <p>今日温度:{{temperature}}</p>
+        <p>穿衣建议:{{coat}}</p>
+        <button @click="temperUp">升高一度</button>
+        <button @click="temperDown">降低一度</button>
+    </div>
+
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                temperature: 14,
+                coat: '夹克长裙'
+            },
+            methods: {
+                temperUp: function () {
+                    this.temperature += 5;
+                },
+                temperDown: function () {
+                    this.temperature -= 5;
+                }
+            },
+            watch: {
+                // 监控的对象
+                temperature: function (newVal, oldVal) {
+                    if (newVal >= 26) {
+                        this.coat = "体恤短袖";
+                    } else if (newVal >= 0) {
+                        this.coat = "夹克长裙";
+                    } else {
+                        this.coat = "棉衣羽绒服";
+                    }
+                }
+            }
+        });
+        // 用实例属性写watch监控，写在构造器的外面
+        // vm.$watch('temperature', function (newVal, oldVal) {
+        //     if (newVal >= 26) {
+        //         this.coat = "体恤短袖";
+        //     } else if (newVal >= 0) {
+        //         this.coat = "夹克长裙";
+        //     } else {
+        //         this.coat = "棉衣羽绒服";
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

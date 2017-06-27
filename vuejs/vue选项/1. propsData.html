@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="../node_modules/vue/dist/vue.min.js"></script>
-    </head>
-    <body>
-        // Vue一共有10个生命周期函数，我们可以利用这些函数在vue的每个阶段都进行操作数据或者改变内容
-        <h1>构造器的声明周期</h1>
-            <hr>
-            <div id="app">
-                {{message}}
-                <p><button @click="jia">加分</button></p>
-            </div>
 
-            <script type="text/javascript">
-                var app=new Vue({
-                    el:'#app',
-                    data:{
-                        message:1
-                    }
-                })
-            </script>        
-    </body>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <!--选项就是在Vue构造器里的配置功能的前缀（Vue已经给我们定义好了）-->
+    <h1>propsData</h1>
+    <hr>
+    <header></header>
+
+    <script type="text/javascript">
+        var header_a = Vue.extend({
+            template: '<p>{{message}}-{{a}}</p>',
+            data: function () {
+                return {
+                    message: 'hello , l am lltingting'
+                }
+            },
+            props:['a']
+        });
+        // 挂载到header标签上
+        new header_a({propsData:{a:1234}}).$mount("header");
+    </script>
+</body>
+
 </html>

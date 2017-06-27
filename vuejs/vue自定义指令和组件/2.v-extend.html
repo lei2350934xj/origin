@@ -10,6 +10,8 @@
         <h1>Vue.extend 扩展实例构造器</h1>
         <hr>
         <author></author>
+        <div class="author1"></div>
+        <div id="author2"></div>
 
         <script>
             var authorExtend = Vue.extend({
@@ -22,8 +24,10 @@
                     }
                 }
             });
-            // 绑定
+            // 创建 authorExtend 实例，并挂载到一个元素上,可以标签、类、id
             new authorExtend().$mount("author");
+            new authorExtend().$mount(".author1");
+            new authorExtend().$mount("#author2");
         </script>
     </body>
 </html>
