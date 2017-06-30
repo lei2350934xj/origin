@@ -1,0 +1,11 @@
+- global:
+    在Node.js环境中，也有唯一的全局对象，但不叫window，而叫global，这个对象的属性和方法也和浏览器环境的window不同
+- process:
+    代表当前Node.js进程
+
+- 判断JavaScript执行环境
+if (typeof(window) === 'undefined') {
+    console.log('node.js');
+} else {
+    console.log('browser');
+}    
