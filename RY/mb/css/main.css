@@ -1,0 +1,135 @@
+@charset "UTF-8";
+/** 清除内外边距 **/
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+em,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0; }
+
+.inner_c {
+  width: 990px;
+  margin: 0 auto; }
+
+#header .topbar {
+  height: 49px;
+  padding-top: 6px;
+  background-color: #fff; }
+  #header .topbar a.logo {
+    float: left;
+    display: block;
+    width: 85px;
+    height: 38px;
+    padding-right: 19px;
+    border-right: 2px solid #004f9d;
+    margin-right: 13px; }
+  #header .topbar ul.bar {
+    float: left;
+    width: 327px;
+    height: 32px;
+    list-style: none;
+    background: url("../images/headbar.jpg") no-repeat; }
+    #header .topbar ul.bar li {
+      float: left;
+      width: 108px;
+      height: 32px;
+      cursor: pointer; }
+  #header .topbar i.i-backIndex {
+    float: right;
+    width: 22px;
+    height: 21px;
+    margin-top: 10px;
+    margin-right: 5px;
+    background: url("../images/back.jpg") no-repeat; }
+  #header .topbar a.backIndex {
+    float: right;
+    font-size: 14px;
+    color: black;
+    height: 45px;
+    line-height: 45px;
+    text-decoration: none; }
+
+#header .banner {
+  margin-top: 3px;
+  height: 500px;
+  background: url("../images/banner.jpg") no-repeat center; }
+
+#content .content-1 {
+  height: 820px;
+  /*842*/
+  padding-top: 22px;
+  background: url("../images/bg.jpg") no-repeat center; }
+  #content .content-1 div.content-1-title {
+    position: relative;
+    text-align: center; }
+    #content .content-1 div.content-1-title span {
+      font-size: 36px;
+      color: white; }
+    #content .content-1 div.content-1-title a.look-more {
+      position: absolute;
+      top: 20px;
+      right: 15px;
+      text-decoration: none;
+      color: white;
+      font-size: 14px; }
+  #content .content-1 ul.content-1-body {
+    list-style: none;
+    overflow: hidden;
+    margin-top: 20px; }
+    #content .content-1 ul.content-1-body li {
+      float: left;
+      margin-right: 5px;
+      margin-bottom: 5px; }
+      #content .content-1 ul.content-1-body li a {
+        display: block;
+        width: 240px;
+        height: 354px; }
+
+#footer .outer {
+  height: 170px;
+  padding-top: 40px;
+  background-color: #39c5d7; }
+  #footer .outer .top {
+    font-size: 40px;
+    color: white;
+    text-align: center; }
+    #footer .outer .top a.click-in {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      border-bottom: 2px solid white; }
+  #footer .outer .center {
+    font-size: 24px;
+    color: white;
+    text-align: center; }
+  #footer .outer .bottom-1,
+  #footer .outer .bottom-2 {
+    font-size: 13px;
+    color: white;
+    text-align: center; }
+
+#footer .contact-us {
+  height: 338px;
+  background: url("../images/footer.jpg") no-repeat center; }
