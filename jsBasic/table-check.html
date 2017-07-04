@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #inputValue {
+            width: 200px;
+            height: 20px;
+        }
         #tip{
-            display: none;
+            display:inline-block;
+            width: 200px;
+            height: 25px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
         }
     </style>
 </head>
@@ -26,10 +39,8 @@
     var tip = $("tip");
     inputValue.onblur = function(){
         if(this.value=="liangting"){
-            tip.style.display = "inline-block";
             tip.innerHTML = "恭喜，输入正确";
         }else{
-            tip.style.display = "inline-block";
             tip.innerHTML = "抱歉，输入有误，请重新输入";
         }
     }

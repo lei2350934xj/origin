@@ -65,14 +65,15 @@
                 // 上方tab样式处理
                 for(var j=0;j<lis.length;j++){
                     lis[j].className = "";
+                    subBox[j].style.display = "none";
                 }
                 this.className = "current";
-                
-                // 下方box样式处理
-                for(var k=0;k<subBox.length;k++){
-                    subBox[k].style.display = "none";
-                }
                 subBox[this.index].style.display = "block";
+                // 下方box样式处理
+//                for(var k=0;k<subBox.length;k++){
+//                    subBox[k].style.display = "none";
+//                }
+//                subBox[this.index].style.display = "block";
         }
     }
 </script>

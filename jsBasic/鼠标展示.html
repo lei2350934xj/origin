@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            *{padding: 0;margin: 0;}
+            #box {
+                width: 350px;
+                height: 405px;
+                margin: 100px auto;
+                border: 1px solid #ccc;
+            }
+            #showImage {
+                width: 350px;
+                height: 350px;
+                background-color: pink;
+            }
+            .ul {
+                width: 350px;
+                height: 50px;
+                margin-top: 5px;
+                list-style: none;
+            }
+            .ul li {
+                float: left;
+                width: 70px;
+                height: 50px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div id="showImage"></div>
+            <ul class="ul">
+                <li id="li1" style="background:pink;"></li>
+                <li id="li2" style="background:skyblue;"></li>
+                <li id="li3" style="background:yellowgreen;"></li>
+                <li id="li4" style="background:black;"></li>
+                <li id="li5" style="background:gray;"></li>
+            </ul>
+        </div>
+        <script>
+            var ul = document.getElementsByTagName("ul")[0];
+            var lis = ul.children;
+            var showImage = document.getElementById("showImage");
+            // console.log(lis.length);
+            for(var i=0,len=lis.length; i<len; i++){
+                lis[i].onmouseenter = function(){
+                    showImage.style.backgroundColor = this.style.backgroundColor;
+                }
+            }
+        </script>
+    </body>
+</html>

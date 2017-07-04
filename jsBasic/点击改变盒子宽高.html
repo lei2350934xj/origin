@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            *{padding: 0;margin: 0}
+            #box {
+                width: 200px;
+                height: 200px;
+                background-color: blue;
+            }
+            #btn {
+                width: 80px;
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box"></div>
+        <button id="btn">改变宽高</button>
+        <script>
+            var box = document.getElementById("box");
+            var btn = document.getElementById("btn");
+
+            btn.onclick = function(){
+                box.style.width = "400px";
+                box.style.height = "400px";
+            }
+        </script>
+    </body>
+</html>

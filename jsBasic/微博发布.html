@@ -64,11 +64,13 @@
         
         userContent.value = ""; // 清空输入框
         
+        // 循环判断是否点击 “删除” 按钮
         var aS = document.getElementsByTagName("a");
         for(var i=0;i<aS.length;i++){
             aS[i].onclick = function() {
 //                alert(111);
-                // aS就是 <a> aS的parent就是li  li的父亲是ul
+                // aS就是 <a>,  aS的parent就是li  li的父亲是ul
+                // 要删除的就是 ul下面 一条条的 li
                 recordBox.removeChild(this.parentNode);
             }
         }
