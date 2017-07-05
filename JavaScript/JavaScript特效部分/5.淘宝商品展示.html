@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width:400px;
+            height:80px;
+            margin:50px auto;
+            padding-top:400px;
+            border:2px solid #ccc;
+            background-color: red;/*应该是一张url的背景图片*/
+        }
+        ul{
+            overflow: hidden;
+            border-top:1px solid #ccc;
+            list-style: none;
+        }
+        ul li{
+            float:left;
+            width:100px;
+            height:80px;
+        }
+        li#li1{
+            background-color: red;
+        }
+        li#li2{
+            background-color: yellow;
+        }
+        li#li3{
+            background-color: blue;
+        }
+        li#li4{
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="boxShopping" class="box">
+        <ul>
+            <li id="li1" onclick="changeShangping(1)">1</li>
+            <li id="li2" onclick="changeShangping(2)">2</li>
+            <li id="li3" onclick="changeShangping(3)">3</li>
+            <li id="li4" onclick="changeShangping(4)">4</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+    <script>
+            var colorArr = ["red","yellow","blue","green"];
+            function changeShangping(liId){
+//                alert(111);
+                var boxShopping = document.getElementById("boxShopping");
+                boxShopping.style.backgroundColor = colorArr[liId-1];
+            }
+    </script>

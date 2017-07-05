@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 5000px;
+            background-color: rgba(255, 192, 203, 0.47);
+        }
+        .goTop{
+            position: fixed;
+            top:500px;
+            right:20px;
+            width: 100px;
+            height: 60px;
+            font-size: 60px;
+            line-height: 80px;
+            text-align: center;
+            background-color: skyblue;
+            display: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="goTop">^</div>
+</body>
+
+</html>
+
+<script>
+    // 封装scroll函数的原因 ： scrollTop ／scrollLeft 有兼容性问题
+    function scroll() {
+        // IE9+ 浏览器
+        if (window.pageXOffset != null) {
+            return {
+                left: window.pageXOffset,
+                top: window.pageYOffset
+            }
+        }
+        // 火狐浏览器 （用DTD声明了的）
+        else if (document.compatMode == "CSS1Compat") {
+            return {
+                left: document.documentElement.scrollLeft,
+                top: document.documentElement.scrollTop
+            }
+        }
+        // 谷歌浏览器 和 没有用DTD声明的
+        else {
+            return {
+                left: document.body.scrollLeft,
+                top: document.body.scrollTop
+            }
+        }
+    }
+    
+    var leader=0,target=0;
+    var goTop = document.getElementsByTagName("div")[0];
+    
+//    alert(goTop.className);
+    window.onscroll = function(){
+        // 把 卷去的头部 给起始位置
+        leader = scroll().top;
+        if(scroll().top>1000){
+//            alert(scroll().top);
+            goTop.style.display = "block";
+        }else{
+            goTop.style.display = "none";
+        }
+    }
+    
+    goTop.onclick = function(){
+        target = 0;
+        var timer = setInterval(function(){
+            leader = leader + (target - leader) / 10;
+            // scrollTo里第一个参数 x坐标 第二个参数 y坐标
+            // 返回顶部 一般就是 纵坐标不断变化  横坐标保持不变
+            window.scrollTo(0,leader);
+            if(leader==target){
+                clearInterval(timer);
+            }
+        },30);
+    }
+</script>
