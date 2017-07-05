@@ -114,3 +114,25 @@ onfocus是事件，focus()是函数
     console.log(txt.substr(3)); // name is tom
     console.log(txt.substr(3,6));   // name i
 </pre>
+#### 18.height:auto和height:100%区别
+<pre>
+    auto和100%的参照对象不同
+    auto: 根据盒子自身内容来定义大小
+    100%: 根据父亲的高度来定义大小
+例子：
+    <style>
+        .father {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ccc;
+        }
+        .son {
+            height: auto;   // 粉色为字的高度
+            height: 100%;   // 粉色为父盒子的高度
+            background-color: pink;
+        }
+    </style>
+    <div class="father">
+        <div class="son">你好</div>
+    </div>
+</pre>
