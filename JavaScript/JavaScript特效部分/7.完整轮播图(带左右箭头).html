@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .w-slider {
+            width: 310px;
+            height: 265px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            width: 310px;
+            height: 220px;
+        }
+
+        .slider-main {
+            width: 620px;
+            height: 220px;
+        }
+
+        .slider-main-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 310px;
+            height: 220px;
+        }
+
+        .slider-main-img img {
+            width: 100%;
+        }
+
+        .slider-ctrl {
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        .slider-ctrl-con {
+            width: 24px;
+            height: 20px;
+            display: inline-block;
+            background: url(./images/icon.png) no-repeat -24px -782px;
+            margin: 0 5px;
+            cursor: pointer;
+            text-indent: -20em;
+            overflow: hidden;
+        }
+
+        .current {
+            background-position: -24px -762px;
+        }
+
+        .slider-ctrl-prev,
+        .slider-ctrl-next {
+            position: absolute;
+            top: 50%;
+            margin-top: -35px;
+            background: url(./images/icon.png) no-repeat 6px top;
+            width: 30px;
+            height: 35px;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .slider-ctrl-prev {
+            left: 0;
+        }
+
+        .slider-ctrl-next {
+            right: 0;
+            background-position: -6px -44px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w-slider" id="js_slider">
+        <div class="slider">
+            <div class="slider-main" id="slider_main_block">
+                <div class="slider-main-img"><a href="#"><img src="images/100.jpg" alt=""/></a></div>
+                <div class="slider-main-img"><a href="#"><img src="images/200.jpg" alt=""/></a></div>
+                <div class="slider-main-img"><a href="#"><img src="images/300.jpg" alt=""/></a></div>
+                <div class="slider-main-img"><a href="#"><img src="images/400.jpg" alt=""/></a></div>
+                <div class="slider-main-img"><a href="#"><img src="images/500.jpg" alt=""/></a></div>
+                <div class="slider-main-img"><a href="#"><img src="images/600.jpg" alt=""/></a></div>
+            </div>
+        </div>
+        <div class="slider-ctrl" id="slider_ctrl">
+            <span class="slider-ctrl-prev"></span>
+            <span class="slider-ctrl-next"></span>
+        </div>
+    </div>
+    <script>
+        // 多个属性运动框架  添加回调函数
+        function animate(obj, json, fn) { // 给谁    json
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var flag = true; // 用来判断是否停止定时器   一定写到遍历的外面
+                for (var attr in json) { // attr  属性     json[attr]  值
+                    //开始遍历 json
+                    // 计算步长    用 target 位置 减去当前的位置  除以 10
+                    // console.log(attr);
+                    var current = 0;
+                    if (attr == "opacity") {
+                        current = Math.round(parseInt(getStyle(obj, attr) * 100)) || 0;
+                        console.log(current);
+                    } else {
+                        current = parseInt(getStyle(obj, attr)); // 数值
+                    }
+                    // console.log(current);
+                    // 目标位置就是  属性值
+                    var step = (json[attr] - current) / 10; // 步长  用目标位置 - 现在的位置 / 10
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    //判断透明度
+                    if (attr == "opacity") // 判断用户有没有输入 opacity
+                    {
+                        if ("opacity" in obj.style) // 判断 我们浏览器是否支持opacity
+                        {
+                            // obj.style.opacity
+                            obj.style.opacity = (current + step) / 100;
+                        } else { // obj.style.filter = alpha(opacity = 30)
+                            obj.style.filter = "alpha(opacity = " + (current + step) * 10 + ")";
+
+                        }
+                    } else if (attr == "zIndex") {
+                        obj.style.zIndex = json[attr];
+                    } else {
+                        obj.style[attr] = current + step + "px";
+                    }
+
+                    if (current != json[attr]) // 只要其中一个不满足条件 就不应该停止定时器  这句一定遍历里面
+                    {
+                        flag = false;
+                    }
+                }
+                if (flag) // 用于判断定时器的条件
+                {
+                    clearInterval(obj.timer);
+                    //alert("ok了");
+                    if (fn) // 很简单   当定时器停止了。 动画就结束了  如果有回调，就应该执行回调
+                    {
+                        fn(); // 函数名 +  （）  调用函数  执行函数
+                    }
+                }
+            }, 10)
+        }
+
+        function getStyle(obj, attr) { //  谁的      那个属性
+            if (obj.currentStyle) // ie 等
+            {
+                return obj.currentStyle[attr]; // 返回传递过来的某个属性
+            } else {
+                return window.getComputedStyle(obj, null)[attr]; // w3c 浏览器
+            }
+        }
+        
+        // 获取元素
+        function $(id) {
+            return document.getElementById(id);
+        }
+        var js_slider = $("js_slider"); // 获取最大盒子
+        var slider_main_block = $("slider_main_block"); // 滚动图片的父亲
+        var imgs = slider_main_block.children; // 获得所有的图片组 需要滚动的部分
+        var slider_ctrl = $("slider_ctrl"); // 获得 控制span 的 父盒子
+        // 操作元素
+        // 生成小span
+        for (var i = 0; i < imgs.length; i++) {
+
+            var span = document.createElement("span"); // 创建 span
+            span.className = "slider-ctrl-con"; // 添加类名
+            span.innerHTML = imgs.length - i; //  6 - 0     6 - 1   // 实现 倒序 的方式插入
+            slider_ctrl.insertBefore(span, slider_ctrl.children[1]); // 再 父亲 倒数第二个盒子的前面插入
+        }
+        // 下面的第一个小span  是默认的蓝色
+        var spans = slider_ctrl.children; // 得到所有的 span
+        spans[1].setAttribute("class", "slider-ctrl-con current"); // 两个类名
+
+        var scrollWidth = js_slider.clientWidth; // 得到大盒子的宽度 也就是  后面动画走的距离  310
+        //  刚开始，按道理   第一张图片 留下   其余的人走到 310 的位置上
+        for (var i = 1; i < imgs.length; i++) { // 从1 开始 因为第一张不需要计算
+
+            imgs[i].style.left = scrollWidth + "px"; // 其他人 先右移动到 310 的位置
+        }
+        // 遍历三个按钮
+        // spans 是 8个按钮 他们都是 span
+        var iNow = 0; //  用来 控制播放张数
+        for (var k in spans) { //   k  是索引号  spans[k]    spans[0]  第一个span
+            spans[k].onclick = function () {
+                // alert(this.innerHTML);
+                if (this.className == "slider-ctrl-prev") { // 判断当前点击的这个按钮是不是 prev
+                    // alert("您点击了左侧按钮");
+                    //  当我们左侧点击时候， 当前的这张图片 先慢慢的走到右边  上一张 一定先快速走到左侧 （-310）的位置，然后慢慢的走到舞台中
+                    animate(imgs[iNow], {
+                        left: scrollWidth
+                    });
+                    --iNow < 0 ? iNow = imgs.length - 1 : iNow;
+                    imgs[iNow].style.left = -scrollWidth + "px";
+                    animate(imgs[iNow], {
+                        left: 0
+                    });
+                    setSquare();
+                } else if (this.className == "slider-ctrl-next") { // 右侧按钮开始
+                    autoplay();
+                } else {
+                    // alert("您点击了下面的span");
+                    // 我们首先要知道我们点击是第几张图片  --- 获得当前的索引号
+                    // alert(this.innerHTML);
+                    var that = this.innerHTML - 1;
+                    // console.log(typeof that);
+                    if (that > iNow) {
+                        // 做法等同于 右侧按钮
+                        animate(imgs[iNow], {
+                            left: -scrollWidth
+                        }); // 当前的这张慢慢的走出去 左侧
+                        imgs[that].style.left = scrollWidth + "px"; // 点击的那个索引号 快速走到右侧  310
+                    } else if (that < iNow) {
+                        // 做法等同于 左侧按钮
+                        animate(imgs[iNow], {
+                            left: scrollWidth
+                        });
+                        imgs[that].style.left = -scrollWidth + "px";
+                    }
+                    iNow = that; // 给当前的索引号
+                    animate(imgs[iNow], {
+                        left: 0
+                    });
+                    /*比如 已经播放到 第4张    我点击了 第2张   把 2 给  inow
+                    下一次播放，应该播放第3张*/
+                    // animate(imgs[iNow],{left: 0});
+                    setSquare();
+                }
+            }
+        }
+        //  一个可以控制 播放span 的 函数   当前
+        function setSquare() {
+            //  清除所有的span current   留下 满足需要的拿一个
+            for (var i = 1; i < spans.length - 1; i++) { //  8个span   我们要 1-6  不要 7  索引号
+                spans[i].className = "slider-ctrl-con";
+            }
+            spans[iNow + 1].className = "slider-ctrl-con current"; // 记住 + 1
+        }
+        // 定时器开始  其实， 定时器就是  右侧按钮
+        var timer = null;
+        timer = setInterval(autoplay, 2000); // 开启定时器
+        function autoplay() {
+            //  当我们点击时候， 当前的这张图片 先慢慢的走到左边  下一张 一定先快速走到右侧 （310）的位置，然后慢慢的走到舞台中
+            // alert("您点击了右侧按钮");
+            //iNow == 0
+            animate(imgs[iNow], {
+                left: -scrollWidth
+            });
+            // 当前的那个图片 慢慢的走到 -scrollWidth 位置
+            // 变成1   先 ++   ++iNow  先自加  后 运算
+            ++iNow > imgs.length - 1 ? iNow = 0 : iNow;
+            imgs[iNow].style.left = scrollWidth + "px"; // 立马执行  快速走到右侧
+            animate(imgs[iNow], {
+                left: 0
+            }); // 下一张走的 0 的位置  慢慢走过来
+            setSquare(); // 调用square
+        }
+        //鼠标经过清除定时器
+        js_slider.onmouseover = function () {
+            clearInterval(timer);
+        }
+        js_slider.onmouseout = function () {
+            clearInterval(timer); // 要执行定时器 先清除定时器
+            timer = setInterval(autoplay, 2000); // 开启定时器
+        }
+    </script>
+</body>
+
+</html>

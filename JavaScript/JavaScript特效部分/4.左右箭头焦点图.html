@@ -91,6 +91,8 @@
     // 定时器显示 缓动动画
     var leader = 0;
     var target = 0;
+    // 都是在事件处理函数里面进行改变target的值
+    // 在单独的定时器里面进行leader = leader + (target - leader) / 10的运算
     setInterval(function(){
         if(target>=0){
             target = 0; // 大于0就是第一张 
