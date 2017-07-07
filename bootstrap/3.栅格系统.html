@@ -1,46 +1,61 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    
-    <title>Bootstrap Template</title>
-    
-    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    
-    <!--[if lt IE 9]>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <title>Bootstrap Template</title>
+
+  <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+  <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->   
+    <![endif]-->
 </head>
 
 <body>
-<!-- 
+  <!-- 
     超小屏幕 手机 (<768px)	      类前缀 .col-xs-
     小屏幕 平板 (≥768px)	           类前缀 .col-sm-
     中等屏幕 桌面显示器 (≥992px)	    类前缀 .col-md-
     大屏幕 大桌面显示器 (≥1200px)    类前缀 .col-lg-
     .container 最大宽度	None （自动）	750px	970px	1170px
 -->
-        <!-- 所有“列（column）必须放在 ” .row 内 -->
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
-          <div class="col-sm-6 col-md-4">.col-sm-6 .col-md-4</div>
+  <!-- 所有“列（column）必须放在 ” .row 内 -->
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
+    <div class="col-sm-6 col-md-4">.col-sm-6 .col-md-4</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+    <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+    <div class="clearfix visible-xs-block"></div>
+    <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+  </div>
+  <!-- .col-md-pull-* 类就可以很容易的改变列（column）的顺序 -->
+  <div class="row">
+    <div class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3</div>
+    <div class="col-md-3 col-md-pull-9">.col-md-3 .col-md-pull-9</div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-9">
+      Level 1: .col-sm-9
+      <div class="row">
+        <div class="col-xs-8 col-sm-6">
+          Level 2: .col-xs-8 .col-sm-6
         </div>
-        <div class="row">
-          <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
-          <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
-          <div class="clearfix visible-xs-block"></div>
-          <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+        <div class="col-xs-4 col-sm-6">
+          Level 2: .col-xs-4 .col-sm-6
         </div>
-        <!-- .col-md-pull-* 类就可以很容易的改变列（column）的顺序 -->
-        <div class="row">
-          <div class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3</div>
-          <div class="col-md-3 col-md-pull-9">.col-md-3 .col-md-pull-9</div>
-        </div>
-    
-    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>

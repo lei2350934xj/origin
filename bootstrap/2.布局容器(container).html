@@ -14,9 +14,9 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->   
     <style>
-        .container {
+        .container-fluid {
 	        height: 100px;
-            background-color: #f2f2f2;
+            background-color: red;
         }
         /* 注意：当我们使用最小宽度(min-width)作为判断条件的时候一定要从小到大来判断
                 因为CSS从上往下执行.如果用max-width，则反之。
@@ -46,8 +46,9 @@
 <body>
     <!-- 布局容器container:也就是常说的版心，但是是响应式的，页面宽度变化依旧可以居中
         这个container有几个档位，也就是CSS3媒体查询的判断节点
+        container有两种类型：一种是居中 一种是fluid，父元素100%宽度
     -->
-    <div class="container">
+    <div class="container-fluid">
         好东西
     </div>
     
