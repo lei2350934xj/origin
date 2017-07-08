@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>slick - 轮播图插件的终极解决方案</title>
+	<link href='http://fonts.gmirror.org/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="./slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="./slick/slick-theme.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/prism.css" />
+	<meta name="description" content="slick is a responsive carousel jQuery plugin that supports multiple breakpoints, CSS3 transitions, touch events/swiping &amp; much more!">
+	<meta name="keywords" content="slick, responsive, carousel, slider, jQuery, plugin, CSS3, swipe, touch">
+	<!-- Open Graph -->
+	<meta property="og:title" content="slick - the last carousel you'll ever need" />
+	<meta property="og:description" content="slick is a responsive carousel jQuery plugin that supports multiple breakpoints, CSS3 transitions, touch events/swiping &amp; much more!" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="http://kenwheeler.github.io/slick/" />
+	<meta property="og:image" content="http://kenwheeler.github.io/slick/img/slick.gif" />
+	<meta property="og:image:type" content="image/gif" />
+	<meta property="og:image:width" content="300" />
+	<meta property="og:image:height" content="300" />
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="slick - the last carousel you'll ever need" />
+	<meta name="twitter:description" content="slick is a responsive carousel jQuery plugin that supports multiple breakpoints, CSS3 transitions, touch events/swiping &amp; much more!" />
+	<meta name="twitter:creator" content="@ken_wheeler" />
+	<meta name="twitter:image:src" content="http://kenwheeler.github.io/slick/img/slick.gif" />
+	<meta name="twitter:domain" content="http://kenwheeler.github.io/slick/" />
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+	<script src="./js/modernizr.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+		<div class="header">
+			<div class="header-content">
+				<h1 class="title">slick</h1>
+				<p class="subheading">你所需的最后一款轮播插件</p>
+				<ul class="nav">
+					<li><a href="#demos">演示</a></li>
+					<li><a href="#getting-started">用法</a></li>
+					<li><a href="#settings">设置</a></li>
+          <li><a href="http://maxgalleria.com/downloads/slick-slider-for-wordpress/">用于wordpress</a></li>
+					<li><a href="#go-get-it">下载</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="fixed-header">
+			<div class="header-content">
+				<h1 class="title">slick</h1>
+				<p class="subheading">你所需的最后一款轮播插件</p>
+				<ul class="nav">
+					<li><a href="#demos">演示</a></li>
+					<li><a href="#getting-started">用法</a></li>
+					<li><a href="#settings">设置</a></li>
+          <li><a href="http://maxgalleria.com/shop/slick-carousel-wordpress/">用于wordpress</a></li>
+					<li><a href="#go-get-it">下载</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<section id="features" class="blue">
+      <!-- <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=kenwheelergithubio" id="_carbonads_js"></script> -->
+			<div class="content">
+				<h2>Features 特点</h2>
+				<ul class="features">
+					<li>完全响应式设计，随容器自动缩放。</li>
+					<li>一个断点，一套设置。</li>
+					<li>浏览器支持CSS3与否，全部功能不受影响。</li>
+					<li>是否开启滑动，由你指定，</li>
+					<li>同时支持鼠标拖动，</li>
+					<li>以及自动轮播，</li>
+					<li>更可使用键盘方向键切换。</li>
+					<li>添加、移除、跳过指定幻灯片，</li>
+					<li>自动播放，圆点、箭头跳转，执行回调函数，以及更多...</li>
+				</ul>
+				<hr id="demos"/>
+				<h2>Single Item 单幻灯片展示</h2>
+				<div class="slider single-item">
+					<div><h3>1</h3></div>
+					<div><h3>2</h3></div>
+					<div><h3>3</h3></div>
+					<div><h3>4</h3></div>
+					<div><h3>5</h3></div>
+					<div><h3>6</h3></div>
+				</div>
+				<pre><code class="language-javascript">
+$('.single-item').slick();
+				</code></pre>
+				<hr/>
+				<h2>Multiple Items 多幻灯片展示</h2>
+				<div class="slider multiple-items">
+					<div><h3>1</h3></div>
+					<div><h3>2</h3></div>
+					<div><h3>3</h3></div>
+					<div><h3>4</h3></div>
+					<div><h3>5</h3></div>
+					<div><h3>6</h3></div>
+					<div><h3>7</h3></div>
+					<div><h3>8</h3></div>
+					<div><h3>9</h3></div>
+				</div>
+				<pre><code class="language-javascript">
+$('.multiple-items').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 3
+});
+				</code></pre>
+				<hr/>
+				<h2>Responsive Display 响应式展示</h2>
+				<div class="slider responsive">
+					<div><h3>1</h3></div>
+					<div><h3>2</h3></div>
+					<div><h3>3</h3></div>
+					<div><h3>4</h3></div>
+					<div><h3>5</h3></div>
+					<div><h3>6</h3></div>
+					<div><h3>7</h3></div>
+					<div><h3>8</h3></div>
+				</div>
+				<pre><code class="language-javascript">
+$('.responsive').slick({
+  dots: true,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+				</code></pre>
+				<hr/>
+        <h2>Variable Width 可变宽度</h2>
+        <div class="slider variable-width">
+          <div style="width: 200px;"><p>200</p></div>
+          <div style="width: 175px;"><p>175</p></div>
+          <div style="width: 150px;"><p>150</p></div>
+          <div style="width: 300px;"><p>300</p></div>
+          <div style="width: 225px;"><p>225</p></div>
+          <div style="width: 125px;"><p>125</p></div>
+
+        </div>
+        <pre><code class="language-javascript">
+$('.variable-width').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  centerMode: true,
+  variableWidth: true
+});
+        </code></pre>
+        <hr/>
+				<h2>Adaptive Height 自适应高度</h2>
+				<div class="slider one-time">
+					<div><h3>1</h3></div>
+					<div><h3>2</h3><p>Look ma!</p></div>
+					<div><h3>3</h3><p>Check<br/>this out!</p></div>
+					<div><h3>4</h3><p>Woo!</p></div>
+				</div>
+				<pre><code class="language-javascript">
+$('.one-time').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: true
+});
+				</code></pre>
+				<hr/>
+				<h2>Data Attribute Settings<br>设置数据属性</h2>
+        <p>自1.5版开始，你可以通过 data-slick 属性来设置 slick。<br>你依旧需要调用 $(element).slick() 来初始化 slick。</p>
+				<div class="data" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+					<div><h3>1</h3></div>
+					<div><h3>2</h3></div>
+					<div><h3>3</h3></div>
+					<div><h3>4</h3></div>
+					<div><h3>5</h3></div>
+					<div><h3>6</h3></div>
+				</div>
+				<pre><code class="language-markup">
+&lt;div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'&gt;
+  &lt;div&gt;&lt;h3&gt;1&lt;/h3&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;h3&gt;2&lt;/h3&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;h3&gt;3&lt;/h3&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;h3&gt;4&lt;/h3&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;h3&gt;5&lt;/h3&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;h3&gt;6&lt;/h3&gt;&lt;/div&gt;
+&lt;/div&gt;
+				</code></pre>
+				<hr/>
+				<h2>Center Mode 中央模式</h2>
+				<div class="slider center">
+					<div><h3>1</h3></div>
+					<div><h3>2</h3></div>
+					<div><h3>3</h3></div>
+					<div><h3>4</h3></div>
+					<div><h3>5</h3></div>
+					<div><h3>6</h3></div>
+				</div>
+				<pre><code class="language-javascript">
+$('.center').slick({
+  centerMode: true,
+  centerPadding: '60px',
+  slidesToShow: 3,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+				</code></pre>
+				<hr/>
+				<h2>Lazy Loading 懒加载</h2>
+				<div class="slider lazy">
+					<div><div class="image"><img data-lazy="img/lazyfonz1.png"/></div></div>
+					<div><div class="image"><img data-lazy="img/lazyfonz2.png"/></div></div>
+					<div><div class="image"><img data-lazy="img/lazyfonz3.png"/></div></div>
+					<div><div class="image"><img data-lazy="img/lazyfonz4.png"/></div></div>
+					<div><div class="image"><img data-lazy="img/lazyfonz5.png"/></div></div>
+					<div><div class="image"><img data-lazy="img/lazyfonz6.png"/></div></div>
+				</div>
+				<pre><code class="language-javascript">
+// To use lazy loading, set a data-lazy attribute
+// on your img tags and leave off the src
+
+&lt;img data-lazy="img/lazyfonz1.png"/&gt;
+
+$('.lazy').slick({
+  lazyLoad: 'ondemand',
+  slidesToShow: 3,
+  slidesToScroll: 1
+});
+				</code></pre>
+				<hr/>
+				<h2>Autoplay 自动轮播</h2>
+				<div class="slider autoplay">
+					<div><h3>1</h3></div>
+					<div><h3>2</h3></div>
+					<div><h3>3</h3></div>
+					<div><h3>4</h3></div>
+					<div><h3>5</h3></div>
+					<div><h3>6</h3></div>
+				</div>
+			<pre><code class="language-javascript">
+$('.autoplay').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+});
+				</code></pre>
+				<hr/>
+				<h2>Fade 渐变效果</h2>
+				<div class="slider fade">
+					<div><div class="image"><img src="img/fonz1.png"/></div></div>
+					<div><div class="image"><img src="img/fonz2.png"/></div></div>
+					<div><div class="image"><img src="img/fonz3.png"/></div></div>
+				</div>
+			<pre><code class="language-javascript">
+$('.fade').slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  fade: true,
+  cssEase: 'linear'
+});
+				</code></pre>
+				<hr/>
+				<h2>Add & Remove 动态添加、移除</h2>
+				<div class="slider add-remove">
+					<div><h3>1</h3></div>
+				</div>
+				<div class="buttons">
+					<a href="javascript:void(0)" class="button js-add-slide">増加一张轮播</a>
+					<a href="javascript:void(0)" class="button js-remove-slide">删除一张轮播</a>
+				</div>
+			<pre><code class="language-javascript">
+$('.add-remove').slick({
+  slidesToShow: 3,
+  slidesToScroll: 3
+});
+$('.js-add-slide').on('click', function() {
+  slideIndex++;
+  $('.add-remove').slick('slickAdd','&lt;div&gt;&lt;h3&gt;' + slideIndex + '&lt;/h3&gt;&lt;/div&gt;');
+});
+
+$('.js-remove-slide').on('click', function() {
+  $('.add-remove').slick('slickRemove',slideIndex - 1);
+  if (slideIndex !== 0){
+    slideIndex--;
+  }
+});
+				</code></pre>
+				<hr/>
+				<h2>Filtering 筛选特定幻灯片</h2>
+				<div class="slider filtering">
+					<div><h3>1</h3></div>
+					<div><h3>2</h3></div>
+					<div><h3>3</h3></div>
+					<div><h3>4</h3></div>
+					<div><h3>5</h3></div>
+					<div><h3>6</h3></div>
+					<div><h3>7</h3></div>
+					<div><h3>8</h3></div>
+					<div><h3>9</h3></div>
+					<div><h3>10</h3></div>
+					<div><h3>11</h3></div>
+					<div><h3>12</h3></div>
+				</div>
+				<div class="filter">
+					<a href="javascript:void(0)" class="button js-filter">Filter Slides</a>
+				</div>
+			<pre><code class="language-javascript">
+$('.filtering').slick({
+  slidesToShow: 4,
+  slidesToScroll: 4
+});
+
+var filtered = false;
+
+$('.js-filter').on('click', function(){
+  if (filtered === false) {
+    $('.filtering').slick('slickFilter',':even');
+    $(this).text('Unfilter Slides');
+    filtered = true;
+  } else {
+    $('.filtering').slick('slickUnfilter');
+    $(this).text('Filter Slides');
+    filtered = false;
+  }
+});
+				</code></pre>
+				<hr/>
+				<h2>Destroy 销毁实例</h2>
+				<p class="destroy">如果你真想这么干...</p>
+				<pre><code class="language-javascript">
+$('.your-slider').slick('unslick');
+				</code></pre>
+				<hr/>
+				<h2>Slider Syncing 同步显示</h2>
+				<div class="slider slider-for">
+					<div><h3>1</h3></div>
+					<div><h3>2</h3></div>
+					<div><h3>3</h3></div>
+					<div><h3>4</h3></div>
+					<div><h3>5</h3></div>
+				</div>
+				<div class="slider slider-nav">
+					<div><h3>1</h3></div>
+					<div><h3>2</h3></div>
+					<div><h3>3</h3></div>
+					<div><h3>4</h3></div>
+					<div><h3>5</h3></div>
+					</div>
+				<pre><code class="language-javascript">
+ $('.slider-for').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: true,
+  asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.slider-for',
+  dots: true,
+  centerMode: true,
+  focusOnSelect: true
+});
+				</code></pre>
+				<hr />
+				<h2>Right to Left 调转轮播方向</h2>
+				<div dir="rtl" class="slider single-item-rtl">
+					<div><h3>1</h3></div>
+					<div><h3>2</h3></div>
+					<div><h3>3</h3></div>
+					<div><h3>4</h3></div>
+					<div><h3>5</h3></div>
+					<div><h3>6</h3></div>
+				</div>
+				<pre><code class="language-javascript">
+$('.single-item-rtl').slick({
+  rtl: true
+});
+				</code></pre>
+
+				<p><strong>注意：</strong>html标签或幻灯片父标签的 dir 属性必须设为 rtl。</p>
+				<hr />
+				<h4 class="more">此外还有许多...</h4>
+				</div>
+		</section>
+		<section id="getting-started" class="white">
+			<div class="content">
+				<h2 class="margin-40">Getting Started 使用步骤</h2>
+				<p>定义 HTML 标记</p>
+				<pre><code class="language-markup">
+&lt;div class="your-class"&gt;
+  &lt;div&gt;your content&lt;/div&gt;
+  &lt;div&gt;your content&lt;/div&gt;
+  &lt;div&gt;your content&lt;/div&gt;
+&lt;/div&gt;
+				</code></pre>
+				<hr/>
+				<p>将 slick 文件夹移入你的项目</p>
+				<hr/>
+				<p>在 &lt;head&gt; 中添加 slick.css</p>
+				<pre><code class="language-markup">
+&lt;link rel="stylesheet" type="text/css" href="slick/slick.css"/&gt;
+// Add the new slick-theme.css if you want the default styling
+&lt;link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/&gt;
+				</code></pre>
+				<hr/>
+				<p>在jQuery之后，body 闭合标签之前添加 slick.js（需要 jQuery 1.7+）</p>
+				<pre><code class="language-markup">
+&lt;script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="slick/slick.min.js"&gt;&lt;/script&gt;
+				</code></pre>
+				<hr/>
+				<p>在外部文件或内联脚本中初始化 slick</p>
+				<pre><code class="language-javascript">
+$(document).ready(function(){
+  $('.your-class').slick({
+    setting-name: setting-value
+  });
+});
+				</code></pre>
+				<hr/>
+				<p>完成上述步骤后，你的 HTML 文件应该类似于这样：</p>
+				<pre><code class="language-markup">
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;title&gt;My Now Amazing Webpage&lt;/title&gt;
+  &lt;link rel="stylesheet" type="text/css" href="slick/slick.css"/&gt;
+  &lt;link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+  &lt;div class="your-class"&gt;
+    &lt;div&gt;your content&lt;/div&gt;
+    &lt;div&gt;your content&lt;/div&gt;
+    &lt;div&gt;your content&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript" src="slick/slick.min.js"&gt;&lt;/script&gt;
+
+  &lt;script type="text/javascript"&gt;
+    $(document).ready(function(){
+      $('.your-class').slick({
+        setting-name: setting-value
+      });
+    });
+  &lt;/script&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+				</code></pre>
+				<p class="note">注意：强烈建议将初始化脚本放在外部文件中。</p>
+			</div>
+		</section>
+		<section id="settings" class="blue">
+			<div class="content">
+				<h2 >Settings 设置项</h2>
+				<table class="settings">
+					<thead>
+						<tr>
+							<th class="first">Setting</th>
+							<th class="type">Type</th>
+							<th class="default">Default</th>
+							<th class="last">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>accessibility</td>
+							<td>boolean</td>
+							<td>true</td>
+							<td>启用 TAB 和方向键导航。</td>
+						</tr>
+            <tr>
+              <td>adaptiveHeight</td>
+              <td>boolean</td>
+              <td>false</td>
+              <td>让容器的高度随着幻灯片自身高度而变化。</td>
+            </tr>
+						<tr>
+							<td>autoplay</td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>启用自动轮播。</td>
+						</tr>
+						<tr>
+							<td>autoplaySpeed</td>
+							<td>int(ms)</td>
+							<td>3000</td>
+							<td>设置轮播速度，单位是毫秒。</td>
+						</tr>
+						<tr>
+							<td>arrows</td>
+							<td>boolean</td>
+							<td>true</td>
+							<td>显示左右箭头。</td>
+						</tr>
+                        <tr>
+							<td>asNavFor</td>
+							<td>string</td>
+							<td>null</td>
+							<td>将当前轮播图与另一个轮播图关联（依据 class 或 id）。</td>
+						</tr>
+						<tr>
+							<td>appendArrows</td>
+							<td>string</td>
+							<td>$(element)</td>
+							<td>改变导航箭头的作用对象（选择器、htmlString、数组、元素、jQuery 对象）</td>
+						</tr>
+            <tr>
+              <td>appendDots</td>
+              <td>string</td>
+              <td>$(element)</td>
+              <td>改变导航圆点的作用对象（选择器、htmlString、数组、元素、jQuery 对象）</td>
+            </tr>
+                        <tr>
+                            <td>prevArrow</td>
+                            <td>string (html|jQuery selector) | object (DOM node|jQuery object)</td>
+                            <td>&lt;button type="button" class="slick-prev">Previous&lt;/button&gt;</td>
+                            <td>让你自定义“前一个”箭头。</td>
+                        </tr>
+                        <tr>
+                            <td>nextArrow</td>
+                            <td>string (html|jQuery selector) | object (DOM node|jQuery object)</td>
+                            <td>&lt;button type="button" class="slick-next">Next&lt;/button&gt;</td>
+                            <td>让你自定义“后一个”箭头。</td>
+                        </tr>
+						<tr>
+							<td>centerMode</td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>启用“中央视图”，突出当前幻灯片，部分显示前一个、后一个幻灯片。与奇数的 slidesToShow 配合使用。</td>
+						</tr>
+						<tr>
+							<td>centerPadding</td>
+							<td>string</td>
+							<td>'50px'</td>
+							<td>设置“中央视图”启用时的左右 padding (px 或 %)。</td>
+						</tr>
+						<tr>
+							<td>cssEase</td>
+							<td>string</td>
+							<td>'ease'</td>
+							<td>使用 CSS3 动画。</td>
+						</tr>
+						<tr>
+							<td>customPaging</td>
+							<td>function</td>
+							<td>n/a</td>
+							<td>自定义幻灯片标注（paging）模板。在“源码”中查看示例。</td>
+						</tr>
+						<tr>
+							<td>dots</td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>显示圆点指示器。</td>
+						</tr>
+            <tr>
+              <td>dotsClass</td>
+              <td>string</td>
+              <td>'slick-dots'</td>
+              <td>自定义圆点指示器的 class。</td>
+            </tr>
+						<tr>
+							<td>draggable</td>
+							<td>boolean</td>
+							<td>true</td>
+							<td>启用鼠标拖动。</td>
+						</tr>
+						<tr>
+							<td>fade</td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>启用渐变效果。</td>
+						</tr>
+                        <tr>
+							<td>focusOnSelect</td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>启用点击时的聚焦效果。</td>
+						</tr>
+						<tr>
+							<td>easing</td>
+							<td>string</td>
+							<td>'linear'</td>
+							<td>平滑 jQuery 动画。可以与实现平滑效果的库配合使用。</td>
+						</tr>
+            <tr>
+              <td>edgeFriction</td>
+              <td>integer</td>
+              <td>0.15</td>
+              <td>禁用循环轮播时，尝试滑动第一张或最后一张幻灯片时的阻抗效果。</td>
+            </tr>
+						<tr>
+							<td>infinite</td>
+							<td>boolean</td>
+							<td>true</td>
+							<td>启用循环轮播。</td>
+						</tr>
+            <tr>
+              <td>initialSlide</td>
+              <td>integer</td>
+              <td>0</td>
+              <td>从特定幻灯片开始轮播，默认为0，表示第一张幻灯片。</td>
+            </tr>
+						<tr>
+							<td>lazyLoad</td>
+							<td>string</td>
+							<td>'ondemand'</td>
+							<td>设置懒加载。设为“ondemand”表示启用，“progressive”则预先加载所有幻灯片。</td>
+						</tr>
+						<tr>
+              <td>mobileFirst</td>
+              <td>boolean</td>
+              <td>false</td>
+              <td>使用“移动端优先”计算响应式表现的参数。</td>
+            </tr>
+            <tr>
+              <td>pauseOnFocus</td>
+              <td>boolean</td>
+              <td>true</td>
+              <td>聚焦时暂停自动播放。</td>
+            </tr>
+						<tr>
+							<td>pauseOnHover</td>
+							<td>boolean</td>
+							<td>true</td>
+							<td>悬浮时暂停自动播放。</td>
+						</tr>
+						<tr>
+							<td>pauseOnDotsHover</td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>悬浮于导航圆点时暂停自动播放。</td>
+						</tr>
+            <tr>
+              <td>respondTo</td>
+              <td>string</td>
+              <td>'window'</td>
+              <td>响应式对象的参照宽度。可以是“window”，“slider”，或“min”（前两者中的较小者）。</td>
+            </tr>
+						<tr>
+							<td>responsive</td>
+							<td>object</td>
+							<td>none</td>
+							<td>包含断点和 settings 对象（查看示例）。用于为不同屏幕宽度定义各自的 settings 对象。定义其中一个 settings 为“unslick”，则在对应的屏幕宽度上禁用 slick。</td>
+						</tr>
+            <tr>
+              <td>rows</td>
+              <td>int</td>
+              <td>1</td>
+              <td>此项若设置为大于1的值，则会触发栅格模式。使用 slidesPerRow 设置每一行的幻灯片个数。</td>
+            </tr>
+						<tr>
+							<td>slide</td>
+							<td>element</td>
+							<td>''</td>
+							<td>将要作为幻灯片的元素。</td>
+						</tr>
+            <tr>
+              <td>slidesPerRow</td>
+              <td>int</td>
+              <td>1</td>
+              <td>设置当栅格模式被触发时，每一行的幻灯片个数。</td>
+            </tr>
+						<tr>
+							<td>slidesToShow</td>
+							<td>int</td>
+							<td>1</td>
+							<td>第 # 个要显示的幻灯片。</td>
+						</tr>
+						<tr>
+							<td>slidesToScroll</td>
+							<td>int</td>
+							<td>1</td>
+							<td>第 # 个要卷动的幻灯片。</td>
+						</tr>
+						<tr>
+							<td>speed</td>
+							<td>int(ms)</td>
+							<td>300</td>
+							<td>滑动或淡出动画的速度。</td>
+						</tr>
+						<tr>
+							<td>swipe</td>
+							<td>boolean</td>
+							<td>true</td>
+							<td>用 swiping 效果。</td>
+						</tr>
+            <tr>
+              <td>swipeToSlide</td>
+              <td>boolean</td>
+              <td>false</td>
+              <td>让用户直接滑动至某个幻灯片，忽略 slidesToScroll 的值。</td>
+            </tr>
+						<tr>
+							<td>touchMove</td>
+							<td>boolean</td>
+							<td>true</td>
+							<td>启用触屏操作。</td>
+						</tr>
+						<tr>
+							<td>touchThreshold</td>
+							<td>int</td>
+							<td>5</td>
+							<td>要让幻灯片发生切换，用户必须划过幻灯片宽度 1/touchThreshold 的距离。</td>
+						</tr>
+						<tr>
+							<td>useCSS</td>
+							<td>boolean</td>
+							<td>true</td>
+							<td>启用或禁用 CSS transition 效果。</td>
+						</tr>
+            <tr>
+              <td>useTransform</td>
+              <td>boolean</td>
+              <td>true</td>
+              <td>启用或禁用 CSS transform 效果。</td>
+            </tr>
+            <tr>
+              <td>variableWidth</td>
+              <td>boolean</td>
+              <td>false</td>
+              <td>幻灯片宽度可变。</td>
+            </tr>
+						<tr>
+							<td>vertical</td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>垂直轮播模式。</td>
+						</tr>
+            <tr>
+              <td>verticalSwiping</td>
+              <td>boolean</td>
+              <td>false</td>
+              <td>用户垂直划过屏幕时切换幻灯片（默认为水平划过）。</td>
+            </tr>
+						<tr>
+							<td>rtl</td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>调转轮播方向为自右向左。</td>
+						</tr>
+            <tr>
+              <td>waitForAnimate</td>
+              <td>boolean</td>
+              <td>true</td>
+              <td>动画进行时，忽略切换幻灯片的请求。</td>
+            </tr>
+            <tr>
+              <td>zIndex</td>
+              <td>number</td>
+              <td>1000</td>
+              <td>设置幻灯片的 zIndex 参数，适用于 IE9 及之前版本的浏览器。</td>
+            </tr>
+					</tbody>
+				</table>
+        <h2>事件</h2>
+        <p>自 1.4 版本起，回调方法（callback methods）已经被事件（events）替代。用法如下：</p>
+        <pre><code class="language-javascript">
+// On swipe event
+$('.your-element').on('swipe', function(event, slick, direction){
+  console.log(direction);
+  // left
+});
+
+// On edge hit
+$('.your-element').on('edge', function(event, slick, direction){
+  console.log('edge was hit')
+});
+
+// On before slide change
+$('.your-element').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+  console.log(nextSlide);
+});
+        </code></pre>
+        <table class="methods">
+          <thead>
+            <tr>
+              <th class="first">Event</th>
+              <th>Arguments</th>
+              <th class="last">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>afterChange</td>
+              <td>slick, currentSlide</td>
+              <td>幻灯片切换之后触发。</td>
+            </tr>
+            <tr>
+              <td>beforeChange</td>
+              <td>slick, currentSlide, nextSlide</td>
+              <td>幻灯片切换之前触发。</td>
+            </tr>
+            <tr>
+              <td>breakpoint</td>
+              <td>event, slick, breakpoint</td>
+              <td>到达一个断点时触发。</td>
+            </tr>
+            <tr>
+              <td>destroy</td>
+              <td>event, slick</td>
+              <td>幻灯片被销毁时，或 slick 被禁用时触发。</td>
+            </tr>
+            <tr>
+              <td>edge</td>
+              <td>slick, direction</td>
+              <td>在非循环模式下，卷动到第一个或最后一个幻灯片边缘时触发。</td>
+            </tr>
+            <tr>
+              <td>init</td>
+              <td>slick</td>
+              <td>初始化之后触发。</td>
+            </tr>
+            <tr>
+              <td>reInit</td>
+              <td>slick</td>
+              <td>每重新初始化一次之后触发。</td>
+            </tr>
+            <tr>
+              <td>setPosition</td>
+              <td>slick</td>
+              <td>位置或大小改变时触发。</td>
+            </tr>
+            <tr>
+              <td>swipe</td>
+              <td>slick, direction</td>
+              <td>滑动或拖动时触发。</td>
+            </tr>
+            <tr>
+              <td>lazyLoaded</td>
+              <td>event, slick, image, imageSource</td>
+              <td>图片懒加载时触发。</td>
+            </tr>
+            <tr>
+              <td>lazyLoadError</td>
+              <td>event, slick, image, imageSource</td>
+              <td>图片加载失败后触发。</td>
+            </tr>
+          </tbody>
+        </table>
+				<h2>方法</h2>
+        <p>从 1.4 版开始，调用一个方法是通过 .slick(method) 来实现的：</p>
+        <pre><code class="language-javascript">
+// Add a slide
+$('.your-element').slick('slickAdd',"&lt;div&gt;&lt;/div&gt;");
+
+// Get the current slide
+var currentSlide = $('.your-element').slick('slickCurrentSlide');
+        </code></pre>
+
+        <p>这一新语法让你可以调用 slick 的内置方法：</p>
+        <pre><code class="language-javascript">
+// Manually refresh positioning of slick
+$('.your-element').slick('setPosition');
+        </code></pre>
+
+				<table class="methods">
+					<thead>
+						<tr>
+							<th class="first">Method</th>
+							<th>Arguments</th>
+							<th class="last">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>slickCurrentSlide</td>
+							<td>none</td>
+							<td>返回当前幻灯片的序号</td>
+						</tr>
+						<tr>
+							<td>slickGoTo</td>
+							<td>int : slide number, boolean: dont animate</td>
+							<td>根据给定序号定位到幻灯片</td>
+						</tr>
+						<tr>
+							<td>slickNext</td>
+							<td>none</td>
+							<td>定位到后一张幻灯片</td>
+						</tr>
+						<tr>
+							<td>slickPrev</td>
+							<td>none</td>
+							<td>定位到前一张幻灯片</td>
+						</tr>
+						<tr>
+							<td>slickPause</td>
+							<td>none</td>
+							<td>暂停自动播放</td>
+						</tr>
+						<tr>
+							<td>slickPlay</td>
+							<td>none</td>
+							<td>开始自动播放</td>
+						</tr>
+						<tr>
+							<td>slickAdd</td>
+							<td>html or DOM object, index, addBefore</td>
+							<td>添加一张幻灯片。如果给定了序号，则在添加在对应位置（当设置了 addBefore 时，添加在前一个位置）。若没有给定序号，则添加到列表末尾（当设置了 addBefore 时，添加在开头）。接受 HTML 字符串或对象。</td>
+						</tr>
+						<tr>
+							<td>slickRemove</td>
+							<td>index, removeBefore</td>
+							<td>根据给定序号删除一张幻灯片。若 removeBefore 设置为 true，则删除给定序号的前一张幻灯片（没有指定序号则删除第一张幻灯片）。如果 removeBefore 设置为 false，则删除给定序号的后一张幻灯片（没有指定序号则删除最后一张幻灯片）。</td>
+						</tr>
+						<tr>
+							<td>slickFilter</td>
+							<td>Selector or Function</td>
+							<td>使用 jQuery 的 .filter() 过滤幻灯片</td>
+						</tr>
+						<tr>
+							<td>slickUnfilter</td>
+							<td>index</td>
+							<td>移除先前设置过滤的幻灯片</td>
+						</tr>
+                        <tr>
+                            <td>slickGetOption</td>
+                            <td>option : string</td>
+                            <td>获取指定 option 的值</td>
+                        </tr>
+						<tr>
+							<td>slickSetOption</td>
+							<td>option : string, value : depends on option, refresh : boolean</td>
+							<td>定义一个 option，赋值为 value。如果这是一个 UI 更新，设置 refresh 为 true。</td>
+						</tr>
+						<tr>
+							<td>unslick</td>
+							<td>none</td>
+							<td>解构一个 slick</td>
+						</tr>
+                        <tr>
+							<td>getSlick</td>
+							<td>none</td>
+							<td>获取 slick 对象</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<section id="go-get-it" class="white">
+			<div class="content">
+				<h2>Go Get It 获取</h2>
+				<a class="button first" href="https://github.com/kenwheeler/slick/archive/1.6.0.zip">Download Now</a>
+				<a class="button last" href="https://github.com/kenwheeler/slick/">View On Github</a>
+				<hr/>
+			</div>
+		</section>
+
+		<script src="./js/jquery-1.11.0.min.js"></script>
+    <script src="./js/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="./slick/slick.js"></script>
+		<script type="text/javascript" src="./js/scripts.js"></script>
+    <script type="text/javascript" src="js/prism.js"></script>
+		
+
+</body>
+</html>
