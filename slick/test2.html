@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css"/>
+    <title></title>
+    <style>
+        .slideshow {
+          position: relative;
+          z-index: 1;
+          height: 100%;
+          max-width: 700px;
+          margin: 50px auto;
+        }
+        .slideshow * {
+          outline: none;
+        }
+        .slideshow .slider {
+          box-shadow: 0 20px 50px -25px black;
+        }
+        .slideshow .slider-track {
+          -webkit-transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+          transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+        .slideshow .item {
+          height: 100%;
+          position: relative;
+          z-index: 1;
+        }
+        .slideshow .item img {
+          width: 100%;
+          -webkit-transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+          transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+          -webkit-transform: scale(1.2);
+                  transform: scale(1.2);
+        }
+        .slideshow .item.slick-active img {
+          -webkit-transform: scale(1);
+                  transform: scale(1);
+        }                
+    </style>
+</head>
+
+<body>
+    <div class="slideshow">
+      <div class="slider">
+        <div class="item">
+          <img src="./img/lazyfonz1.png" />
+        </div>
+        <div class="item">
+          <img src="./img/lazyfonz2.png" />
+        </div>
+        <div class="item">
+          <img src="./img/lazyfonz3.png" />
+        </div>
+        <div class="item">
+          <img src="./img/lazyfonz4.png" />
+        </div>
+      </div>
+    </div>     
+    
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="./slick/slick.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                autoplay:true,
+                autoplaySpeed:3000,
+                draggable: true,
+                arrows: false,
+                dots: true,
+                fade: true,
+                speed: 900,
+                infinite: true,
+                cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+                touchThreshold: 100
+            })              
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css"/>
+    <title></title>
+    <style>
+        .slick {
+            width: 500px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+        .slick-prev {
+            left: -50px;
+        }
+        .slick-prev:before, .slick-next:before {
+            font-size: 50px;
+            color: #8d0404;
+        }
+        img {
+            display: block;
+            width: 500px;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Single Item 单幻灯片展示</h2>
+    <div class="slick">
+        <img src="./img/lazyfonz1.png" alt="">
+        <img src="./img/lazyfonz2.png" alt="">
+        <img src="./img/lazyfonz3.png" alt="">
+    </div>
+    
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="./slick/slick.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.slick').slick({
+            });
+        });
+    </script>
+</body>
+</html>
