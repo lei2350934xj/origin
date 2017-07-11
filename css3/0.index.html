@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            * {padding: 0;margin: 0;}
+            body {
+                width: 300px;
+                height: 200px;
+                background: url("./01.jpg") no-repeat;
+            }
+            #toggle {
+                position: absolute;
+                top: 293px;
+                left: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--<div>
+            <p>一堆文字一堆文字一堆文字一堆文字一堆文字一堆文字一堆文字一堆文字</p>
+            <p>一堆文字一堆文字一堆文字一堆文字一堆文字一堆文字一堆文字一堆文字</p>
+            <p>一堆文字一堆文字一堆文字一堆文字一堆文字一堆文字一堆文字一堆文字</p>
+            <p>一堆文字一堆文字一堆文字一堆文字一堆文字一堆文字一堆文字一堆文字</p>
+        </div>
+        <input type="number" name="" value="2" min="0" max="10" step="2">
+        <input type="range" min="10" max="100" value="15" step="5">
+        <input type="search">
+        <input type="color">
+        <input type="tel">
+        <input type="text" autocomplete="on"><br>
+        <keygen name="nokey">br-->
+        <audio id="music" controls>
+            <source src="" type="">
+            你的浏览器不支持audio
+        </audio>
+        <button type="button" id="toggle" onclick="toggleSound();">播放</button>
+        <script>
+            function toggleSound(){
+                var music =document.getElementById("music");
+                var toggle = document.getElementById("toggle");
+                if(music.paused) {
+                    music.play();
+                    toggle.innerHTML = "暂停";
+                }else {
+                    music.pause();
+                    toggle.innerHTML = "播放";
+                }
+            }
+        </script>
+    </body>
+</html>
