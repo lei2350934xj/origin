@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            *{margin: 0;padding: 0;}
+            div {
+                width: 400px;
+                height: 200px;
+                margin: 20px auto;
+                border: 1px solid #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            username: <input id="username" type="text" name="username" value="">
+            password: <input id="password" type="password" name="password">
+            <input type="button" value="提交" id="btn">
+        </form>
+        <script src="./jquery-3.2.1.min.js"></script>
+        <script>
+            $(function(){
+                $("#btn").click(function(){
+                    $.get(
+                        "index.php",
+                        {username:$("#username").val(),
+                        password:$("#password").val()
+                        },
+                        function(data,textStatus){
+                            if(textStatus == success){
+                                console.log(data);
+                            }else if(textStatus == error){
+                                console.log("error");
+                            }
+                        }
+                    )
+                });
+            });
+        </script>
+    </body>
+</html>

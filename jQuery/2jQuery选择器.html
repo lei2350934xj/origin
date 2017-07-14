@@ -15,6 +15,11 @@
         <li>兄弟很多123</li>
         <li>兄弟很多123</li>
     </ul>
+    <button type="button">删除一个li</button>
+    <form action="" id="fomr1">
+        用户名：<input type="text">
+        密码：<input type="password">
+    </form>
 </body>
 </html>
 
@@ -22,6 +27,10 @@
 <script>
     $(document).ready(function(){
         $("#b03").css("background-color","yellow");
+        $("button").click(function(){
+            $("li:eq(1)").remove();
+            alert($("#form1 :input").length);
+        });
     });
     //*****************************************************************//
     // 1.基本 选择器
