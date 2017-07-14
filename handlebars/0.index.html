@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <!-- 引入handlebars.js库 -->
+    <script src="./handlebars-v4.0.10.js"></script>
+    <!-- 创建模版 -->
+    <script id="tpl" type="text/x-handlebars-template">
+        <table border="1">
+            {{#each student}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{transformat sex}}</td>
+                <td>{{age}}</td>
+                {{#compare age 20}}
+                <!--     年龄大于20的童鞋个人主页被编码，直接展示出来        -->
+                <td>{{homepage}}</td>
+                {{else}}
+                <!--     而年龄小于20的童鞋，个人主页被当成html解析，显示的是一个超链接         -->
+                <td>{{{homepage}}}</td>
+                {{/compare}}
+            </tr>
+            {{debug name}}
+            {{/each}}
+        </table>
+    </script>
+
+    <!-- 引入jQuery库 -->
+    <script src="./jquery-3.2.1.min.js"></script>
+    <!-- 获取并操作模版 -->
+    <script>
+        $(document).ready(function () {
+            var source = $("#tpl").html();
+
+            var template = Handlebars.compile(source);
+
+            var context = {
+                "student": [{
+                        "name": "张三",
+                        "sex": "0",
+                        "age": "23",
+                        "homepage": "<a href='javascript:void(0);'>张三的个人主页</a>"
+                    },
+                    {
+                        "name": "李四",
+                        "sex": "1",
+                        "age": "22",
+                        "homepage": "<a href='javascript:void(0);'>李四的个人主页</a>"
+                    },
+                    {
+                        "name": "如花",
+                        "sex": "1",
+                        "age": "18",
+                        "homepage": "<a href='javascript:void(0);'>如花的个人主页</a>"
+                    }
+                ]
+            };
+
+            Handlebars.registerHelper('compare', function (v1, v2, options) {
+                if (v1 > v2) {
+                    // v1>v2 show resouce
+                    return options.fn(this);
+                } else {
+                    // v1<v2 show html
+                    return options.inverse(this);
+                }
+            });
+
+            Handlebars.registerHelper('transformat', function (value) {
+                if (value == "0") {
+                    return "男";
+                } else {
+                    return "女";
+                }
+            });
+
+            Handlebars.registerHelper("debug", function (optionalValue) {
+                console.log("Current Context:");
+                console.log(this);
+                if (optionalValue) {
+                    console.log("Value:"+optionalValue);
+                }
+            });
+
+            var html = template(context);
+            $("body").html(html);
+        });
+    </script>
+
+</body>
+
+</html>

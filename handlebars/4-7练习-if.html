@@ -28,9 +28,9 @@
 <script id="tpl1" type=text/x-handlebars-template>
     <div class="entry">
         {{#if author}}
-            <h1>{{name}}</h1>
+            <span>如果author不为空就会输出这些:{{author}}</span>
         {{else}}
-            <h2>{{default}}</h2>
+            <span>如果author为空就会输出这些:{{default}}</span>
         {{/if}}
     </div>
 </script>
@@ -41,7 +41,10 @@
         var template = Handlebars.compile(source);
         
         var context = {
-            "author":"",
+            // "author":"",
+            // "author":undefined,
+            // "author":false,
+            "author":null,
             "default":"input again"
         };
         

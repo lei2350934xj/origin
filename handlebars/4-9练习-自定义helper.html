@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
 <body>
     <div id="showInfo"></div>
 </body>
+
 </html>
 
 
@@ -29,63 +31,64 @@
 -->
 
 <script id="tpl" type="text/x-handlebars-template">
-{{#each student}}
-         {{#if name}}
-           {{#compare age 20}}
-             <tr>
-               <td>{{name}}</td>
-               <td>{{sex}}</td>
-               <td>{{age}}</td>
-             </tr>
-           {{else}}
-             <tr>
-               <td>？</td>
-               <td>？</td>
-               <td>？</td>
-             </tr>
-           {{/compare}}
-         {{/if}}
-       {{/each}}    
+    <table border="1">
+        {{#each student}} 
+            {{#if name}} 
+                {{#compare age 20}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{sex}}</td>
+                        <td>{{age}}</td>
+                    </tr>
+                {{else}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{sex}}</td>
+                        <td>年龄小于20岁的:{{age}}</td>
+                    </tr>
+                {{/compare}} 
+            {{/if}} 
+        {{/each}}
+    </table>
 </script>
 
 
 <script>
-    $(function(){
+    $(function () {
         var source = $("#tpl").html();
         var template = Handlebars.compile(source);
-        
+
         var context = {
-             "student": [
-                         {
-                             "name": "张三",
-                             "sex": "0",    // 一会儿还有一个transformat Helper根据 0 1 转化成正确的性别
-                             "age": 23
-                         },
-                         {
-                             "name":"王二狗",
-                             "sex": "0",
-                             "age": 22
-                         },
-                         {
-                             "name": "如花",
-                             "sex": "1",
-                             "age": 18
-                         }
-                     ]            
+            "student": [{
+                    "name": "张三",
+                    "sex": "0", // 一会儿还有一个transformat Helper根据 0 1 转化成正确的性别
+                    "age": 23
+                },
+                {
+                    "name": "王二狗",
+                    "sex": "0",
+                    "age": 22
+                },
+                {
+                    "name": "如花",
+                    "sex": "1",
+                    "age": 18
+                }
+            ]
         };
-        
+
         // 自定义一个Helper
-        Handlebars.registerHelper('compare',function(v1,v2,options){
-            if(v1>v2){
+        Handlebars.registerHelper('compare', function (v1, v2, options) {
+            if (v1 > v2) {
                 // 满足添加条件继续执行
                 return options.fn(this);
-            }else{
+            } else {
                 // 不满足条件执行 else部分
                 return options.inverse(this);
             }
         });
         var html = template(context);
-        
+
         $("#showInfo").html(html);
     });
 </script>

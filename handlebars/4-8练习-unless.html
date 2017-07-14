@@ -19,7 +19,7 @@
 <!--如果在当前上下文中查找 license 返回假值，Handlebars 就会渲染这段警告信息。反之，就什么也不输出。-->
 <script id="tpl" type="text/x-handlebars-template">
     {{#unless people}}
-        <p>空的，啥有效内容都没有</p>
+        <p>如果people为空，啥有效内容都没有</p>
     {{/unless}}
 </script>
 
@@ -31,7 +31,7 @@
         
         var context = {
             author:{"name":"lili","age":"32"},
-            people:""
+            people:null
         };
         
         var html = template(context);

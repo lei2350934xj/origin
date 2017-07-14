@@ -18,7 +18,7 @@ Handlebars-----模版引擎
 
 ============================================================================================================
 
--1快速入门案例
+-1.快速入门案例
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -28,7 +28,7 @@ Handlebars-----模版引擎
     
     <!--  1.导入handlebars的文件  -->
     <script src="./handlebars-v4.0.10.js" type="text/javascript"></script>
-    <!--  2.定义自己的模版，通过class或者id进行访问，所以要给id或者class值  -->
+    <!--  2.定义自己的模版，通过class或者id来获取模板，所以要给id或者class值  -->
     <script id="tpl" type="text/x-handlebars-template">
         <div class="demo">
             <h1>{{name}}</h1>
@@ -64,7 +64,7 @@ Handlebars-----模版引擎
 </html>
 =============================================================================================================
 handlebars知识讲解及案例实战
--2handlebars基本表达式{{}}
+-2.handlebars基本表达式{{}}
 <!--handlebars表达式，是以 {{ 开始，跟一些内容，然后以 }} 结束。-->
 <script id="tpl1" type=text/x-handlebars-template>
     <div class="entry">
@@ -88,7 +88,7 @@ handlebars知识讲解及案例实战
     });
 </script>
 
--3块级表达式(Block)
+-3.块级表达式(Block)
 <script id="tpl1" type=text/x-handlebars-template>
     <div class="entry">
         {{#person}}
@@ -115,7 +115,14 @@ handlebars知识讲解及案例实战
     });
 </script>
 
--4路径(Path)
+-4.路径(Path)
+// 一般情况下，Handlebars 模板在计算值时，**会把传递给模板的参数作为上下文**
+    var source   = "<p>{{lastName}}, {{firstName}}</p>";
+    var template = Handlebars.compile(source);
+    template({firstName: "Alan", lastName: "Johnson"});
+// 结果如下：
+    <p>Johnson, Alan</p>
+// 在模板的某个区域切换上下文，使用内置的 with helper即可
 <script id="tpl" type="text/x-handlebars-template">
     <div class="entry">
         {{#with person}}
@@ -140,7 +147,7 @@ handlebars知识讲解及案例实战
     });
 </script>
 
--5注释
+-5.注释
 <!--
 你可以在 handlebars 代码中加注释，就跟在代码中写注释一样。对于有一定程度的逻辑的部分来说，这倒是一个很好的实践
     单行注释{{!注释内容}}
@@ -159,7 +166,7 @@ handlebars知识讲解及案例实战
     </div>
 </script>
 
--6内置Helper(with、each、if、unless)
+-6.内置Helper(with、each、if、unless)
 =============================================================================================================
 6.1with
 <script id="tpl" type="text/x-handlebars-template">
@@ -168,7 +175,10 @@ handlebars知识讲解及案例实战
         {{#with author}}
             <h1>{{firstname}}{{lastname}}</h1>
         {{/with}}
-        <!--   如果不用with 来切换上下文，则需要用author.firstname      author.lastname这样的方式去访问  -->
+        <!--   如果不用with 来切换上下文，则需要用author.firstname      
+                author.lastname这样的方式去访问  
+                原因就是template(context)里面的context是整个{} json数据
+        -->
         <h2>{{author.firstname}}{{author.lastname}}</h2>
     </div>
 </script>
@@ -228,7 +238,9 @@ handlebars知识讲解及案例实战
 
 =============================================================================================================
 6.3if
-<!--if 表达式可以选择性的渲染一些区块。如果它的参数返回 false, undefined, null, "" 或 []（译注：还有 0）（都是JS中的“假”值），Handlebars 就不会渲染这一块内容：-->
+<!--if 表达式可以选择性的渲染一些区块。如果它的参数返回 false, undefined, null, "" 或 []（译注：还有 0）
+（都是JS中的“假”值），Handlebars 就不会渲染这一块内容：
+-->
 <!--  在使用 if 表达式的时候，可以配合 {{else}} 来使用，这样当参数返回 假 值时，可以渲染 else 区块 -->
 <!--  注意注意注意！！！else前面没有# else前面没有# else前面没有# -->
 <script id="tpl1" type=text/x-handlebars-template>
@@ -265,10 +277,15 @@ handlebars知识讲解及案例实战
     {{/unless}}
 </script>
 
--7自定义Helper
+-7.自定义Helper
 //由于handlebars内置的helper功能有限，所以有的时候需要我们手动编写helper去实现一些复杂的功能
             很多时候，我们需要更加复杂的if判断逻辑，显然默认的if不能满足我们的需求。
-//Handlebars.registerHelper用来定义Helper，它有两个参数，第一个参数是Helper名称，第二个参数是一个回调函数，用来执行核心业务逻辑。本例中的函数，有三个参数，其中前两个参数是需要比较的两个数，第三个参数是固定的，就叫options，如果加了该参数，就说明这个Helper是一个Block，块级别的Helper，有一定的语法结构，调用的时候加#号，就像if那样,没有options就不需要加#
+/* 
+ Handlebars.registerHelper用来定义Helper，它有两个参数，第一个参数是Helper名称，第二个参数是一个回调函数，
+ 用来执行核心业务逻辑。本例中的回调函数，有三个参数，其中前两个参数是需要比较的两个数(自己根据需要加的)，第三个参数是固定的(固定形式)，
+ 就叫options，如果加了该参数，就说明这个Helper是一个Block，块级别的Helper，有一定的语法结构，调用的时候加#号，
+ 就像if那样,没有options就不需要加# 
+*/
 <script>
     $(function(){
         var source = $("#tpl").html();
@@ -310,14 +327,14 @@ handlebars知识讲解及案例实战
     });
 </script>
 
--8 关于HTML编码
+-8.关于HTML编码
 // 编码： 把{{}}里面的内容转化为纯文本，像html里面的标签< 都用&lt; 代替
 // html 解析： 把html的标签正确显示出来
 <script id="tpl" type="text/x-handlebars-template">
     {{#each student}}
         <tr>
             <td>{{name}}</td>
-            <td>{{sex}}</td>
+            <td>{{transformat sex}}</td>
             <td>{{age}}</td>
             {{#compare age 20}}
             <!--     年龄大于20的童鞋个人主页被编码，直接展示出来        -->
@@ -368,13 +385,22 @@ handlebars知识讲解及案例实战
                 return options.inverse(this);
             }
         });
+            // 自定义Helper: 转换0和1到男和女
+            Handlebars.registerHelper('transformat',function(value){
+                if(value=="0"){
+                    return "男";
+                }else{
+                    return "女";
+                }
+            });
+
         var html = template(context);
         
         $("#tableList").html(html);
     });
 </script>
 
--9调试技巧
+-9.调试技巧
 <!--
 把下面一段"debug helper"加载到你的JavaScript代码里,然后在模板文件里通过{{debug}}或是{{debug someValue}}方便调试数据
 
@@ -450,17 +476,14 @@ handlebars知识讲解及案例实战
                 return options.inverse(this);
             }
         });
-        // debug  调试
-        Handlebars.registerHelper("debug", function(optionalValue) {  
-          console.log("Current Context");
-          console.log("====================");
-          console.log(this);
-          if (optionalValue) {
-            console.log("Value");
-            console.log("====================");
-            console.log(optionalValue);
-          }
-        });
+            // debug  调试,自己改动了一下，这个比较清晰
+            Handlebars.registerHelper("debug", function (optionalValue) {
+                console.log("Current Context:");
+                console.log(this);
+                if (optionalValue) {
+                    console.log("Value:"+optionalValue);
+                }
+            });
         var html = template(context);
         
         $("#tableList").html(html);

@@ -36,9 +36,9 @@
     <ul>
         <!--   这里的house是一个空的json数据    -->
         {{#each house}}
-            <li>{{this}}</li>    
+            <li>house不为空就会输出这些:{{this}}</li>    
         {{else}}
-            <p>No content</p>
+            <p>house为空就会输出这些:No content</p>
         {{/each}}
     </ul>
 </script>
@@ -46,10 +46,12 @@
 <script>
     $(document).ready(function(){
         var source = $("#tpl1").html();
+        // var source = $("#tpl2").html();
         var template = Handlebars.compile(source);
         
         var context = {
-            people:["liming","zhangliang","dawang"]
+            people:["liming","zhangliang","dawang"],
+            house:""
         };
         
         var html = template(context);
