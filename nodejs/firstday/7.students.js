@@ -1,5 +1,3 @@
-function add(student){
+exports.add = function(student){
     console.log("student name:" + student);
 }
-
-exports.add = add;

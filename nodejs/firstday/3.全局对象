@@ -8,4 +8,6 @@ if (typeof(window) === 'undefined') {
     console.log('node.js');
 } else {
     console.log('browser');
-}    
+}   
+
+- console(node提供的console) 
