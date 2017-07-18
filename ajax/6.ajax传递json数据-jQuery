@@ -8,6 +8,7 @@
  $(function(){
    $("#send").click(function(){
     var cont = $("input").serialize();  // 关键部分 把表单的数据（username）序列号为a=1&b=2&c=3&...的形式
+                                        // 记住，input里面必须有name="username"这样的字段，不然还是失败
     $.ajax({
       url:'ab.php',
       type:'post',
@@ -41,6 +42,6 @@ header("Content-type:text/html;charset=utf-8");
     $job = $_POST['job'];
     // 注意 json格式的数据 后台需要一下两步操作 转化为正确的 json格式
     $json_arr = array("username"=>$username,"age"=>$age,"job"=>$job);
-    $json_obj = json_encode($json_arr);     // json_encode()函数把PHP里面的数据转化为json格式
+    $json_obj = json_encode($json_arr);     // json_encode()函数把PHP数组里面的数据转化为json格式
     echo $json_obj;
 ?>

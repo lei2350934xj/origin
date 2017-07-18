@@ -11,7 +11,8 @@
         echo 3;
     }
 
-// 2.json格式的前端数据 后台需要这样处理一下 json_encode()函数把PHP里面的数据转化为json格式
+// 2.json格式的前端数据 后台需要如下第一行这样处理一下
+// 而json_encode()函数把PHP里面的数据转化为json格式
     $arr = array("username"=>$username,"password"=>$password);  // PHP里面的数组
     echo json_encode($arr);
 
@@ -19,5 +20,4 @@
 //  服务器端解决可以 通过header();来禁用缓存
 // header("Content-type:text/html;charset=utf-8");      // 告诉浏览器返回数据为xml格式
 // header("Cache-Control:no-cache");        // 告诉浏览器不要读缓存
-
 ?>

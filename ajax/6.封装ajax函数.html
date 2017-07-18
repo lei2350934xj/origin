@@ -89,7 +89,7 @@
             url:"./formCheck.php",
             asyn:"true",
             dataType:"json",
-        // 注意 注意 注意 因为没有使用jquery的序列化函数 一下json的格式data后台不能_GTE[]得到---推荐jquery
+        // 注意 注意 注意 因为没有使用jquery的序列化函数 以下json的格式data后台不能_GTE[]得到---推荐jquery
         // data:"username=liang&password=123";  // 字符串形式没问题 后台可以正确读取username password
             data:{"username":"liang","password":"123"},
             success:function(value) {    // 自定义的回调函数---success  alert一下当前的值

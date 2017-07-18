@@ -11,7 +11,6 @@
 </body>
 </html>
 
-
 <script>
     // ajax工作原理 
     // 1.创建XMLHttpRequest对象
@@ -22,7 +21,7 @@
     
     // 1.
     if(window.XMLHttpRequest) {    // 非IE浏览器
-        http_request = new XMLHttpRequst（）;
+        http_request = new XMLHttpRequst();
     }else if(window.ActiveXObject) {    // IE浏览器
         try{
             http_request = new ActiveXObject("Msxml2.XMLHTTP");

@@ -12,7 +12,7 @@
     <div><a href="./xx.php?param=1">apple</div>
     <div><a href="./xx.php?param=2">banana</div>
     // 多个param 参数 用与来进行
-    <div><a href="./xx.php?param=2&&param1=3&&param2=4...">banana</div>
+    <div><a href="./xx.php?param=2&param1=3&param2=4...">banana</div>
 </body>
 </html>
 

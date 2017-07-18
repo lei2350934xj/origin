@@ -108,6 +108,10 @@
             timer = setInterval(function(){
                 leader = leader + (target - leader) / 10;
                 window.scrollTo(0,leader);
+                // 终极 重要的地方：如何关闭定时器，防止抖动现象
+                if(Math.abs(leader-target)<5) {
+                    clearInterval(timer);
+                }
             },20);
         }
     }

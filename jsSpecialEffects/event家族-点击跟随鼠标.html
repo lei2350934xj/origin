@@ -29,7 +29,8 @@
     var leaderTop=0,leaderLeft=0,targetTop=0,targetLeft=0;
     
     document.onmousemove = function(event){
-        var event = event || window.event;
+        var event = event || window.event;  // 兼容 IE
+        // clientX 返回 document可视区域的宽
         targetTop = event.clientY - box.offsetHeight / 2;
         targetLeft = event.clientX - box.offsetWidth / 2;
     }
