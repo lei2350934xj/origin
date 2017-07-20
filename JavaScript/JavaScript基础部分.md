@@ -136,3 +136,47 @@ onfocus是事件，focus()是函数
         <div class="son">你好</div>
     </div>
 </pre>
+
+#### 19.href="#"与href="javascript:void(0)"的区别
+- 1."＃"包含了一个位置信息
+默认的锚点是＃top 也就是网页的上端
+- 2.href="javascript:;"就是去掉a标签的默认行为，跟href="javascript:void(0);"是一样的 表示什么都不做 只执行一段javascript代码
+- **总结：** 要是调用javascript脚步就用href="javascript:void(0);"  否则,用href="#"
+
+#### 20.封装自己的getElementsByClassName() 函数
+<pre>
+    function getClass(classname){
+        // 支持getElementsByClassName() 方法的
+        if(document.getElementsByClassName){
+            return document.getElementsByClassName(classname);
+        }
+        var arr = [];   // 用于存放 返回的数组
+        var dom = document.getElementsByTagName("*");
+        for(var i=0,len=dom.length; i<len; i++){
+            var txtarr = dom[i].className.split(" ");   // 把每个标签的class以空格分隔开
+            for(var j=0; j<txtarr.length; j++){ // 遍历一个标签的 所有class名称
+                if(txtarr[j]==classname){
+                    arr.push(dom[i]);
+                }
+            }
+        }
+        return arr; // 返回指定classname的 标签
+    }
+</pre>
+
+#### 21.封装自己的$()函数
+<pre>
+    function $(str){
+        var firstElement = str.charAt(0);   // 获取第一个位置的字符
+        var content = str.substr(1); // 如果第一个位置是#或者. content里面就是id或者class的名字
+        if(firstElement == "#"){
+            // id
+            return document.getElementById(content);
+        }else if(firstElement == "."){
+            // class
+            return getClass(content);  // 自己写的
+        }else{
+            return document.getElementsByTagName(str);
+        }
+    }
+</pre>

@@ -1,4 +1,4 @@
-# JavaScript 内置函数目录
+# JavaScript 内置对象目录
 - Date
 <pre>
     var date = new Date();

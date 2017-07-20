@@ -53,7 +53,7 @@ define(function(require, exports, module) {
         exports.name='hxl';
         return {name:'hello world!'};
     });    
-它们的优先级为：return>module.exports>exports  
+它们的优先级为：return > module.exports > exports  
 -3.module
     module 参数存储模块的元信息。拥有以下成员  
     module.id
@@ -68,7 +68,7 @@ define(function(require, exports, module) {
     <script>
         seajs.config({
             alias:{
-                //给引入的包起别名，并放入到配置中
+                // 给引入的包起别名，并放入到配置中
                 calc:'./05-calc.js'
             }
         });

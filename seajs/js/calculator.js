@@ -23,4 +23,8 @@ define(function(require,exports,module){
       exports.subtract = subtract;
       exports.multiply = multiply;
       exports.divide = divide;    
+      /**
+       * 或者 把function(require,exports,module){ var obj = {// 属性和方法};} 
+       * 内部写成对象的形式 用 modules.exports = obj; 的形式
+       */
 });

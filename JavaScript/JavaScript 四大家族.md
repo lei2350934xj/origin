@@ -11,6 +11,7 @@
     4.offsetTop和style.top
         1)offsetTop返回的是数值,style.top返回的是带有px的字符串
         2)offsetTop只读,style.top可读写
+    5.style.top style.width这些只能得到行内样式的值 (做过实际例子)
 </pre>
 #### 2.event家族
 <pre>
@@ -28,6 +29,7 @@
     被卷去的头部
 </pre>
 #### 4.client家族
+可视区域
 <pre>
     1.clientWidth: width + padding
     2.offsetWidth: width + padding + border
