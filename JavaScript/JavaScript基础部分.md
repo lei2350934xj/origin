@@ -180,3 +180,18 @@ onfocus是事件，focus()是函数
         }
     }
 </pre>
+
+#### 22.js访问css属性的方式
+- 1.利用 . 语法
+> box.style.width;
+- 2.利用[]访问
+> box.style[width];
+
+#### 23.in关键字
+in是一个二元运算符，至少需要两个参数。
+option1 in obj(array),
+作用就是判断option1 是否在obj(array)中。
+参数1必须是字符串或者能转换为字符串的类型，参数2必须是对象或数组
+例子:
+var json={"name":"dawang","age":"23"};
+console.log("name" in json);    //  输出true

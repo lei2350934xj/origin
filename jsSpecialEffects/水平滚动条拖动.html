@@ -48,12 +48,12 @@
         var event = window.event || event;
         var that = this;
         //        alert(111);
-        leftValue = event.clientX - this.offsetLeft;
+        leftValue = event.clientX - that.offsetLeft;
         // 拖动一定要写到 mousedown里面去
         // 在document 也就是按下鼠标之后 在页面任何地方都可拖动
         document.onmousemove = function(event) {
             var event = window.event || event;
-            // 限制范围
+            // 限制范围,因为style.left是字符串 需要parseInt 转成整数
             var range = parseInt(that.style.left);
             if (range < 0) {
                 that.style.left = 0;
