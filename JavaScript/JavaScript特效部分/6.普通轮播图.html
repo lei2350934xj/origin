@@ -20,7 +20,7 @@
             position: relative;
             width: 500px;
             height: 200px;
-            overflow: hidden;
+            /* overflow: hidden;  */
         }
         .screen ul{
             position: absolute;
@@ -73,22 +73,23 @@
     function animate(obj,target){
         //  一定要先清除定时器 不然越跑越快
         clearInterval(obj.timer);
-        // 小于 目标就是 正向移动 。反之， 逆向移动
-        var speed = obj.offsetLeft < target ? 20 : -20;
         obj.timer = setInterval(function(){
+            // 小于 目标就是 正向移动 。反之， 逆向移动
+            var step = (target - obj.offsetLeft) / 10;
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);            
             var result = target - obj.offsetLeft;
-            // 距离差小于 15, 即 认为到达 目的地
-            if(Math.abs(result) < 15){
-                box.style.left = target + "px";
+            // 距离差小于 5, 即 认为到达 目的地
+            if(Math.abs(result) < 5){
+                obj.style.left = target + "px";
                 clearInterval(obj.timer);
             }
-            obj.style.left = obj.offsetLeft + speed + "px";
+            obj.style.left = obj.offsetLeft + step + "px";
         },10);
     }
     
     var all = document.getElementById("all");
     var ul = document.getElementById("ul");
-    var ulLis = ul.children;
+    var ulLis = ul.children;    // 轮播的图片
     
     
     //1. 创建ol 和 li (下方小圆点)
@@ -133,7 +134,7 @@
     
     timer =  setInterval(autoPlay,2000); // 开启轮播图定时器
     function autoPlay(){
-        key++;  // 先++ 后判断if
+        key++;  // 图片滚动
         if(key>ulLis.length-1){
             // 播放完一轮  直接让left=0，瞬间跳转到开头。 
             // 如果用animate函数来执行 会有缓慢的动画效果 所以，在复位的时候不要用
@@ -142,7 +143,7 @@
         }
         animate(ul,-key*500);
         
-        square++;
+        square++;   // 下方的小圆点也跟着 滚动
         if(square>olLis.length-1){
             square = 0;
         }

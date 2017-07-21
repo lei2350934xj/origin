@@ -14,7 +14,7 @@
 </pre>
 - 2.2插入节点
 <pre>
-    1.A.appendChile(B); // 把B孩子加到A最后
+    1.A.appendChild(B); // 把B孩子加到A最后
     2.A.insertBefore(x,参照点);    //
 </pre>
 - 2.3移除节点
@@ -24,7 +24,7 @@
 - 2.4克隆节点
 <pre>
     1.A.cloneNode(true);    // 复制所有,包括子元素
-    2.A.cloneNOde(false);   // 只复制当前A标签
+    2.A.cloneNode(false);   // 只复制当前A标签
 </pre>
 #### 3.设置节点属性
 - 3.1获取节点属性

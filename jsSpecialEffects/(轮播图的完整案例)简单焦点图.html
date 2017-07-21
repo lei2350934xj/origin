@@ -73,16 +73,17 @@
     function animate(obj,target){
         //  一定要先清除定时器 不然越跑越快
         clearInterval(obj.timer);
-        // 小于 目标就是 正向移动 。反之， 逆向移动
-        var speed = obj.offsetLeft < target ? 20 : -20;
         obj.timer = setInterval(function(){
+            // 小于 目标就是 正向移动 。反之， 逆向移动
+            var step = (target - obj.offsetLeft) / 10;
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);            
             var result = target - obj.offsetLeft;
-            // 距离差小于 15, 即 认为到达 目的地
-            if(Math.abs(result) < 15){
-                box.style.left = target + "px";
+            // 距离差小于 5, 即 认为到达 目的地
+            if(Math.abs(result) < 5){
+                obj.style.left = target + "px";
                 clearInterval(obj.timer);
             }
-            obj.style.left = obj.offsetLeft + speed + "px";
+            obj.style.left = obj.offsetLeft + step + "px";
         },10);
     }
     

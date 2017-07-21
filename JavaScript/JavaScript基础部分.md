@@ -56,7 +56,7 @@ onfocus是事件，focus()是函数
 - 2.while(){}
 - 3.do{}while()
 #### 14.switch()语句
->注意，要有break;
+>注意，要有break;default:也要有break;
 #### 15.下拉菜单
 - onchange事件
 <pre>
@@ -77,7 +77,7 @@ onfocus是事件，focus()是函数
 - 6.数组转化为字符串join()
 <pre>
     var arr = ["aaa","bbb","ccc"];
-    console.log(arr.join("-")); // aa-bb-cc
+    console.log(arr.join("-")); // aaa-bbb-ccc
     console.log(arr);   // 还是原数组，本身没变
 </pre>
 - 7.把字符串转化为数组split()
@@ -85,14 +85,17 @@ onfocus是事件，focus()是函数
     var str = "aa-bb-cc";
     console.log(str.spilt("-"));    // 输出["aa","bb","c"],注意split的参数要和str的分隔符一致
 </pre>
+
 #### 17.字符串常用操作
-- 1.返回前面起第一个字符的位置indexOf("字符")
+- 1.charAt() 返回指定位置的字符 charAt(2);
+- 2.charCodeAt() 返回指定位置的字符编码 charCodeAt(2);
+- 3.返回前面起第一个字符的位置indexOf("字符")
 <pre>
     var txt = "abcdef";
     alert(txt.indexOf("c"));    // 输出2
     // 如果找不到则返回-1
 </pre>
-- 2.返回后面起第一个字符的位置lastIndexOf("字符")
+- 4.返回后面起第一个字符的位置lastIndexOf("字符")
 <pre>
     var txt = "abcdef";
     var txt1 = "abcdefce";
@@ -100,9 +103,9 @@ onfocus是事件，focus()是函数
     alert(txt1.lastIndexOf("c"));   // 输出6
     // 虽然是从后面开始数，但是下表标还是从前开始算起
 </pre>
-- 3.连接字符串concat()
-- 4.截取字符串
-- slice("起始位置",[结束位置]);
+- 5.连接字符串concat()   var newStr = str1.concat(str2);
+- 6.截取字符串
+- slice("起始位置",[结束位置]); // 终点位置的元素取不上
 <pre>
     var txt = "my name is tom";
     console.log(txt.slice(1));  // y name is tom
@@ -116,9 +119,10 @@ onfocus是事件，focus()是函数
 </pre>
 #### 18.height:auto和height:100%区别
 <pre>
-    auto和100%的参照对象不同
-    auto: 根据盒子自身内容来定义大小
-    100%: 根据父亲的高度来定义大小
+     [http://www.cnblogs.com/autocrat/p/3809907.html](http://www.cnblogs.com/autocrat/p/3809907.html)
+    width:100%是将盒模型中的content拉伸得和父元素一样,
+    而width:auto;是将这个盒模型拉伸得和父元素一样。
+    无论多的宽度是padding，margin或者border，width:auto;都不会将子节点撑破父元素。
 例子：
     <style>
         .father {
