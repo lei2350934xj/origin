@@ -16,6 +16,7 @@ router.get("/",function(req,res,next){
     /**
      * 方式2
      * path.resolve() 方法会把一个路径或路径片段的序列解析为一个绝对路径
+     * path.resolve("abc/love","qwe/a.js") 解析成 abc/love/qwe/a.js
      */
     res.sendFile(path.resolve(__dirname,"../public/views/index.html"));
 });
