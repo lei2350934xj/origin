@@ -50,6 +50,10 @@
     http_request.send(param);
     
     // 4.
+    /**
+    *readyState是XMLHttpRequest对象的一个属性，用来标识当前XMLHttpRequest对象处于什么状态。
+    *readyState总共有5个状态值，分别为0~4，每个值代表了不同的含义
+    */
     //回调函数的具体代码
     http_request.onreadystatechange = function () {
         if(http_request.readyState == 4) {  // 判断请求状态

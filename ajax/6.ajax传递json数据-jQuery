@@ -40,7 +40,7 @@ header("Content-type:text/html;charset=utf-8");
     $username = $_POST['username'];
     $age = $_POST['age'];
     $job = $_POST['job'];
-    // 注意 json格式的数据 后台需要一下两步操作 转化为正确的 json格式
+    // 注意 json格式的数据 后台需要以下两步操作 转化为正确的 json格式
     $json_arr = array("username"=>$username,"age"=>$age,"job"=>$job);
     $json_obj = json_encode($json_arr);     // json_encode()函数把PHP数组里面的数据转化为json格式
     echo $json_obj;

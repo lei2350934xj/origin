@@ -15,7 +15,14 @@
 
 <script src=./jQuery/jquery-3.2.1.min.js></script>
 <script>
-    $(document).ready(fucntion(){
+    /**
+    * JSON.parse()和jQuery.parseJSON()的区别
+    * 有的浏览器不支持JSON.parse()方法，使用jQuery.parseJSON()方法时，
+    * 在浏览器支持时会返回执行JSON.parse()方法的结果，否则会返回类似执行eval()方法的结果
+    * JSON.parse()之可以解析json格式的数据，并且会对要解析的字符串进行格式检查，如果格式不正确则不进行解析，
+    * 而eval()则可以解析任何字符串，eval是不安全的。
+    */
+    $(document).ready(function(){
         $("#btn").click(function(){
             // 如果要表单元素的值包含到序列字符串中，元素必须使用 name 属性---在input里面要有name="username"这种
             // <input type="text" name="username">
@@ -33,7 +40,7 @@
                     $("#showInfo").html(result);
                 },
                 failure:function(){
-
+                    $("#showInfo").html("接收失败...请检查-.-");
                 }
             });         
         

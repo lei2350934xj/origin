@@ -48,8 +48,8 @@
                 type:"get",
                 asyn:"true",
   url:"http://apis.juhe.cn/cook/query?key=caef02cb8ee5ca399813608e2abf9b15&rn=10&pn=3&dtype=jsonp&menu="+encodeURIComponent($menuName),
-                // dtype=jsonp 必须加上 不然就访问的不是jsonp 而是默认的json了
-                // 输入的菜单名大多是中文 需要encodeURIComponent() 进行URL编码
+                // datatype=jsonp 必须加上 不然就访问的不是jsonp 而是默认的json了
+                // 输入的菜单名大多是中文 需要encodeURIComponent() 进行URI编码
                 
                 // 当dataType设置为jsonp的时候，会全局的创建一个script 然后 src=url...那些
                 dataType:"jsonp",  
