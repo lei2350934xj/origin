@@ -107,7 +107,7 @@
     // a.appendChild(b)  把 b 放到 a中去
     ul.appendChild(ul.children[0].cloneNode(true));
 
-    //3. 开始动画部分
+    //3. 焦点图部分(鼠标控制)
     var olLis = ol.children;
     for(var i=0,len=olLis.length;i<len;i++){
         olLis[i].index = i; // 判断当前第几个小li的索引号
@@ -124,7 +124,7 @@
         }
     }
     
-    //4. 添加定时器(轮播图自动播放部分)
+    //4. 轮播图自动播放部分(定时器控制h)
     var timer = null; // 轮播图定时器
     
     // 控制播放张数的,初始值为0  代表第一张
