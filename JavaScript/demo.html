@@ -128,16 +128,7 @@ var person = new Person("梁庭","男","15281628990","四川");
     }
     var J_List = document.getElementById("J_List");
     var lis = J_List.children;
-//    var li = J_List.children;
-//    console.log(li.length);
-//    var myli = J_List.children[3];
-//    console.log(myli.innerHTML);
-//    var delbtn = myli.children[5];
-//    console.log(delbtn.innerHTML);
-//    delbtn.onclick = function(){
-//      console.log(111);
-//      J_List.removeChild(J_List.children[3]);
-//    }
+    
     var btndels = [];
     for(var i=0;i<lis.length;i++){
         btndels[i] = getClass("user-delete")[i];
@@ -148,8 +139,6 @@ var person = new Person("梁庭","男","15281628990","四川");
             li.parentNode.removeChild(li);
         }
     }
-     
-//     var btndel = document.getElementsByClassName("user-delete");
 </script>
 </body>
 </html>
