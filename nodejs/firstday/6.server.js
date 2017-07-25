@@ -8,7 +8,7 @@ var server = http.createServer(function(req,res){
 });
 
 // 3.启动服务器并监听1337端口
-server.listen(1337,function(){
+server.listen(1337,function(err,data){
     if(!err){
         console.log("start success at 1337");
     }
