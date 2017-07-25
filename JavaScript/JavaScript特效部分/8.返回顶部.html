@@ -83,7 +83,7 @@
             // scrollTo里第一个参数 x坐标 第二个参数 y坐标
             // 返回顶部 一般就是 纵坐标不断变化  横坐标保持不变
             window.scrollTo(0,leader);
-            if(leader==target){
+            if(Math.abs(leader-target)<5){
                 clearInterval(timer);
             }
         },30);
