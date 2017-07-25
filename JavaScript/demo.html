@@ -110,22 +110,23 @@ function Person(name,sex,number,province){
 
 var person = new Person("梁庭","男","15281628990","四川");
 
-    // function getClass(classname){
-    //     if(document.getElementsByClassName){
-    //         return document.getElementsByClassName(classname);
-    //     }
-    //     var arr = [];   
-    //     var dom = document.getElementsByTagName("*");
-    //     for(var i=0,len=dom.length; i<len; i++){
-    //         var txtarr = dom[i].className.split(" ");  
-    //         for(var j=0; j<txtarr.length; j++){ 
-    //             if(txtarr[j]==classname){
-    //                 arr.push(dom[i]);
-    //             }
-    //         }
-    //     }
-    //     return arr; 
-    // }
+    // 自定义getclass函数
+    function getClass(classname){
+        if(document.getElementsByClassName){
+            return document.getElementsByClassName(classname);
+        }
+        var arr = [];   
+        var dom = document.getElementsByTagName("*");
+        for(var i=0,len=dom.length; i<len; i++){
+            var txtarr = dom[i].className.split(" ");  
+            for(var j=0; j<txtarr.length; j++){ 
+                if(txtarr[j]==classname){
+                    arr.push(dom[i]);
+                }
+            }
+        }
+        return arr; 
+    }
     var J_List = document.getElementById("J_List");
     var lis = J_List.children;
     
