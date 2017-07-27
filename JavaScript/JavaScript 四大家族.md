@@ -22,10 +22,10 @@
     2.求盒子内的坐标
     var x = event.clientX - this.offsetLeft;
     var y = event.clientY - this.offsetTop;
-    3.screenX,pageX,eventX的区别
+    3.screenX,pageX,clientX的区别
     screenX就是以显示屏为基准,显示屏肯定比浏览器窗口大
     pageX 相当于浏览器中显示的一张网页 网页很长 会随着浏览器的滚动 上下移动
-    eventX 就是你的可视区域 页面上下滚动的时候 你能看到的区域只有当前那么大一块
+    clientX 就是你的可视区域 页面上下滚动的时候 你能看到的区域只有当前那么大一块
 </pre>
 #### 3.scroll家族
 <pre>
