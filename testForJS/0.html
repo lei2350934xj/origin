@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!--code here-->
+  <title>demo</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    
+    .head, li div {
+      display: inline-block;
+      width: 70px;
+      text-align: center;
+    }
+
+    li .id, li .sex, .id, .sex {
+      width: 15px;
+    }
+
+    li .name, .name {
+      width: 40px;
+    }
+
+    li .tel, .tel {
+      width: 90px;
+    }
+
+    li .del, .del {
+      width: 15px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .user-delete {
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="J_container">
+    <div class="record-head">
+      <div class="head id">序号</div><div class="head name">姓名</div><div class="head sex">性别</div><div class="head tel">电话号码</div><div class="head province">省份</div><div class="head">操作</div>
+    </div>
+    <ul id="J_List">
+      <li><div class="id">1</div><div class="name">张三</div><div class="sex">男</div><div class="tel">13788888888</div><div class="province">浙江</div><div class="user-delete">删除</div></li>
+      <li><div class="id">2</div><div class="name">李四</div><div class="sex">女</div><div class="tel">13788887777</div><div class="province">四川</div><div class="user-delete">删除</div></li>
+      <li><div class="id">3</div><div class="name">王二</div><div class="sex">男</div><div class="tel">13788889999</div><div class="province">广东</div><div class="user-delete">删除</div></li>
+    </ul>
+  </div>
+
+<script>
+// 此处也可换成ES6的写法
+function Contact(){
+    this.init();
+}
+	
+// your code here 
+function $(id){
+    return document.getElementById(id);
+}
+function Person(name,sex,number,province){
+    var li = document.createElement("li");
+    var divId = document.createElement("div");
+    var divName = document.createElement("div");
+    var divSex = document.createElement("div");
+    var divTel = document.createElement("div");
+    var divPro = document.createElement("div");
+    var divDel = document.createElement("div");
+
+    divId.setAttribute("class","id");
+    divId.innerHTML = 4;
+
+    divName.setAttribute("class","name");
+    divName.innerHTML = name;
+
+    divSex.setAttribute("class","sex");
+    divSex.innerHTML = sex;
+
+    divTel.setAttribute("class","tel");
+    divTel.innerHTML = number;
+
+    divPro.setAttribute("class","province");
+    divPro.innerHTML = province;
+
+    divDel.setAttribute("class","user-delete");
+    divDel.innerHTML = "删除";
+
+    li.appendChild(divId);
+    li.appendChild(divName);
+    li.appendChild(divSex);
+    li.appendChild(divTel);
+    li.appendChild(divPro);
+    li.appendChild(divDel);
+
+    var J_List = $("J_List");
+    J_List.appendChild(li);
+
+    this.del = function(){
+      J_List.removeChild(li);
+    }
+    
+}
+
+var person = new Person("梁庭","男","15281628990","四川");
+
+    function getClass(classname){
+        if(document.getElementsByClassName){
+            return document.getElementsByClassName(classname);
+        }
+        var arr = [];   
+        var dom = document.getElementsByTagName("*");
+        for(var i=0,len=dom.length; i<len; i++){
+            var txtarr = dom[i].className.split(" ");  
+            for(var j=0; j<txtarr.length; j++){ 
+                if(txtarr[j]==classname){
+                    arr.push(dom[i]);
+                }
+            }
+        }
+        return arr; 
+    }
+    var J_List = document.getElementById("J_List");
+    var li = J_List.children;
+    console.log(li.length);
+    var myli = J_List.children[3];
+    console.log(myli.innerHTML);
+    var delbtn = myli.children[5];
+    console.log(delbtn.innerHTML);
+    delbtn.onclick = function(){
+      console.log(111);
+      J_List.removeChild(J_List.children[3]);
+      // person.del;
+    }
+    // var btndel = getClass("user-delete");
+    // var btndel = document.getElementsByClassName("user-delete");
+    // btndel.onclick = function(){
+    //     console.log(111);
+    //     J_List.removeChild("li");
+    // }
+</script>
+<script>
+    for(var i=0;i<10;i++){
+        (function(e){
+            setTimeout(function(){
+                console.log(e);
+            },1000);
+        })(i);
+    }
+    for(var i=0;i<10;i++){
+        var print = function(e){
+            return function(){
+                console.log(e);
+            }
+        }
+        setTimeout(print(i),1000);
+    }
+</script>
+</body>
+</html>

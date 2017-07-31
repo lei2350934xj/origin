@@ -1,0 +1,33 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <script>
+            var http_request = null;
+            if(window.XMLHttpRequest){
+                // 非ie
+                http_request = new XMLHttpRequest();
+            }else if(window.ActiveAObject){
+                // ie
+                http_request = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            
+            url = "www.baidu.php?username=123&password=321";
+            http_request.open('get',url,true);
+            
+            http_request.send(null);
+            
+            http_request.onreadystatechange = function(){
+                if(http_request.readyState == 4){
+                    if(http_request.status == 200){
+                        alert(http_request.responseText);
+                    }else{
+                        alert("error");
+                    }
+                }
+            }
+            $flag = $_GET['username'];
+        </script>
+    </body>
+</html>

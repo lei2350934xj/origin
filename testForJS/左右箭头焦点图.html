@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>左右箭头焦点图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            position: relative;
+            width: 520px;
+            height: 280px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+/*            overflow: hidden;*/
+        }
+        #ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2600px;
+            list-style: none;
+        }
+        #ul li {
+            float: left;
+        }
+        #pre,
+        #next {
+            position: absolute;
+            top: 50%;
+            margin-top: -20px;
+            width: 20px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color: hotpink;
+            display: none;
+            cursor: pointer;
+        }
+        #pre {
+            left: 10px;
+        }
+        #next {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="ul">
+            <li><a href="#"><img src="./images/1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/5.jpg" alt=""></a></li>
+        </ul>
+        <span id="pre">&lt;</span>
+        <span id="next">&gt;</span>
+    </div>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }    
+        var box = $("box");
+        var ul = $("ul");
+        var pre = $("pre");
+        var next = $("next");
+        var timer = null,
+            leader = 0,
+            target = 0;
+        
+        box.onmouseover = function(){
+            pre.style.display = "block";
+            next.style.display = "block";
+        }
+        box.onmouseout = function(){
+            pre.style.display = "none";
+            next.style.display = "none";            
+        }
+        
+        pre.onclick = function(){
+            target += 520;
+        }
+        next.onclick = function(){
+            target -= 520;
+        }
+        
+        timer = setInterval(function(){
+            if(target >= 0){
+                target = 0;
+            }else if(target <= -2080){
+                target = -2080;
+            }
+            leader = leader + (target - leader) / 10;
+            ul.style.left = leader + "px";
+        },20);
+    </script>
+</body>
+</html>

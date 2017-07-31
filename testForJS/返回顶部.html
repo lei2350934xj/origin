@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        window.onscroll = function(){
+            // 把卷曲的头部给leader
+            leader = scroll().top;
+            if(scroll().top > 1000){
+                goTop.style.display = "block";
+            }else{
+                goTop.style.display = "none";
+            }
+        }
+        
+        goTop.onclick = function(){
+            var timer = setInterval(function(){
+                leader = leader + (target-leader)/10;
+                window.scrollTo(0,leader);
+                if(leader==target){
+                    clearInterval(timer);
+                }
+            },20);
+        }
+    </script>
+</body>
+</html>

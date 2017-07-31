@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>普通焦点图</title>
+    <style>
+        *{padding: 0;margin: 0;}
+        #box {
+            position: relative;
+            width: 490px;
+            height: 190px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+        #ul {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            list-style: none;
+            width: 2500px;
+        }
+        #ul li {
+            float: left;
+        }
+        #ol {
+            position: absolute;
+            overflow: hidden;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -50px;
+            list-style: none;
+        }
+        #ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            line-height: 20px;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .li-current {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="ul">
+            <li><a href="#"><img src="./images/001.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/002.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/003.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/004.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/005.jpg" alt=""></a></li>
+        </ul>
+        <ol id="ol">
+            <li class="li-current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+    </div>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        var ul = $("ul");
+        var ol = $("ol");
+        var lis = ol.children;
+//        alert(lis.length);
+        var timer = null,
+            leader = 0,
+            target = 0;
+        
+        for(var i=0,len=lis.length; i<len; i++){
+            lis[i].index = i;
+            lis[i].onmouseover = function(){
+                for(var j=0; j<lis.length; j++){
+                    lis[j].className = "";
+                }
+                this.className = "li-current";
+                target = -this.index* 490;
+            }
+        }
+        timer = setInterval(function(){
+            leader = leader + (target - leader) / 10;
+            ul.style.left = leader + "px";
+        },50);
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .all{
+            position: relative;
+            width: 500px;
+            height: 200px;
+            margin: 100px auto;
+            padding:7px;    /*加个padding  比较好看*/
+            border:1px solid #ccc;
+        }
+        .screen{
+            position: relative;
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+        }
+        .screen ul{
+            position: absolute;
+            top:0;
+            left:0;
+            list-style: none;
+            width: 3000px;
+        }
+        .screen li{
+            float: left;
+        }
+        .all ol{
+            position: absolute;
+            left: 50%;
+            bottom:10px;
+            margin-left: -50px;
+            line-height: 20px;
+            list-style: none;
+            text-align: center;
+        }
+        .all ol li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border:1px solid #ccc;
+            margin-left:10px;
+            cursor: pointer;
+        }
+        .all ol li.current{
+            background-color: gold;
+        }       
+    </style>
+</head>
+
+<body>
+    <div class="all" id="all">
+        <div class="screen">
+            <ul id="ul">
+                <li><img src="./images/10.jpg" alt=""></li>
+                <li><img src="./images/20.jpg" alt=""></li>
+                <li><img src="./images/30.jpg" alt=""></li>
+                <li><img src="./images/40.jpg" alt=""></li>
+                <li><img src="./images/50.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function animate(obj,target){
+        //  一定要先清除定时器 不然越跑越快
+        clearInterval(obj.timer);
+        // 小于 目标就是 正向移动 。反之， 逆向移动
+        var speed = obj.offsetLeft < target ? 20 : -20;
+        obj.timer = setInterval(function(){
+            var result = target - obj.offsetLeft;
+            // 距离差小于 15, 即 认为到达 目的地
+            if(Math.abs(result) < 15){
+                box.style.left = target + "px";
+                clearInterval(obj.timer);
+            }
+            obj.style.left = obj.offsetLeft + speed + "px";
+        },10);
+    }
+    
+    var all = document.getElementById("all");
+    var ul = document.getElementById("ul");
+    var ulLis = ul.children;
+    
+    
+    //1. 创建ol 和 li (下方小圆点)
+    var ol = document.createElement("ol");
+    all.appendChild(ol);
+    
+    for(var i=0,len=ulLis.length;i<len;i++){
+        var li = document.createElement("li");
+        li.innerHTML = i + 1;
+        ol.appendChild(li);
+    }
+    ol.children[0].className = "current";
+    
+    //2. 因为要做无缝滚动 所以要 克隆第一张 放到最后一张后面去
+    // a.appendChild(b)  把 b 放到 a中去
+    ul.appendChild(ul.children[0].cloneNode(true));
+
+    //3. 开始动画部分
+    var olLis = ol.children;
+    for(var i=0,len=olLis.length;i<len;i++){
+        olLis[i].index = i; // 判断当前第几个小li的索引号
+        
+        olLis[i].onmouseover = function(){
+            for(var j=0,len=olLis.length;j<len;j++){
+                olLis[j].className = "";
+            }
+            this.className = "current";
+            
+            animate(ul,-this.index*500); // 做动画： 谁 走多少
+            
+            square = key = this.index;  // this.index 代表当前播放的图片 只要鼠标一放到li上 不论你之前播放到第几张都应该 从当前张开始重新播放 
+        }
+    }
+    
+    //4. 添加定时器(轮播图自动播放部分)
+    var timer = null; // 轮播图定时器
+    
+    // 控制播放张数的,初始值为0  代表第一张
+    var key = 0;
+    //  控制小圆点的播放 (图片是6张 小圆点只有5个)
+    var square = 0;
+    
+    timer =  setInterval(autoPlay,2000); // 开启轮播图定时器
+    function autoPlay(){
+        key++;  // 先++ 后判断if
+        if(key>ulLis.length-1){
+            // 播放完一轮  直接让left=0，瞬间跳转到开头。 
+            // 如果用animate函数来执行 会有缓慢的动画效果 所以，在复位的时候不要用
+            ul.style.left = 0;
+            key = 1;    // 很好理解，因为本身最后一张是复制的第一张图片 所以复位之后该从第二张开始播放
+        }
+        animate(ul,-key*500);
+        
+        square++;
+        if(square>olLis.length-1){
+            square = 0;
+        }
+        for(var i=0,len=olLis.length;i<len;i++){
+            olLis[i].className = "";
+        }
+        olLis[square].className = "current";
+    }
+    
+    //5. 鼠标经过大盒子 要停止定时器(轮播图 最后都是倒着的 不用担心 。淘宝 京东都是如此)
+    all.onmouseover = function(){
+        clearInterval(timer);
+    }
+    all.onmouseout = function(){
+        timer = setInterval(autoPlay,2000);
+    }
+</script>

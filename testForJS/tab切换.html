@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab切换</title>
+    <style>
+        * {padding: 0;margin: 0;}
+        #tabBtn {
+	        list-style: none;
+            overflow: hidden;
+            margin: 100px 0 0 100px;
+        }
+        #tabBtn li {
+            float: left;
+            width: 100px;
+            height: 30px;
+            background-color: pink;
+            margin: 5px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #tabContent {
+            margin: 10px 0 0 100px;
+            width: 440px;
+            height: 210px;
+            border: 1px solid #ccc;
+        }
+        #tabContent div {
+            width: 430px;
+            height: 200px;
+            margin: 5px;
+            background-color: skyblue;
+            display: none;
+        }
+        .li-current {
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="tabBtn">
+        <li class="li-current">菜单111</li>
+        <li>菜单222</li>
+        <li>菜单333</li>
+        <li>菜单444</li>
+    </ul>
+    <div id="tabContent">
+        <div>内容111</div>
+        <div>内容222</div>
+        <div>内容333</div>
+        <div>内容444</div>
+    </div>
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+        var ul = $("tabBtn");
+        var lis = ul.children;
+        var tabContent = $("tabContent");
+        var divs = tabContent.children;
+
+        for(var i=0,len=lis.length; i < len; i++){
+            lis[i].index = i;
+            lis[i].onmouseover = function() {
+                for(var j=0; j<lis.length; j++){
+                    lis[j].className = "";
+                    divs[j].style.display = "none";
+                }
+                this.className = "li-current";
+                divs[this.index].style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
