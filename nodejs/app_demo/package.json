@@ -1,0 +1,10 @@
+{
+  "name": "app_demo",
+  "main": "./app.js",
+  "dependencies": {
+    "express": "4.15.0"
+  },
+  "devDependencies": {
+    "body-parser": "^1.17.2"
+  }
+}
