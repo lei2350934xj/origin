@@ -3,6 +3,7 @@
 - ECMAScript规范常用语法
 - DOM文档对象模型,节点操作
 - BOM浏览器对象模型，与浏览器交互的方法和接口
+
 #### 1.DOM访问关系
 - 父节点 parentNode
 - 子节点 children 和 childNodes(会把换行也看成一个孩子节点，所以不用这个)
@@ -15,7 +16,7 @@
 - 2.2插入节点
 <pre>
     1.A.appendChild(B); // 把B孩子加到A最后
-    2.A.insertBefore(x,参照点);    //
+    2.A.insertBefore(x,参照点);    //同上
 </pre>
 - 2.3移除节点
 <pre>
