@@ -18,8 +18,10 @@
     /**
     * JSON.parse()和jQuery.parseJSON()的区别
     * 有的浏览器不支持JSON.parse()方法，使用jQuery.parseJSON()方法时，
+    * jQuery.parseJSON()函数用于将格式完好的JSON字符串转为与之对应的javascript对象。
+    * 所谓"格式完好"，就是要求指定的字符串必须符合严格的JSON格式，例如：属性名称必须加双引号、字符串值也必须用双引号。
     * 在浏览器支持时会返回执行JSON.parse()方法的结果，否则会返回类似执行eval()方法的结果
-    * JSON.parse()之可以解析json格式的数据，并且会对要解析的字符串进行格式检查，如果格式不正确则不进行解析，
+    * JSON.parse()可以解析json格式的数据，并且会对要解析的字符串进行格式检查，如果格式不正确则不进行解析，
     * 而eval()则可以解析任何字符串，eval是不安全的。
     */
     $(document).ready(function(){
