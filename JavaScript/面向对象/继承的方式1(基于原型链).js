@@ -1,9 +1,10 @@
-function People(){
-
-}
-People.prototype.say = function(){
-    // console.log("People say");
-    alert("People say");
+class People {
+    constructor() {
+    }
+    say() {
+        // console.log("People say");
+        alert("People say");
+    }
 }
 
 function Student(){
