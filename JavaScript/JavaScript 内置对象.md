@@ -10,3 +10,15 @@
     var arr = ["星期天","星期一","星期二",..];
     xxx.innerHTML = arr[date.getDay()];
 </pre>
+
+- Math
+
+- Array
+
+- Boolean
+
+- Function
+
+- Global
+
+- Number
