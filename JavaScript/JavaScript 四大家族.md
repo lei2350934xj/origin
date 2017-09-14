@@ -14,8 +14,8 @@
     5.style.top style.width这些只能得到行内样式的值 (做过实际例子)
 </pre>
 #### 2.event家族
-<pre>
-    1.var event = window.event || event;
+<pre>var event = window.event || event
+    1.;
     鼠标跟随
     targetX = event.clientX - image.offsetWidth / 2;    // 向上走
     targetY = event.clientT - image.offsetHeight / 2;   // 向左走
